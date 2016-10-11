@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">都市游侠</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="cancel">取消</string>
+    
+    <string name="activity_main_bottom_bar_home">首页</string>
+    <string name="activity_main_bottom_bar_task">任务</string>
+    <string name="activity_main_bottom_bar_my">我的</string>
+	
+    <!-- 分享 -->
+    <string name="share_app_wechat">微信好友</string>
+    <string name="share_app_wechat_moments">微信朋友圈</string>
+    <string name="share_app_qq">QQ好友</string>
+    <string name="share_app_qzone">QQ空间</string>
+    <string name="share_app_shortmessage">短信</string>
+    <string name="share_app_email">邮件</string>
+    <string name="share_save_local">保存到本地</string>
+    <string name="share_copy">复制到剪贴板</string>
+</resources>

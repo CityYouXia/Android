@@ -1,0 +1,8 @@
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 
+    <item android:maxLevel="0" android:drawable="@drawable/activity_healthy_check_item_state_uncheck" />
+    <item android:maxLevel="1" android:drawable="@drawable/activity_healthy_check_item_state_checking" />
+    <item android:maxLevel="2" android:drawable="@drawable/activity_healthy_check_item_state_good" />
+    <item android:maxLevel="3" android:drawable="@drawable/activity_healthy_check_item_state_fault" />
+     -->
+</level-list>

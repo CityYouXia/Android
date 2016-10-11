@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="@dimen/common_bottom_bar_height"        
+	android:background="@drawable/home_tab_bar_bg"
+	android:layout_gravity="bottom"
+	android:gravity="center_horizontal"
+	android:orientation="horizontal" 
+	android:baselineAligned="false">
+        
+	<!-- 待办任务 -->
+	<RelativeLayout
+	    android:id="@+id/activity_main_bottom_bar_home"
+	    style="@style/common_bottom_tab_layout_style">
+	    <TextView
+	        android:id="@+id/activity_main_bottom_bar_home_text"
+	        android:text="@string/activity_main_bottom_bar_home"
+	        style="@style/common_bottom_tab_text_style" />
+	     <ImageView
+	        android:id="@+id/activity_main_bottom_bar_home_image"
+	        android:layout_above="@id/activity_main_bottom_bar_home_text"
+	        android:contentDescription="@string/activity_main_bottom_bar_home"
+	        style="@style/common_bottom_tab_image_style" />
+	</RelativeLayout>
+	<!-- 任务 -->
+	<RelativeLayout
+	    android:id="@+id/activity_main_bottom_bar_task"
+	    style="@style/common_bottom_tab_layout_style">
+	
+	    <TextView
+	        android:id="@+id/activity_main_bottom_bar_task_text"
+	        android:text="@string/activity_main_bottom_bar_task"
+	        style="@style/common_bottom_tab_text_style" />
+	     <ImageView
+	        android:id="@+id/activity_main_bottom_bar_task_image"
+	        android:layout_above="@id/activity_main_bottom_bar_task_text"
+	        android:contentDescription="@string/activity_main_bottom_bar_task"
+	        style="@style/common_bottom_tab_image_style" />
+	</RelativeLayout>
+   	    
+	<!-- 我的 -->	
+	<RelativeLayout
+	    android:id="@+id/activity_main_bottom_bar_my"
+	    style="@style/common_bottom_tab_layout_style">
+	
+	    <TextView
+	        android:id="@+id/activity_main_bottom_bar_my_text"
+	        android:text="@string/activity_main_bottom_bar_my"
+	        style="@style/common_bottom_tab_text_style" />
+	     <ImageView
+	        android:id="@+id/activity_main_bottom_bar_my_image"
+	        android:layout_above="@id/activity_main_bottom_bar_my_text"
+	        android:contentDescription="@string/activity_main_bottom_bar_my"
+	        style="@style/common_bottom_tab_image_style" />
+	</RelativeLayout>    
+</LinearLayout>
+
