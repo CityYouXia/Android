@@ -3,6 +3,7 @@ package com.youxia.push;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
+
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.BroadcastReceiver;
@@ -92,6 +93,7 @@ public class YouXiaPushReceiver extends BroadcastReceiver {
 	/*
 	 * 判断当前APP是否处于运行状态
 	 * **/
+	@SuppressWarnings("unused")
 	private static boolean isRunningApp(Context context, String packageName)
 	{	
 		boolean isRunningApp = false;

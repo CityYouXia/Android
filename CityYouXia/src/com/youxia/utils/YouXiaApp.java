@@ -7,7 +7,6 @@ import com.tencent.bugly.crashreport.CrashReport;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import net.tsz.afinal.FinalBitmap;
 
 public class YouXiaApp extends Application 
