@@ -42,6 +42,7 @@ public class WXEntryActivity extends WechatHandlerActivity {
 		if (msg != null && msg.mediaObject != null
 				&& (msg.mediaObject instanceof WXAppExtendObject)) {
 			WXAppExtendObject obj = (WXAppExtendObject) msg.mediaObject;
+			if (obj == null) return;
 		}
 	}
 
