@@ -15,6 +15,7 @@
     
     <dimen name="common_text_size_small">12sp</dimen>
     <dimen name="common_text_size_mediem">14sp</dimen>
+    <dimen name="common_text_size_normal">16sp</dimen>
     <dimen name="common_text_size_large">18sp</dimen>
     <dimen name="common_text_size_supper_large">20sp</dimen>
 </resources>
