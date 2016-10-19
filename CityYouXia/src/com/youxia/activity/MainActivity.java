@@ -32,7 +32,7 @@ public class MainActivity extends BaseFragmentActivity {
 	
 	//底部Tablayout
 	private static final  String 				HOME_TABLINDEX		="MAINACTIVIY_TABINDEX";
-	private int 								tabIndex			= 1;
+	private int 								tabIndex			= 0;
 //	private ArrayList<View>						mTabLayouts			= null;
 	
 	private static final  String[] 				FRAGMENT_TAGS = {FragmentHome.TAG,FragmentTask.TAG,FragmentMy.TAG};
@@ -115,11 +115,11 @@ public class MainActivity extends BaseFragmentActivity {
 		{
 			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 			
-			this.mFragmentContent = new FragmentTask();
-			ft.replace(R.id.activity_main_fragment_container, this.mFragmentContent, FragmentTask.TAG);
+			this.mFragmentContent = new FragmentHome();
+			ft.replace(R.id.activity_main_fragment_container, this.mFragmentContent, FragmentHome.TAG);
 			ft.commit();
 			
-//			mTabLayouts.get(1).setSelected(true);
+//			mTabLayouts.get(0).setSelected(true);
 			
 			mFragmentList.add(this.mFragmentContent);
 		}

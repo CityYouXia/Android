@@ -1,12 +1,102 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/com.youxia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
-
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- 广告轮播viewpager-->
+    <com.youxia.widget.ViewPagerAdvert
+        android:id="@+id/fragment_homepage_advert"
+        android:layout_width="fill_parent"
+        android:layout_height="130dp"
+        app:showTitle="true"
+        app:turnDelayTime="5"
+        android:layout_alignParentTop="true"
+        app:turnIntevalTime="10" />
+    <ScrollView 
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="HOME" />
-
+        android:layout_below="@id/fragment_homepage_advert">
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:paddingLeft="@dimen/common_padding_left"
+	        android:paddingRight="@dimen/common_padding_right"
+	        android:paddingTop="@dimen/common_padding_top"
+	        android:paddingBottom="@dimen/common_padding_bottom">
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical">
+	            <com.youxia.widget.NumImageView
+		            android:id="@+id/road_assistance"
+		            android:layout_width="160dp"
+		            android:layout_height="130dp"
+		            android:background="@color/orange" />
+	            <com.youxia.widget.NumImageView
+		            android:id="@+id/move_car"
+		            android:layout_width="160dp"
+		            android:layout_height="80dp"
+		            android:layout_marginTop="@dimen/common_margin_top"
+		            android:background="@color/orange" />
+	            <com.youxia.widget.NumImageView
+		            android:id="@+id/road_conditions"
+		            android:layout_width="160dp"
+		            android:layout_height="80dp"
+		            android:layout_marginTop="@dimen/common_margin_top"
+		            android:background="@color/orange" />
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical">
+	            <LinearLayout 
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal">
+	                <com.youxia.widget.NumImageView
+	                    android:id="@+id/people_search"
+	                    android:layout_width="77.5dp"
+	                    android:layout_height="80dp"
+	                    android:background="@color/orange" />
+	                <View 
+	                    android:layout_width="5dp"
+	                    android:layout_height="match_parent"/>
+	                <com.youxia.widget.NumImageView
+	                    android:id="@+id/things_search"
+	                    android:layout_width="77.5dp"
+	                    android:layout_height="80dp"
+	                    android:background="@color/orange" />
+	            </LinearLayout>
+	            
+	            <com.youxia.widget.NumImageView
+	                android:id="@+id/express"
+	                android:layout_width="160dp"
+	                android:layout_height="130dp"
+	                android:layout_marginTop="@dimen/common_margin_top"
+	                android:background="@color/orange" />
+	            
+	            <com.youxia.widget.NumImageView
+	                android:id="@+id/asking"
+	                android:layout_width="160dp"
+	                android:layout_height="80dp"
+	                android:layout_marginTop="@dimen/common_margin_top"
+	                android:background="@color/orange" />
+	        </LinearLayout>
+	    </LinearLayout>
+    </ScrollView>
+    
+    <Button 
+        android:id="@+id/need_help_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/common_margin_left"
+        android:layout_marginRight="@dimen/common_margin_right"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:text="我要求助"/>
 </RelativeLayout>

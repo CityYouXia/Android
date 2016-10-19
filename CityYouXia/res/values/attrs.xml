@@ -8,4 +8,10 @@
         <attr name="oval" format="boolean" />
         <attr name="android:scaleType" />
     </declare-styleable>
+    <!--广告轮播控件属性-->
+    <declare-styleable name="ViewPagerAdvert">
+        <attr name="showTitle" format="boolean"/>
+        <attr name="turnDelayTime" format="integer"/>
+        <attr name="turnIntevalTime" format="integer"/>
+    </declare-styleable>
 </resources>
