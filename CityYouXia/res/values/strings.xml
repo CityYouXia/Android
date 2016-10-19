@@ -9,6 +9,9 @@
     <string name="activity_main_bottom_bar_task">任务</string>
     <string name="activity_main_bottom_bar_my">我的</string>
 	
+    <!-- 公共  -->
+    <string name="commond_nonetwork_connect">没有可用网络，请检查Wifi或移动网络!</string>
+    
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
@@ -18,4 +21,9 @@
     <string name="share_app_email">邮件</string>
     <string name="share_save_local">保存到本地</string>
     <string name="share_copy">复制到剪贴板</string>
+    
+    
+    <!-- 道路救援 -->
+    <string name="activity_roadrescue">道路救援</string>
+    
 </resources>

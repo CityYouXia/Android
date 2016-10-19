@@ -44,5 +44,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>    
+    
+    <!-- List -->
+	<style name="common_listview_style" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">@drawable/list_selector_bg</item>
+        <item name="android:cacheColorHint">@android:color/black</item>
+        <item name="android:divider">@color/common_background</item>
+        <item name="android:dividerHeight">1.0px</item>
+    </style>
  
 </resources>
