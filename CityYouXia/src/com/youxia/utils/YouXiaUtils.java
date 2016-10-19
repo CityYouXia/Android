@@ -15,6 +15,9 @@ import java.util.regex.Pattern;
 
 import org.json.JSONObject;
 
+import com.youxia.R;
+import com.youxia.http.NetWorkHelper;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -399,15 +402,15 @@ public class YouXiaUtils {
     }
     
     /** 公共函数-检验手机网络 */
-//    public static boolean netWorkStatusCheck(Context context){
-//    	//判断网络状态
-//  		int status = NetWorkHelper.getNetworkStatus(context);
-//  		if (status != NetWorkHelper.NETWORK_WIFI && status != NetWorkHelper.NETWORK_MOBIL) {
-//  			showToast(context, context.getResources().getString(R.string.commond_nonetwork_connect), Toast.LENGTH_LONG);
-//  			return false;
-//  		}
-//  		return true;
-//    }   
+    public static boolean netWorkStatusCheck(Context context){
+    	//判断网络状态
+  		int status = NetWorkHelper.getNetworkStatus(context);
+  		if (status != NetWorkHelper.NETWORK_WIFI && status != NetWorkHelper.NETWORK_MOBIL) {
+  			showToast(context, context.getResources().getString(R.string.commond_nonetwork_connect), Toast.LENGTH_LONG);
+  			return false;
+  		}
+  		return true;
+    }   
     
     /** 公共函数-处理带[]的JSON */
     public static String serialJSONString(String src)
