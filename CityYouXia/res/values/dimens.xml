@@ -13,6 +13,11 @@
     <dimen name="common_margin_top">5dp</dimen>    
     <dimen name="common_margin_bottom">5dp</dimen>
     
+    <dimen name="common_padding_left">15dp</dimen>
+    <dimen name="common_padding_right">15dp</dimen>
+    <dimen name="common_padding_top">5dp</dimen>    
+    <dimen name="common_padding_bottom">5dp</dimen>
+    
     <dimen name="common_text_size_small">12sp</dimen>
     <dimen name="common_text_size_mediem">14sp</dimen>
     <dimen name="common_text_size_normal">16sp</dimen>
