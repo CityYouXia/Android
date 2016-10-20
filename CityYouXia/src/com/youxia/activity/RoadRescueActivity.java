@@ -35,7 +35,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	@ViewInject(id=R.id.activity_roadrescue_listview) 					RefreshListView		mListView;
 	
-	
 	private MyListAdapter			mListAdapter;
 	
 	private int						pageNo 	= 1;

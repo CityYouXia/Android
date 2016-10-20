@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/common_margin_top"
-    	android:layout_marginBottom="@dimen/common_margin_bottom"
+        android:layout_marginBottom="@dimen/common_margin_bottom"
         android:layout_marginLeft="@dimen/common_margin_left"
         android:layout_marginRight="@dimen/common_margin_right"
         android:paddingLeft="@dimen/common_padding_left"
@@ -115,7 +115,6 @@
              android:layout_alignParentRight="true"
              android:layout_centerVertical="true"
              android:src="@drawable/map_site_icon" />
-
      </RelativeLayout>
      
      <RelativeLayout

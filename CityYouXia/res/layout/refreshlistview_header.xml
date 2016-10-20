@@ -32,7 +32,7 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
             
-            <com.solarke.widget.ScanningImageView
+            <com.youxia.widget.ScanningImageView
 	            android:id="@+id/pb_listview_header_progress"
 	            android:layout_width="30dp"
 	            android:layout_height="30dp"

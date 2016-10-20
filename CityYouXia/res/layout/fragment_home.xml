@@ -32,7 +32,7 @@
 	            android:layout_height="wrap_content"
 	            android:orientation="vertical">
 	            <com.youxia.widget.NumImageView
-		            android:id="@+id/road_assistance"
+		            android:id="@+id/road_rescure"
 		            android:layout_width="160dp"
 		            android:layout_height="130dp"
 		            android:background="@color/orange" />
@@ -98,5 +98,5 @@
         android:layout_marginLeft="@dimen/common_margin_left"
         android:layout_marginRight="@dimen/common_margin_right"
         android:layout_marginTop="@dimen/common_margin_top"
-        android:text="我要求助"/>
+        android:text="@string/need_help"/>
 </RelativeLayout>

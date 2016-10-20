@@ -5,11 +5,13 @@ import net.tsz.afinal.annotation.view.ViewInject;
 
 import com.youxia.BaseFragment;
 import com.youxia.R;
+import com.youxia.activity.RoadRescueActivity;
 import com.youxia.widget.NumImageView;
 import com.youxia.widget.ViewPagerAdapter;
 import com.youxia.widget.ViewPagerAdvert;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +23,7 @@ public class FragmentHome extends BaseFragment {
 	
 	public static final String TAG = FragmentHome.class.getSimpleName();
 
-	@ViewInject(id=R.id.road_assistance,click="btnClick") 	NumImageView 	roadAssistance;		//道路救援
+	@ViewInject(id=R.id.road_rescure,click="btnClick") 		NumImageView 	roadRescure;		//道路救援
 	@ViewInject(id=R.id.move_car,click="btnClick") 			NumImageView 	moveCar;			//挪车
 	@ViewInject(id=R.id.road_conditions,click="btnClick") 	NumImageView 	roadConditions;		//报路况
 	@ViewInject(id=R.id.people_search,click="btnClick") 	NumImageView 	peopleSearch;		//寻人
@@ -52,7 +54,7 @@ public class FragmentHome extends BaseFragment {
 		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女4");
 		viewPagerAdvert.notifyViewPager();
 		
-		roadAssistance.setNum(15);
+		roadRescure.setNum(15);
 		moveCar.setNum(5);
 		roadConditions.setNum(8);
 		peopleSearch.setNum(20);
@@ -62,8 +64,10 @@ public class FragmentHome extends BaseFragment {
 	}
 	
 	public void btnClick(View v){
+		Intent intent = new Intent();
 		switch (v.getId()) {
-		case R.id.road_assistance:
+		case R.id.road_rescure:
+			intent.setClass(getActivity(), RoadRescueActivity.class);
 			break;
 		case R.id.move_car:
 			break;
@@ -80,5 +84,6 @@ public class FragmentHome extends BaseFragment {
 		case R.id.need_help_btn:
 			break;
 		}
+		startActivity(intent);
 	}
 }

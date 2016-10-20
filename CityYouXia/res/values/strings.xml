@@ -22,7 +22,8 @@
     <string name="share_save_local">保存到本地</string>
     <string name="share_copy">复制到剪贴板</string>
     
-    
+    <!-- FragmentHome -->
+    <string name="need_help">我要求助</string>
     <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>
     <string name="roadrescue_username">求助人:</string>
