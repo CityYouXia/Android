@@ -25,5 +25,10 @@
     
     <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>
+    <string name="roadrescue_username">求助人:</string>
+    <string name="roadrescue_address">  位置:</string>
+    <string name="roadrescue_onlook_postfix"> 人围观</string>
+    
+    
     
 </resources>
