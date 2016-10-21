@@ -11,10 +11,10 @@
     
     <color name="black_50p">#80000000</color>
         
-    <color name="common_titlebar_background">#359df5</color>
-	<color name="common_background">#efeff4</color>
-	<color name="common_divide_line">#e2e2e2</color>
+    <color name="common_titlebar_background">#ff8200</color>
+    <color name="common_background">#f4f4f3</color>
+    <color name="common_divide_line">#e2e2e2</color>
     
     <color name="bottom_bar_text_normal_color">#2c2c2c</color>
-    <color name="bottom_bar_text_press_color">#359df5</color>
+    <color name="bottom_bar_text_press_color">#ff8200</color>
 </resources>

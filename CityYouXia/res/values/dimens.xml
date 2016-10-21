@@ -26,4 +26,18 @@
     <dimen name="common_text_size_normal">16sp</dimen>
     <dimen name="common_text_size_large">18sp</dimen>
     <dimen name="common_text_size_supper_large">20sp</dimen>
+    
+    <!-- FragmentHome -->
+    <dimen name="fragment_home_advert_pager_height">150dp</dimen>
+    <dimen name="fragment_home_content_padding_top">10dp</dimen>
+    <dimen name="fragment_home_content_padding_left">4dp</dimen>
+    <dimen name="fragment_home_content_padding_right">4dp</dimen>
+    <dimen name="fragment_home_content_image_width">174dp</dimen>
+    <dimen name="fragment_home_content_image_width_small">85dp</dimen>
+    <dimen name="fragment_home_content_image_height">130dp</dimen>
+    <dimen name="fragment_home_content_image_height_small">86dp</dimen>
+    <dimen name="fragment_home_help_btn_height">45dp</dimen>
+    <dimen name="fragment_home_help_btn_width">160dp</dimen>
+    <dimen name="fragment_home_help_btn_margin_bottom">20dp</dimen>
+    <dimen name="fragment_home_content_margin_top">4dp</dimen>
 </resources>

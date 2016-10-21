@@ -7,7 +7,6 @@ import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
 import com.youxia.widget.NumImageView;
-import com.youxia.widget.ViewPagerAdapter;
 import com.youxia.widget.ViewPagerAdvert;
 
 import android.annotation.SuppressLint;

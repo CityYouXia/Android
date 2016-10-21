@@ -33,7 +33,7 @@ public class MainActivity extends BaseFragmentActivity {
 	//底部Tablayout
 	private static final  String 				HOME_TABLINDEX		="MAINACTIVIY_TABINDEX";
 	private int 								tabIndex			= 0;
-//	private ArrayList<View>						mTabLayouts			= null;
+	private ArrayList<View>						mTabLayouts			= null;
 	
 	private static final  String[] 				FRAGMENT_TAGS = {FragmentHome.TAG,FragmentTask.TAG,FragmentMy.TAG};
 	private Fragment 							mFragmentContent 	= null;		//当前页
@@ -62,10 +62,10 @@ public class MainActivity extends BaseFragmentActivity {
 	}
 	
 	protected void initView(Bundle savedInstanceState) {
-//		mTabLayouts = new ArrayList<View>();
-//		mTabLayouts.add(taskInWaitingPage);
-//		mTabLayouts.add(taskPage);
-//		mTabLayouts.add(myPage);
+		mTabLayouts = new ArrayList<View>();
+		mTabLayouts.add(fragmentHomePage);
+		mTabLayouts.add(fragmentTaskPage);
+		mTabLayouts.add(fragmentMyPage);
 		
 		//初始化Fragment
 		mFragmentList = new ArrayList<Fragment>();
@@ -86,14 +86,14 @@ public class MainActivity extends BaseFragmentActivity {
 			FragmentMy informationFragment = (FragmentMy)fm.findFragmentByTag(FragmentMy.TAG);
 			if (informationFragment != null) mFragmentList.add(informationFragment);
 			
-//			for (int i = 0; i < mTabLayouts.size(); i++) {
-//				if (i == tabIndex) {
-//					mTabLayouts.get(i).setSelected(true);
-//				}
-//				else {
-//					mTabLayouts.get(i).setSelected(false);					
-//				}
-//			}
+			for (int i = 0; i < mTabLayouts.size(); i++) {
+				if (i == tabIndex) {
+					mTabLayouts.get(i).setSelected(true);
+				}
+				else {
+					mTabLayouts.get(i).setSelected(false);					
+				}
+			}
 			
 			for (int i = 0; i < mFragmentList.size(); i++)
 			{
@@ -119,7 +119,7 @@ public class MainActivity extends BaseFragmentActivity {
 			ft.replace(R.id.activity_main_fragment_container, this.mFragmentContent, FragmentHome.TAG);
 			ft.commit();
 			
-//			mTabLayouts.get(0).setSelected(true);
+			mTabLayouts.get(0).setSelected(true);
 			
 			mFragmentList.add(this.mFragmentContent);
 		}
@@ -227,14 +227,14 @@ public class MainActivity extends BaseFragmentActivity {
 		
 		if (newFragment != null) switchFragment(mFragmentContent, newFragment, tagName);
 		
-//		for (int i = 0; i < mTabLayouts.size(); i++) {
-//			RelativeLayout tmplayout = (RelativeLayout)findViewById(v.getId());
-//			if (tmplayout.equals(mTabLayouts.get(i))) 
-//			{
-//				mTabLayouts.get(i).setSelected(true);
-//			}
-//			else mTabLayouts.get(i).setSelected(false);
-//		}
+		for (int i = 0; i < mTabLayouts.size(); i++) {
+			RelativeLayout tmplayout = (RelativeLayout)findViewById(v.getId());
+			if (tmplayout.equals(mTabLayouts.get(i))) 
+			{
+				mTabLayouts.get(i).setSelected(true);
+			}
+			else mTabLayouts.get(i).setSelected(false);
+		}
 	}
 	
 	private void switchFragment(Fragment oldFragment, Fragment newFragment, String tagName) {
