@@ -40,4 +40,10 @@
     <dimen name="fragment_home_help_btn_width">160dp</dimen>
     <dimen name="fragment_home_help_btn_margin_bottom">20dp</dimen>
     <dimen name="fragment_home_content_margin_top">4dp</dimen>
+    
+    <!-- ActivityTaskDetail -->
+    <dimen name="activity_task_detail_title_text_size">20sp</dimen>
+    <dimen name="activity_task_detail_content_text_size">15sp</dimen>
+    <dimen name="activity_task_detail_reward_goal_area_height">20dp</dimen>
+	<dimen name="activity_task_detail_reward_goal_area_padding">2dp</dimen>    
 </resources>
