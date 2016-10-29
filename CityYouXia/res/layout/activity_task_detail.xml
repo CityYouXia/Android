@@ -1,231 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.youxia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	
-	<include layout="@layout/activity_main_title_bar" />
-    
-    <TextView
-        android:id="@+id/activity_task_detail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/common_margin_top"
-        android:text="车辆无法启动，紧急求助"
-        android:textSize="@dimen/activity_task_detail_title_text_size" />
 
-    <RelativeLayout
+    <include layout="@layout/activity_main_title_bar" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_margin_top"
-        android:gravity="center_vertical"
+        android:layout_height="@dimen/activity_task_detail_portrait_width_height"
+        android:layout_marginLeft="@dimen/common_margin_left"
+        android:layout_marginRight="@dimen/common_margin_right"
+        android:layout_marginTop="@dimen/activity_task_detail_portrait_margin_top"
         android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/activity_task_detail_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:gravity="center_vertical"
-            android:text="2016-9-21 13:35:48"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
+        <com.youxia.widget.roundimage.RoundedImageView
+            android:id="@+id/activity_task_detail_user_portrait"
+            android:layout_width="@dimen/activity_task_detail_portrait_width_height"
+            android:layout_height="@dimen/activity_task_detail_portrait_width_height"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/defalut_portrait"
+            app:border_width="@dimen/zero_dp"
+            app:corner_radius="@dimen/activity_task_detail_portrait_corner_radius" />
 
-        <TextView
-            android:id="@+id/activity_task_detail_reward_goal"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/activity_task_detail_reward_goal_area_height"
-            android:layout_alignParentRight="true"
-            android:background="@color/red"
-            android:padding="@dimen/activity_task_detail_reward_goal_area_padding"
-            android:text="奖励50分 "
-            android:textColor="@color/white" />
-    </RelativeLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical" >
-
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="@dimen/common_margin_top"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_margin_left"
-                android:text="求助人"
-                android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="@string/colons"
-                android:textSize="@dimen/activity_task_detail_content_text_size" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_task_detail_head_text_margin_left"
+            android:orientation="vertical" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero_dp"
+                android:layout_weight="1.0"
+                android:layout_marginTop="@dimen/activity_task_detail_nickname_margin_top"
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/activity_task_detail_helper_name"
+                    android:id="@+id/activity_task_detail_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/common_margin_left"
                     android:includeFontPadding="false"
-                    android:text="李女士 "
-                    android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-                <TextView
-                    android:id="@+id/activity_task_detail_helper_mobile"
+                    android:textSize="@dimen/activity_task_detail_nickname_textsize"
+                    android:textColor="@color/activity_task_detail_nickname_color"
+                    android:text="会飞的猴子" />
+                
+                <ImageView 
+                    android:id="@+id/activity_task_detail_status"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/common_margin_left"
-                    android:includeFontPadding="false"
-                    android:text="13931187654"
-                    android:textSize="@dimen/activity_task_detail_content_text_size" />
+                    android:layout_height="@dimen/activity_task_detail_status_height"
+                    android:src="@drawable/unresolved"/>
             </LinearLayout>
-        </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="@dimen/common_margin_top"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <com.youxia.widget.JustifyTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_margin_left"
-                android:text="位置"
-                android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="@string/colons"
-                android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-            <TextView
-                android:id="@+id/activity_task_detail_helper_location"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_margin_left"
-                android:layout_weight="1"
-                android:includeFontPadding="false"
-                android:text="石家庄桥西区石铜路交口"
-                android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-            <ImageView
-                android:id="@+id/activity_task_detail_goto_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/common_margin_right"
-                android:src="@drawable/map_site_icon" />
-        </TableRow>
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin_top"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/activity_task_detail_state"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/activity_task_detail_reward_goal_area_height"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:background="@color/orange"
-            android:padding="@dimen/activity_task_detail_reward_goal_area_padding"
-            android:text="已解决 "
-            android:textColor="@color/white" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:layout_weight="1"
-            android:includeFontPadding="false"
-            android:text="该求助已被“"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:includeFontPadding="false"
-            android:text="风中雁"
-            android:textColor="@color/orange"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:includeFontPadding="false"
-            android:text="”顺利解决了"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin_top"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:src="@drawable/bottom_bar_task_pressed" />
-
-        <TextView
-            android:id="@+id/activity_task_detail_onlookers_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:text="100"
-            android:textColor="@color/red"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:text="人围观"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-        
-         <TextView
-            android:id="@+id/activity_task_detail_online_help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:text="在线帮忙"
-            android:textSize="@dimen/activity_task_detail_content_text_size" />
-
-         <TextView
-            android:id="@+id/activity_task_detail_order_taking"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/activity_task_detail_reward_goal_area_height"
-            android:layout_alignParentRight="true"
-            android:background="@color/red"
-            android:padding="@dimen/activity_task_detail_reward_goal_area_padding"
-            android:text="奖励50分 "
-            android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero_dp"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/activity_task_detail_status_height"
+                    android:src="@drawable/score"/>
+                <TextView
+                    android:id="@+id/activity_task_detail_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_task_detail_head_text_margin_left"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/activity_task_detail_nickname_textsize"
+                    android:textColor="@color/activity_task_detail_score_color"
+                    android:text="50积分" />
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/activity_task_detail_status_height"
+                    android:layout_marginLeft="@dimen/activity_task_detail_head_text_margin_left"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/clock"/>
+                <TextView
+                    android:id="@+id/activity_task_detail_time_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_task_detail_head_text_margin_left"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/activity_task_detail_nickname_textsize"
+                    android:textColor="@color/activity_task_detail_score_color"
+                    android:text="2分钟前" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
