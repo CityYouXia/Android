@@ -27,6 +27,8 @@
     <dimen name="common_text_size_large">18sp</dimen>
     <dimen name="common_text_size_supper_large">20sp</dimen>
     
+    <dimen name="zero_dp">0dp</dimen>
+    
     <!-- FragmentHome -->
     <dimen name="fragment_home_advert_pager_height">150dp</dimen>
     <dimen name="fragment_home_content_padding_top">10dp</dimen>
@@ -45,5 +47,13 @@
     <dimen name="activity_task_detail_title_text_size">20sp</dimen>
     <dimen name="activity_task_detail_content_text_size">15sp</dimen>
     <dimen name="activity_task_detail_reward_goal_area_height">20dp</dimen>
-	<dimen name="activity_task_detail_reward_goal_area_padding">2dp</dimen>    
+	<dimen name="activity_task_detail_reward_goal_area_padding">2dp</dimen>
+	<dimen name="activity_task_detail_portrait_width_height">60.0dp</dimen>
+	<dimen name="activity_task_detail_portrait_corner_radius">30.0dp</dimen>
+	<dimen name="activity_task_detail_portrait_margin_top">8dp</dimen>
+	<dimen name="activity_task_detail_head_text_margin_left">12dp</dimen>
+	<dimen name="activity_task_detail_nickname_textsize">13sp</dimen>
+	<dimen name="activity_task_detail_nickname_margin_top">4dp</dimen>
+	<dimen name="activity_task_detail_status_height">15dp</dimen>
+	
 </resources>

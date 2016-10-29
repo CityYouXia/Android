@@ -17,4 +17,7 @@
     
     <color name="bottom_bar_text_normal_color">#2c2c2c</color>
     <color name="bottom_bar_text_press_color">#ff8200</color>
+    <color name="activity_task_detail_nickname_color">#363636</color>
+    <color name="activity_task_detail_score_color">#808080</color>
+    
 </resources>
