@@ -3,151 +3,173 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/common_background" >
+    android:background="@color/common_background" 
+    tools:context="${relativePackage}.${activityClass}" xmlns:app="http://schemas.android.com/apk/res/com.youxia">
     
    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/white"
         android:layout_marginTop="@dimen/common_margin_top"
-        android:layout_marginBottom="@dimen/common_margin_bottom"
-        android:layout_marginLeft="@dimen/common_margin_left"
-        android:layout_marginRight="@dimen/common_margin_right"
-        android:paddingLeft="@dimen/common_padding_left"
-        android:paddingRight="@dimen/common_padding_right"
-        android:paddingTop="@dimen/common_padding_top"
-        android:paddingBottom="@dimen/common_padding_bottom"
-        android:background="@color/white">
+        android:layout_marginBottom="@dimen/common_margin_bottom">
         
      <RelativeLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin_top"
-        android:layout_marginBottom="@dimen/common_margin_bottom">
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_right"
+        android:paddingTop="@dimen/common_padding_top"
+        android:paddingBottom="@dimen/common_padding_bottom" >
+        
+      	<com.youxia.widget.roundimage.RoundedImageView
+            android:id="@+id/roadrescue_listview_head_img"
+            android:layout_width="@dimen/roadrescue_listview_head_width"
+            android:layout_height="@dimen/roadrescue_listview_head_height"            
+            android:src="@drawable/female_little_default"
+            app:corner_radius="@dimen/roadrescue_listview_head_corner_radius"  />
 
         <TextView
-            android:id="@+id/problem_report_datetime"
+            android:id="@+id/roadrescue_listview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="车辆无法发动，紧急求助"
-            android:textSize="@dimen/common_text_size_large" />
+            android:layout_toRightOf="@id/roadrescue_listview_head_img"
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:text="会飞的猴子"            
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
 
+        
         <TextView
-            android:id="@+id/roadrescue_reward_points"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:id="@+id/roadrescue_listview_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@color/red"
             android:gravity="center_vertical|center_horizontal"
-            android:text="奖励50分"
-            android:textColor="@color/white"
-            android:textSize="@dimen/common_text_size_normal" />
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:text="8"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
+        
+        <ImageView
+            android:id="@+id/roadrescue_listview_comment_img"
+            android:layout_width="@dimen/roadrescue_listview_comment_width"
+            android:layout_height="@dimen/roadrescue_listview_comment_height"        
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:layout_toLeftOf="@id/roadrescue_listview_comment_count"    
+            android:src="@drawable/comment_icon" />
+        
+        <TextView
+            android:id="@+id/roadrescue_listview_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_toLeftOf="@id/roadrescue_listview_comment_img"
+            android:text="22分钟前"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
+    </RelativeLayout>
+    
+    <include layout="@layout/common_divided_line" />
 
-    	</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_padding_bottom"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_right"
+        android:paddingTop="@dimen/common_padding_top" >
 
-     <TextView
-         android:id="@+id/roadrescue_createdate"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="2016-12-9 8:30:40" 
-         android:textSize="@dimen/common_text_size_normal"
-         android:layout_marginTop="@dimen/common_margin_top"
-         android:layout_marginBottom="@dimen/common_margin_bottom"/>
+        <ImageView
+            android:id="@+id/roadrescue_listview_result_img"
+            android:layout_width="@dimen/roadrescue_listview_result_width"
+            android:layout_height="@dimen/roadrescue_listview_result_height"
+            android:src="@drawable/help_result_unsolved" />
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" 
-         android:layout_marginTop="@dimen/common_margin_top"
-         android:layout_marginBottom="@dimen/common_margin_bottom">
+   		<FrameLayout 
+             android:id="@+id/roadrescue_listview_scene_layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" 
+             android:layout_alignParentRight="true">
+             
+            <ImageView
+            	android:id="@+id/roadrescue_listview_scenephoto"
+            	android:layout_width="@dimen/roadrescue_listview_scene_width"
+            	android:layout_height="@dimen/roadrescue_listview_scene_height"
+            	android:src="@drawable/scene_default" />            
+             
+             <TextView
+                 android:id="@+id/roadrescue_listview_scenephoto_count"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="bottom|center_horizontal"
+                 android:text="2张"
+                 android:textColor="@color/white"
+                 android:textSize="@dimen/common_text_size_small" />
 
+         </FrameLayout>
+                
          <TextView
+             android:id="@+id/roadrescue_listview_help"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:paddingRight="@dimen/common_view_space"
-             android:textSize="@dimen/common_text_size_normal"             
-             android:text="@string/roadrescue_username" />
-
-         <TextView
-             android:id="@+id/roadrescue_username"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textSize="@dimen/common_text_size_normal"
-             android:paddingRight="@dimen/common_view_space"
-             android:text="张女士" />
-
-         <TextView
-             android:id="@+id/roadrescue_telphone"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textSize="@dimen/common_text_size_normal"
-             android:text="13933122232" />
-     </LinearLayout>
+             android:layout_toRightOf="@id/roadrescue_listview_result_img"
+             android:layout_toLeftOf="@id/roadrescue_listview_scene_layout"
+            android:lines="3"
+             android:maxLines="3"
+             android:paddingLeft="@dimen/common_view_space_10"
+             android:text="汽车亏电了，谁来帮忙对个火啊，我没有连接线。"
+             android:textColor="@color/mattblack"
+             android:textSize="@dimen/common_text_size_mediem"/>
+     </RelativeLayout>
       
      <RelativeLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content" 
-         android:layout_marginTop="@dimen/common_margin_top"
-         android:layout_marginBottom="@dimen/common_margin_bottom">
-
-         <TextView
-             android:id="@+id/textview_roadrescue_address"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:paddingRight="@dimen/common_view_space"
-             android:textSize="@dimen/common_text_size_normal"             
-             android:text="@string/roadrescue_address" />
-
-         <TextView
-             android:id="@+id/roadrescue_address"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_toRightOf="@id/textview_roadrescue_address"
-             android:paddingRight="@dimen/common_view_space"
-             android:text="石家庄桥西区石铜路交口"
-             android:textSize="@dimen/common_text_size_normal" />
+         android:paddingBottom="@dimen/common_padding_bottom"
+         android:paddingLeft="@dimen/common_padding_left"
+         android:paddingRight="@dimen/common_padding_right"
+         android:paddingTop="@dimen/common_padding_top" >
 
          <ImageView
-             android:id="@+id/roadrescue_mapsite_img"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_centerVertical="true"
-             android:src="@drawable/map_site_icon" />
-     </RelativeLayout>
-     
-     <RelativeLayout
-         android:id="@+id/roadrescue_result_layout"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" 
-         android:layout_marginTop="@dimen/common_margin_top"
-         android:layout_marginBottom="@dimen/common_margin_bottom">
-
-         <ImageView
-             android:id="@+id/roadrescue_result_img"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerVertical="true"
+             android:id="@+id/roadrescue_listview_mapsite"
+             android:layout_width="@dimen/common_listview_mapsite_width"
+             android:layout_height="@dimen/common_listview_mapsite_height"
              android:src="@drawable/map_site_icon" />
 
-
          <TextView
-             android:id="@+id/roadrescue_result"
+             android:id="@+id/roadrescue_listview_address"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:layout_toRightOf="@id/roadrescue_result_img"
-             android:paddingRight="@dimen/common_view_space"
-             android:text="该求助已被风中雁解决"
-             android:textSize="@dimen/common_text_size_normal" />
+             android:layout_toRightOf="@id/roadrescue_listview_mapsite"
+             android:text="石家庄桥西区石铜路交口" 
+             android:textSize="@dimen/common_text_size_small"
+             android:textColor="@color/gray" />"
 
-         <ImageView
-             android:id="@+id/roadrescue_goto"
+         <LinearLayout
              android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_centerVertical="true"
-             android:src="@drawable/goto_right" />
+             android:layout_height="wrap_content" 
+             android:layout_alignParentRight="true">
+
+             <ImageView
+                 android:layout_width="@dimen/common_listview_rewards_width"
+                 android:layout_height="@dimen/common_listview_rewards_width"
+                 android:src="@drawable/rewards_icon" />
+
+             <TextView
+                 android:id="@+id/roadrescue_listview_reward"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:gravity="center_vertical|center_horizontal"
+                 android:text="50积分"
+                 android:textColor="@color/gray"
+                 android:textSize="@dimen/common_text_size_small" />
+
+         </LinearLayout>
 
      </RelativeLayout>
      
@@ -156,34 +178,59 @@
      <RelativeLayout     
          android:layout_width="match_parent"
          android:layout_height="wrap_content" 
-         android:layout_marginTop="@dimen/common_margin_top"
-         android:layout_marginBottom="@dimen/common_margin_bottom">
-
+         android:paddingBottom="@dimen/common_padding_bottom"
+         android:paddingLeft="@dimen/common_padding_left"
+         android:paddingRight="@dimen/common_padding_right"
+         android:paddingTop="@dimen/common_padding_top" >
+         
          <ImageView
-             android:id="@+id/roadrescue_onlook_img"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerVertical="true"         
-             android:src="@drawable/goto_right" />
+             android:id="@+id/roadrescue_listview_view"
+             android:layout_width="@dimen/common_listview_view_width"
+             android:layout_height="@dimen/common_listview_view_height"
+             android:layout_centerVertical="true"
+             android:src="@drawable/view_icon" />
 
          <TextView
-             android:id="@+id/roadrescue_onlook_count"
+             android:id="@+id/roadrescue_listview_viewcount"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_centerVertical="true"
-             android:layout_toRightOf="@id/roadrescue_onlook_img"
-             android:gravity="center_vertical|center_horizontal"
-             android:text="100"
-             android:textSize="@dimen/common_text_size_mediem" />
-
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerVertical="true"
-             android:layout_toRightOf="@id/roadrescue_onlook_count"
-             android:paddingRight="@dimen/common_view_space"
-             android:text="@string/roadrescue_onlook_postfix"
+             android:layout_toRightOf="@id/roadrescue_listview_view"
+             android:text="围观  100 次"
+             android:textColor="@color/gray"
              android:textSize="@dimen/common_text_size_small" />
+"
+         
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true" >
+
+             <Button
+                 android:id="@+id/roadrescue_listview_btn_online"
+                 android:layout_width="@dimen/common_listview_button_width"
+                 android:layout_height="@dimen/common_listview_button_height"
+                 android:layout_gravity="center_vertical|center_horizontal"
+                 android:background="@drawable/listview_button_empty_selector"
+                 android:layout_marginLeft="@dimen/common_margin_left"
+                 android:layout_marginRight="@dimen/common_margin_right"
+                 android:text="@string/common_button_online"
+                 android:textColor="@color/listview_button_text_color"
+                 android:textSize="@dimen/common_text_size_normal" />
+
+              <Button
+                  android:id="@+id/roadrescue_listview_btn_help"
+                  android:layout_width="@dimen/common_listview_button_width"
+                  android:layout_height="@dimen/common_listview_button_height"
+                  android:layout_gravity="center_vertical"
+                  android:background="@drawable/listview_button_selector"
+                  android:gravity="center_vertical|center_horizontal"
+                  android:text="@string/common_button_help"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/common_text_size_normal" />
+             
+         </LinearLayout>
 
      </RelativeLayout>
      

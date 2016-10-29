@@ -6,8 +6,10 @@
     <color name="black">#ff000000</color>
     <color name="red">#ffff0000</color>
     <color name="orange">#F79709</color>
+    <color name="gray">#808080</color>    
     <color name="lightgrey">#909090</color>
     <color name="darkgray">#ffc0c0c0</color>
+    <color name="mattblack">#ff303030</color>
     
     <color name="black_50p">#80000000</color>
         
@@ -17,4 +19,6 @@
     
     <color name="bottom_bar_text_normal_color">#2c2c2c</color>
     <color name="bottom_bar_text_press_color">#ff8200</color>
+    
+    <color name="listview_button_text_color">#ff8200</color>
 </resources>

@@ -7,13 +7,17 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
-import com.youxia.entity.HelpEntity;
+import com.youxia.entity.HelpListEntity;
+import com.youxia.http.HttpClientHelper;
+import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
 import com.youxia.widget.pulltorefreshlistview.OnRefreshListener;
 import com.youxia.widget.pulltorefreshlistview.RefreshListView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -35,6 +39,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	@ViewInject(id=R.id.activity_roadrescue_listview) 					RefreshListView		mListView;
 	
+	
 	private MyListAdapter			mListAdapter;
 	
 	private int						pageNo 	= 1;
@@ -52,6 +57,8 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_roadrescue));
+		
+		loadingRoadRescues();
 	}
 
 	public void btnClick(View v){
@@ -69,7 +76,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			mListView.hideFooterView();
 			return;
 		}
-		loadingProblems();
+		loadingRoadRescues();
 	}
 	
 	//下拉刷新
@@ -79,12 +86,11 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			mListView.hideHeaderView();
 			return;
 		}
-		freshProblems();
+		freshRoadRescues();
 	}
 		
 	//加载问题和更多
-	@SuppressWarnings("unused")
-	public void loadingProblems() {
+	public void loadingRoadRescues() {
 		if(!YouXiaUtils.netWorkStatusCheck(this)) return;
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
 			@Override
@@ -94,7 +100,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")){
 					try 
 					{
-						List<HelpEntity> list = JSON.parseArray(result, HelpEntity.class);		//新闻列表
+						List<HelpListEntity> list = JSON.parseArray(result, HelpListEntity.class);		//新闻列表
 						if (list == null || list.size() <= 0) {
 							loadMoreFlag = false;
 						}
@@ -103,10 +109,10 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 							else loadMoreFlag = true;
 							
 							if(pageNo == 1){
-								RoadRescueActivity.this.freshListView((ArrayList<HelpEntity>)list);
+								RoadRescueActivity.this.freshListView((ArrayList<HelpListEntity>)list);
 								pullRefreshId = list.get(0).helpid;//为加载更多服务
 							}else{
-								RoadRescueActivity.this.addLastListView((ArrayList<HelpEntity>)list);
+								RoadRescueActivity.this.addLastListView((ArrayList<HelpListEntity>)list);
 							}
 						}
 					}
@@ -143,12 +149,11 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				else mListView.hideFooterView();
 			}
 		};
-//			HttpClientHelper.loadingProblems(Integer.toString(pageSize), Integer.toString(pageNo), callBack);
+		HttpClientHelper.loadRoadRescues(pageSize, pageNo, callBack);
 	}
 	
 	
-	@SuppressWarnings("unused")
-	private void freshProblems() {
+	private void freshRoadRescues() {
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
 			@Override
 			public void onSuccess(String result) {
@@ -157,11 +162,11 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")){
 					try 
 					{
-						List<HelpEntity> list = JSON.parseArray(result, HelpEntity.class);		//新闻列表
+						List<HelpListEntity> list = JSON.parseArray(result, HelpListEntity.class);		//新闻列表
 						if (list == null || list.size() <= 0) {
 						}
 						else {
-							RoadRescueActivity.this.addFirstListView((ArrayList<HelpEntity>)list);
+							RoadRescueActivity.this.addFirstListView((ArrayList<HelpListEntity>)list);
 							pullRefreshId = list.get(0).helpid;
 						}
 					}
@@ -178,10 +183,10 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				mListView.hideHeaderView();
 			}
 		};
-//			HttpClientHelper.loadingPullRefreshProblems(Long.toString(pullRefreshId), callBack);
+		HttpClientHelper.loadPullRefreshRoadRescues(pullRefreshId, callBack);
 	}
 
-	public void freshListView(ArrayList<HelpEntity> paramArrayList)
+	public void freshListView(ArrayList<HelpListEntity> paramArrayList)
 	{			
 		if (paramArrayList == null || this.mListAdapter == null) return;
 		
@@ -191,7 +196,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		this.mListAdapter.notifyDataSetChanged();
 	}
 	
-	public void addFirstListView(ArrayList<HelpEntity> paramArrayList)
+	public void addFirstListView(ArrayList<HelpListEntity> paramArrayList)
 	{			
 		if (paramArrayList == null || this.mListAdapter == null) return;
 		
@@ -200,7 +205,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		this.mListAdapter.notifyDataSetChanged();		  
 	}
 	
-	public void addLastListView(ArrayList<HelpEntity> paramArrayList)
+	public void addLastListView(ArrayList<HelpListEntity> paramArrayList)
 	{
 		if (paramArrayList == null || this.mListAdapter == null) return;
 		
@@ -226,14 +231,14 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	{	
 		if(position > this.mListAdapter.getList().size()) return;
 		
-		HelpEntity RoadRescueEntity = (HelpEntity)parent.getAdapter().getItem(position);
-		if (RoadRescueEntity == null) return;
+		HelpListEntity roadRescueEntity = (HelpListEntity)parent.getAdapter().getItem(position);
+		if (roadRescueEntity == null) return;
 	
 		//activity跳转		
 		Intent intent = new Intent();
 		
 		Bundle bundle = new Bundle();
-		bundle.putInt("id", RoadRescueEntity.helpid);		
+		bundle.putInt("id", roadRescueEntity.helpid);		
 		
 		intent.putExtras(bundle);
 		
@@ -243,7 +248,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	public class MyListAdapter extends BaseLinkedListAdapter
 	{
-		@SuppressWarnings("unused")
 		private Context context;
 		
 		public MyListAdapter(Context context)
@@ -251,27 +255,46 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			this.context = context;
 		}
 		
-		class ViewHold {
-			TextView  tvReportDatetime;
-			ImageView ivReportStatus;
-			TextView  tvProblem;			
+		class ViewHold {			
+			ImageView ivHeadPhoto;
+			TextView  tvUserName;
+			TextView  tvDatetime;
+			TextView  tvCommentCount;
+			ImageView ivResultPic;
+			TextView  tvHelpContent;
+			TextView  tvAddress;
+			TextView  tvRewards;
+			TextView  tvViewCount;
+			ImageView ivScenePhoto;
+			TextView  tvScenePhotoCount;
+			View     layoutScene;
 	    }
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			
-			HelpEntity	localData = (HelpEntity)getItem(position);
+			HelpListEntity	localData = (HelpListEntity)getItem(position);
 			
 			ViewHold hold = null;
-			
+							
 			if (convertView == null){
 				
 				hold = new ViewHold();
 				convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_roadrescue, parent, false);
 				
-//				hold.ivReportStatus  	= ((ImageView)convertView.findViewById(R.id.problem_status_image));
-//				hold.tvReportDatetime 	= ((TextView)convertView.findViewById(R.id.problem_report_datetime));
-//				hold.tvProblem 			= ((TextView)convertView.findViewById(R.id.problem_describe));
+				hold.ivHeadPhoto 			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_head_img);
+				hold.tvUserName 			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_name);
+				hold.tvDatetime				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_time);
+				hold.tvCommentCount			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_comment_count);
+				hold.ivResultPic			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_result_img);
+				hold.tvHelpContent			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_help);
+				hold.tvAddress				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_address);
+				hold.tvRewards				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_reward);
+				hold.tvViewCount			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_viewcount);
+				hold.ivScenePhoto			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_scenephoto);
+				hold.tvScenePhotoCount		 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_scenephoto_count);
+				
+				hold.layoutScene			 =  (View)convertView.findViewById(R.id.roadrescue_listview_scene_layout);
 				
 				convertView.setTag(hold);
 			}
@@ -280,12 +303,35 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				hold = (ViewHold) convertView.getTag();
 			}
 			
-//			hold.tvReportDatetime.setText(localData.create_datetime);
-//			hold.tvProblem.setText(localData.problem);
-//
-//			if (localData.status == 1) hold.ivReportStatus.setImageResource(R.drawable.problem_report_pass);
-//			else hold.ivReportStatus.setImageResource(R.drawable.problem_report_unpass);
-//			
+			if (hold == null)  return convertView;
+			
+			hold.tvUserName.setText(localData.username);
+			hold.tvDatetime.setText(localData.from_time);
+			hold.tvCommentCount.setText(Integer.toString(localData.commentcount));
+			hold.tvHelpContent.setText(localData.help_content);
+			hold.tvAddress.setText(localData.site);
+			hold.tvRewards.setText(Integer.toString(localData.reward_points));
+			hold.tvViewCount.setText(Integer.toString(localData.viewcount));
+			hold.tvScenePhotoCount.setText(Integer.toString(localData.scenePhotoCount));
+			
+			if (localData.userphoto.isEmpty()) {				
+				hold.ivHeadPhoto.setImageResource((localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
+			}
+			else {
+				Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), (localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
+				YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + "/images/userphotos/" + localData.userphoto, bitmap);
+			}
+			
+			if (localData.is_solve) {
+				hold.ivResultPic.setImageResource(R.drawable.help_result_ok);
+			}
+			else {
+				hold.ivResultPic.setImageResource(R.drawable.help_result_unsolved);
+			}
+			
+			if (localData.scenePhotoCount <= 0) {
+				hold.layoutScene.setVisibility(View.GONE);
+			}
 
 			return convertView;
 		}	

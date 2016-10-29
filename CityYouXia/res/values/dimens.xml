@@ -19,13 +19,37 @@
     <dimen name="common_padding_top">5dp</dimen>    
     <dimen name="common_padding_bottom">5dp</dimen>
     
-    <dimen name="common_view_space">20dp</dimen>
+    <dimen name="common_view_space_5">5dp</dimen>
+    <dimen name="common_view_space_10">10dp</dimen>
+    <dimen name="common_view_space_20">20dp</dimen>
         
     <dimen name="common_text_size_small">12sp</dimen>
     <dimen name="common_text_size_mediem">14sp</dimen>
     <dimen name="common_text_size_normal">16sp</dimen>
     <dimen name="common_text_size_large">18sp</dimen>
     <dimen name="common_text_size_supper_large">20sp</dimen>
+    
+      <!-- 通用列表 -->
+    <dimen name="common_listview_button_width">76dp</dimen>
+    <dimen name="common_listview_button_height">32dp</dimen>
+    <dimen name="common_listview_view_width">16dp</dimen>
+    <dimen name="common_listview_view_height">16dp</dimen>
+    <dimen name="common_listview_mapsite_width">16dp</dimen>
+    <dimen name="common_listview_mapsite_height">16dp</dimen>
+    <dimen name="common_listview_rewards_width">16dp</dimen>
+    <dimen name="common_listview_rewards_height">16dp</dimen>
+    
+    
+    <!-- 道路救援列表 -->
+    <dimen name="roadrescue_listview_head_width">28dp</dimen>
+    <dimen name="roadrescue_listview_head_height">28dp</dimen>
+    <dimen name="roadrescue_listview_head_corner_radius">14dp</dimen>
+    <dimen name="roadrescue_listview_comment_width">20dp</dimen>
+    <dimen name="roadrescue_listview_comment_height">16dp</dimen>
+    <dimen name="roadrescue_listview_result_width">32dp</dimen>
+    <dimen name="roadrescue_listview_result_height">16dp</dimen>
+    <dimen name="roadrescue_listview_scene_width">70dp</dimen>
+    <dimen name="roadrescue_listview_scene_height">58dp</dimen>
     
     <!-- FragmentHome -->
     <dimen name="fragment_home_advert_pager_height">150dp</dimen>

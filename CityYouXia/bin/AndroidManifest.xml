@@ -70,8 +70,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.youxia.activity.RoadRescueActivity" />
+        
+        <activity android:name="com.youxia.activity.RoadRescueActivity" />
         
         <!-- QQ分享回调 -->
         <activity
