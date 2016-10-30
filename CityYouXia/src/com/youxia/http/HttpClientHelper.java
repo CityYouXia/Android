@@ -6,7 +6,9 @@ import net.tsz.afinal.http.AjaxParams;
 
 public class HttpClientHelper {
 	
-	public static String Basic_YouXiaUrl 	= "http://www.youxia.com";		//游侠网
+	//public static String Basic_YouXiaUrl 	= "http://www.youxia.com";		//游侠网
+	
+	public static String Basic_YouXiaUrl 	= "http://1597e1873r.iask.in:20773";		//游侠网
 	
 	private static FinalHttp finalHttp = new FinalHttp();
 	
@@ -25,9 +27,9 @@ public class HttpClientHelper {
 		AjaxParams param = new AjaxParams();
 		
 		param.put("pageSize", Integer.toString(pageSize));
-		param.put("pageNo", Integer.toString(pageNo));
+		param.put("nowPage", Integer.toString(pageNo));
 		
-		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadHelpUnsolve.do", param, callBack);
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadRescue.do", param, callBack);
 	}
 
 	//刷新道路救援列表
@@ -37,6 +39,6 @@ public class HttpClientHelper {
 		
 		param.put("pullRefreshId", Long.toString(pullRefreshId));
 		
-		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadHelpUnsolve.do", param, callBack);
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadRescue.do", param, callBack);
 	}
 }

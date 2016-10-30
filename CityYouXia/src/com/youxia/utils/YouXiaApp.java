@@ -19,15 +19,17 @@ public class YouXiaApp extends Application
 	{
 		super.onCreate();
 		mContext = this;
+		
 		mFinalBitmap = FinalBitmap.create(this);
 		//初始化调用一次即可
-		PreferencesUtils.init("SolarKE_YunWei.Golbal", MODE_MULTI_PROCESS);
+		PreferencesUtils.init("YouXia.Golbal", MODE_MULTI_PROCESS);
+		
 		//腾讯Bugly初始化
 		CrashReport.initCrashReport(getApplicationContext(), "474b2320a8", false);
 		//百度地图使用 
 		SDKInitializer.initialize(this);
 		//极光推送
-		JPushInterface.init(this);
+//		JPushInterface.init(this);    //暂时注释， 放开后启动报错， chang shengqiang
 	}
 	
 	public static Context getAppContext()

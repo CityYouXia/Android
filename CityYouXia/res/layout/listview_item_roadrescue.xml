@@ -23,18 +23,18 @@
         android:paddingBottom="@dimen/common_padding_bottom" >
         
       	<com.youxia.widget.roundimage.RoundedImageView
-            android:id="@+id/roadrescue_listview_head_img"
+            android:id="@+id/roadrescue_listview_userphoto"
             android:layout_width="@dimen/roadrescue_listview_head_width"
             android:layout_height="@dimen/roadrescue_listview_head_height"            
             android:src="@drawable/female_little_default"
             app:corner_radius="@dimen/roadrescue_listview_head_corner_radius"  />
 
         <TextView
-            android:id="@+id/roadrescue_listview_name"
+            android:id="@+id/roadrescue_listview_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/roadrescue_listview_head_img"
+            android:layout_toRightOf="@id/roadrescue_listview_userphoto"
             android:layout_marginLeft="@dimen/common_view_space_10"
             android:text="会飞的猴子"            
             android:textColor="@color/gray"
@@ -85,7 +85,7 @@
         android:paddingTop="@dimen/common_padding_top" >
 
         <ImageView
-            android:id="@+id/roadrescue_listview_result_img"
+            android:id="@+id/roadrescue_listview_solved_img"
             android:layout_width="@dimen/roadrescue_listview_result_width"
             android:layout_height="@dimen/roadrescue_listview_result_height"
             android:src="@drawable/help_result_unsolved" />
@@ -114,10 +114,10 @@
          </FrameLayout>
                 
          <TextView
-             android:id="@+id/roadrescue_listview_help"
+             android:id="@+id/roadrescue_listview_content"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:layout_toRightOf="@id/roadrescue_listview_result_img"
+             android:layout_toRightOf="@id/roadrescue_listview_solved_img"
              android:layout_toLeftOf="@id/roadrescue_listview_scene_layout"
             android:lines="3"
              android:maxLines="3"
@@ -161,7 +161,7 @@
                  android:src="@drawable/rewards_icon" />
 
              <TextView
-                 android:id="@+id/roadrescue_listview_reward"
+                 android:id="@+id/roadrescue_listview_rewardpoints"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:gravity="center_vertical|center_horizontal"

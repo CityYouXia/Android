@@ -58,6 +58,11 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_roadrescue));
 		
+		this.mListAdapter = new MyListAdapter(this);
+		this.mListView.setAdapter(mListAdapter);
+		this.mListView.setOnRefreshListener(this);
+		this.mListView.setOnItemClickListener(this);
+		
 		loadingRoadRescues();
 	}
 
@@ -110,7 +115,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 							
 							if(pageNo == 1){
 								RoadRescueActivity.this.freshListView((ArrayList<HelpListEntity>)list);
-								pullRefreshId = list.get(0).helpid;//为加载更多服务
+								pullRefreshId = list.get(0).helpId;//为加载更多服务
 							}else{
 								RoadRescueActivity.this.addLastListView((ArrayList<HelpListEntity>)list);
 							}
@@ -167,7 +172,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 						}
 						else {
 							RoadRescueActivity.this.addFirstListView((ArrayList<HelpListEntity>)list);
-							pullRefreshId = list.get(0).helpid;
+							pullRefreshId = list.get(0).helpId;
 						}
 					}
 					catch (Exception e) {
@@ -238,7 +243,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		Intent intent = new Intent();
 		
 		Bundle bundle = new Bundle();
-		bundle.putInt("id", roadRescueEntity.helpid);		
+		bundle.putInt("id", roadRescueEntity.helpId);		
 		
 		intent.putExtras(bundle);
 		
@@ -257,13 +262,13 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		
 		class ViewHold {			
 			ImageView ivHeadPhoto;
-			TextView  tvUserName;
+			TextView  tvNickName;
 			TextView  tvDatetime;
 			TextView  tvCommentCount;
-			ImageView ivResultPic;
-			TextView  tvHelpContent;
+			ImageView ivIsSolved;
+			TextView  tvContent;
 			TextView  tvAddress;
-			TextView  tvRewards;
+			TextView  tvRewardPoints;
 			TextView  tvViewCount;
 			ImageView ivScenePhoto;
 			TextView  tvScenePhotoCount;
@@ -282,14 +287,14 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				hold = new ViewHold();
 				convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_roadrescue, parent, false);
 				
-				hold.ivHeadPhoto 			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_head_img);
-				hold.tvUserName 			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_name);
+				hold.ivHeadPhoto 			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_userphoto);
+				hold.tvNickName 			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_nickname);
 				hold.tvDatetime				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_time);
 				hold.tvCommentCount			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_comment_count);
-				hold.ivResultPic			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_result_img);
-				hold.tvHelpContent			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_help);
+				hold.ivIsSolved			 	 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_solved_img);
+				hold.tvContent			 	 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_content);
 				hold.tvAddress				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_address);
-				hold.tvRewards				 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_reward);
+				hold.tvRewardPoints			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_rewardpoints);
 				hold.tvViewCount			 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_viewcount);
 				hold.ivScenePhoto			 =  (ImageView)convertView.findViewById(R.id.roadrescue_listview_scenephoto);
 				hold.tvScenePhotoCount		 =  (TextView)convertView.findViewById(R.id.roadrescue_listview_scenephoto_count);
@@ -305,32 +310,36 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			
 			if (hold == null)  return convertView;
 			
-			hold.tvUserName.setText(localData.username);
-			hold.tvDatetime.setText(localData.from_time);
-			hold.tvCommentCount.setText(Integer.toString(localData.commentcount));
-			hold.tvHelpContent.setText(localData.help_content);
+			hold.tvNickName.setText(localData.createUserNickName);
+			hold.tvDatetime.setText(localData.createDate);
+			hold.tvCommentCount.setText(Integer.toString(localData.commentCount));
+			hold.tvContent.setText(localData.content);
 			hold.tvAddress.setText(localData.site);
-			hold.tvRewards.setText(Integer.toString(localData.reward_points));
-			hold.tvViewCount.setText(Integer.toString(localData.viewcount));
-			hold.tvScenePhotoCount.setText(Integer.toString(localData.scenePhotoCount));
+			hold.tvRewardPoints.setText(Integer.toString(localData.rewardPoints) + "奖励");
+			hold.tvViewCount.setText("围观" + Integer.toString(localData.viewCount) + "次");
+			hold.tvScenePhotoCount.setText(Integer.toString(localData.helpPhotoCount) + "张");
 			
-			if (localData.userphoto.isEmpty()) {				
+			if (localData.userPhoto.isEmpty()) {				
 				hold.ivHeadPhoto.setImageResource((localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
 			}
 			else {
 				Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), (localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
-				YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + "/images/userphotos/" + localData.userphoto, bitmap);
+		//		YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + localData.userPhoto, bitmap);
 			}
 			
-			if (localData.is_solve) {
-				hold.ivResultPic.setImageResource(R.drawable.help_result_ok);
+			if (localData.isSolve == 2) {
+				hold.ivIsSolved.setImageResource(R.drawable.help_result_ok);
 			}
 			else {
-				hold.ivResultPic.setImageResource(R.drawable.help_result_unsolved);
+				hold.ivIsSolved.setImageResource(R.drawable.help_result_unsolved);
 			}
 			
-			if (localData.scenePhotoCount <= 0) {
+			if (localData.helpPhotoCount <= 0) {
 				hold.layoutScene.setVisibility(View.GONE);
+			}
+			else {
+			//	YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
+				
 			}
 
 			return convertView;

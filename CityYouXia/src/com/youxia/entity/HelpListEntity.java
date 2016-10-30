@@ -8,27 +8,30 @@ public class HelpListEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = -1;
 	
-	public int 		helpid;
-	public int 		categoryid;
-	public String   help_content;
+	public int 		helpId;
+	public int 		categoryId;
+	public String   name;
+	public String   content;
 	
-	public int 		userid;
-	public String   username;
-	public String   userphoto;
+	public int 		userId;
+	public String   createUserName;
+	public String   createUserNickName;
+	public String   userPhoto;
 	public boolean  sex;
 			
+	public int      area;
 	public double	longitude;
 	public double 	latitude;		/*维度*/
 	public String	site;			/*位置*/	
 
-	public int 		reward_points;	/*悬赏分*/
-	public boolean	is_solve;		/*是否解决*/
+	public int 		rewardPoints;	/*悬赏分*/
+	public int  	isSolve;		/*是否解决*/
 		
-	public int 		viewcount;		/*浏览次数*/
-	public int		commentcount;	/*评论次数*/ 
+	public int 		viewCount;		/*浏览次数*/
+	public int		commentCount;	/*评论次数*/ 
 	
-	public String   scenePhoto;
-	public int      scenePhotoCount;
+	public String   helpPhotoUrl;
+	public int      helpPhotoCount;
 		
-	public String  	from_time;		/*距当前时间*/	  
+	public String  	createDate;		/*距当前时间*/	
 }
