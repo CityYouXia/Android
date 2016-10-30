@@ -21,6 +21,7 @@
     
     <!-- 通用-->
     <string name="commond_nonetwork_connect">没有可用网络，请检查Wifi或移动网络!</string>
+    <string name="common_comment_send">发送</string>
     
     <string name="common_button_online">在线帮忙</string>
     <string name="common_button_help">立即救援</string>
@@ -31,6 +32,10 @@
     
     <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>    
-    
-    
+	<string name="rescue_rightnow">立即救援</string>    
+
+	<!-- 任务详情 -->
+	<string name="activity_task_detail_solved_ahead">该求助已被</string>
+	<string name="activity_task_detail_solved_after">解决</string>
 </resources>
+

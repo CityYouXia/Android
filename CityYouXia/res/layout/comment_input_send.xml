@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/horizonal_divide_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/comment_edittext_margin_top_bottoom"
+        android:layout_marginTop="@dimen/comment_edittext_margin_top_bottoom"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/comment_edittext"
+            android:layout_width="@dimen/comment_edittext_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_margin_left"
+            android:layout_marginRight="@dimen/common_margin_right"
+            android:background="@drawable/comment_edittext_border"
+            android:gravity="center_vertical"
+            android:maxHeight="@dimen/comment_edittext_max_height" />
+
+        <TextView
+            android:id="@+id/comment_send"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/common_comment_send"
+            android:textColor="@color/common_titlebar_background"
+            android:textSize="@dimen/common_text_size_supper_large" />
+    </LinearLayout>
+
+</LinearLayout>
