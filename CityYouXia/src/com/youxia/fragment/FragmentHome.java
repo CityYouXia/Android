@@ -6,6 +6,7 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
+import com.youxia.utils.YouXiaApp;
 import com.youxia.widget.NumImageView;
 import com.youxia.widget.ViewPagerAdvert;
 
