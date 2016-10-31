@@ -191,8 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
                 android:gravity="right|center_vertical"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
