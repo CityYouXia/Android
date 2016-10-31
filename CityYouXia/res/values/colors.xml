@@ -21,8 +21,8 @@
     <color name="bottom_bar_text_press_color">#ff8200</color>
     
     <color name="listview_button_text_color">#ff8200</color>
-    <color name="activity_task_detail_nickname_color">#363636</color>
-    <color name="activity_task_detail_score_color">#808080</color>
-    <color name="activity_task_detail_title_color">#303030</color>
-    <color name="activity_task_detail_information_color">#4c4c4c</color>
+    <color name="activity_road_rescue_detail_nickname_color">#363636</color>
+    <color name="activity_road_rescue_detail_score_color">#808080</color>
+    <color name="activity_road_rescue_detail_title_color">#303030</color>
+    <color name="activity_road_rescue_detail_information_color">#4c4c4c</color>
 </resources>

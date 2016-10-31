@@ -35,7 +35,8 @@
 	<string name="rescue_rightnow">立即救援</string>    
 
 	<!-- 任务详情 -->
-	<string name="activity_task_detail_solved_ahead">该求助已被</string>
-	<string name="activity_task_detail_solved_after">解决</string>
+	<string name="activity_road_rescue_detail_title">任务详情</string>
+	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
+	<string name="activity_road_rescue_detail_solved_after">解决</string>
 </resources>
 
