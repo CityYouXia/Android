@@ -8,6 +8,7 @@ import com.youxia.R;
 import com.youxia.fragment.FragmentMy;
 import com.youxia.fragment.FragmentTask;
 import com.youxia.fragment.FragmentHome;
+import com.youxia.map.BaiduMapLocation;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -39,6 +40,7 @@ public class MainActivity extends BaseFragmentActivity {
 	private Fragment 							mFragmentContent 	= null;		//当前页
 	private ArrayList<Fragment>					mFragmentList		= null;		//Fragment列表
 	
+	private BaiduMapLocation					mLocation			= null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +48,10 @@ public class MainActivity extends BaseFragmentActivity {
 		FinalActivity.initInjectedView(this);
 		
 		getWindow().setFormat(PixelFormat.TRANSLUCENT);
+		
+		mLocation = new BaiduMapLocation();
+		mLocation.initLocation(this,600000);
+		
 		initView(savedInstanceState);
 	}
 	
