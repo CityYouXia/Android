@@ -41,4 +41,14 @@ public class HttpClientHelper {
 		
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadRescue.do", param, callBack);
 	}
+	
+	//加载道路救援详细信息
+	public static void loadRoadRescueDetailById(int helpId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		
+		param.put("helpId", Integer.toString(helpId));
+		
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpDetail.do", param, callBack);	
+	}
 }

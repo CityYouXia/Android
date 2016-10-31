@@ -247,8 +247,8 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		
 		intent.putExtras(bundle);
 		
-		//intent.setClass(this, ActivityDeviceData.class);
-		//startActivity(intent);
+		intent.setClass(this, RoadRescueDetailActivity.class);
+		startActivity(intent);
 	}
 	
 	public class MyListAdapter extends BaseLinkedListAdapter

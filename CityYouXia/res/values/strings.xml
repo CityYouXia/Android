@@ -8,7 +8,7 @@
     <string name="activity_main_bottom_bar_home">首页</string>
     <string name="activity_main_bottom_bar_task">任务</string>
     <string name="activity_main_bottom_bar_my">我的</string>
-	
+	<string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
