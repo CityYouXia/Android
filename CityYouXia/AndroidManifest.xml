@@ -74,6 +74,7 @@
         </activity>
         
         <activity android:name="com.youxia.activity.RoadRescueActivity" />
+        <activity android:name="com.youxia.activity.RoadRescueDetailActivity" />
         
         <!-- QQ分享回调 -->
         <activity
