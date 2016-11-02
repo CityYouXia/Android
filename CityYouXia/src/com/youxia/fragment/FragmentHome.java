@@ -42,10 +42,9 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 	}
 	
 	private void initView() {
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女1");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女2");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女3");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女4");
+		viewPagerAdvert.addALocalImageToViewPager("ad1.jpg", R.drawable.ad1, "广告1");
+		viewPagerAdvert.addALocalImageToViewPager("ad2.jpg", R.drawable.ad2, "广告2");
+		viewPagerAdvert.addALocalImageToViewPager("ad3.jpg", R.drawable.ad3, "广告3");
 		viewPagerAdvert.notifyViewPager();
 		
 
