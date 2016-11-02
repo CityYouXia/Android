@@ -1,18 +1,15 @@
 package com.youxia.fragment;
 
 import net.tsz.afinal.FinalActivity;
-import net.tsz.afinal.annotation.view.ViewInject;
 
 import com.youxia.BaseFragment;
 import com.youxia.R;
-import com.youxia.widget.NumImageView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 @SuppressLint("InflateParams")
 public class FragmentMy extends BaseFragment {

@@ -27,7 +27,7 @@ public class YouXiaApp extends Application
 		//百度地图使用 
 		SDKInitializer.initialize(this);
 		//极光推送
-//		JPushInterface.init(this);    //暂时注释， 放开后启动报错， chang shengqiang
+		//JPushInterface.init(this);    //暂时注释， 放开后启动报错， chang shengqiang
 	}
 	
 	public static Context getAppContext()

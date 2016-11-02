@@ -51,4 +51,15 @@ public class HttpClientHelper {
 		
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpDetail.do", param, callBack);	
 	}
+	
+	//加载评论列表
+	public static void 	queryHelpCommentList(int helpId, int nowPage, int pageSize, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		
+		param.put("helpId", Integer.toString(helpId));
+		param.put("nowPage", Integer.toString(nowPage));
+		param.put("pageSize", Integer.toString(pageSize));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpCommentList.do", param, callBack);	
+	}	
 }
