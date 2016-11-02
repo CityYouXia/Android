@@ -8,7 +8,7 @@
     <string name="activity_main_bottom_bar_home">首页</string>
     <string name="activity_main_bottom_bar_task">任务</string>
     <string name="activity_main_bottom_bar_my">我的</string>
-	
+	<string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
@@ -35,7 +35,8 @@
 	<string name="rescue_rightnow">立即救援</string>    
 
 	<!-- 任务详情 -->
-	<string name="activity_task_detail_solved_ahead">该求助已被</string>
-	<string name="activity_task_detail_solved_after">解决</string>
+	<string name="activity_road_rescue_detail_title">任务详情</string>
+	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
+	<string name="activity_road_rescue_detail_solved_after">解决</string>
 </resources>
 

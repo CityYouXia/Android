@@ -1,7 +1,5 @@
 package com.youxia.utils;
 
-import cn.jpush.android.api.JPushInterface;
-
 import com.baidu.mapapi.SDKInitializer;
 import com.tencent.bugly.crashreport.CrashReport;
 
