@@ -6,7 +6,6 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
-import com.youxia.utils.YouXiaApp;
 import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
 
@@ -41,6 +40,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		initView();
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void initView() {
 		viewPagerAdvert.addALocalImageToViewPager("ad1.jpg", R.drawable.ad1, "广告1");
 		viewPagerAdvert.addALocalImageToViewPager("ad2.jpg", R.drawable.ad2, "广告2");
@@ -71,15 +71,6 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 
 		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight * 2,R.drawable.home_express));
 		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_asking));
-
-		
-//		roadRescure.setNum(15);
-//		moveCar.setNum(5);
-//		roadConditions.setNum(8);
-//		peopleSearch.setNum(20);
-//		thingsSearch.setNum(13);
-//		express.setNum(1);
-//		asking.setNum(5);
 	}
 	
 	public LinearLayout getHorizontalLayout()
@@ -112,11 +103,13 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 	
 	@Override
 	public void onClick(View v) {
-		Intent intent = new Intent();
 		
 		switch (Integer.parseInt(v.getTag().toString())) {
 		case R.drawable.home_road_rescue:
-			intent.setClass(getActivity(), RoadRescueActivity.class);
+			Intent intent = new Intent();
+			
+			intent.setClass(getActivity(), RoadRescueActivity.class);			
+			startActivity(intent);
 			break;
 		case R.drawable.home_missing_person:
 			break;
@@ -131,7 +124,6 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		case R.drawable.home_asking:
 			break;
 		}
-		startActivity(intent);
 	}
 	
 	public void btnClick(View v){
