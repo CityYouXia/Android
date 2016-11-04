@@ -324,7 +324,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			}
 			else {
 				Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), (localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
-		//		YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + localData.userPhoto, bitmap);
+				YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + localData.userPhoto, bitmap);
 			}
 			
 			if (localData.isSolve == 2) {
@@ -338,7 +338,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				hold.layoutScene.setVisibility(View.GONE);
 			}
 			else {
-			//	YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
+				YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
 				
 			}
 
