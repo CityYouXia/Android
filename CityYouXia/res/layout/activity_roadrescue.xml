@@ -8,6 +8,12 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <include layout="@layout/activity_main_title_bar" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_top_image_height"
+        android:src="@drawable/default_image" />
     
     <com.youxia.widget.pulltorefreshlistview.RefreshListView 
         android:id="@+id/activity_roadrescue_listview"

@@ -1,7 +1,7 @@
 package com.youxia.widget;
 
 import com.youxia.R;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+@SuppressLint({ "DrawAllocation", "ClickableViewAccessibility" })
 public class TouchFingerImageView extends ImageView {
 
     /**

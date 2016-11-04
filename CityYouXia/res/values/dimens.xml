@@ -41,6 +41,9 @@
     <dimen name="common_listview_rewards_width">16dp</dimen>
     <dimen name="common_listview_rewards_height">16dp</dimen>
     
+    <dimen name="common_button_height">45dp</dimen>
+    <dimen name="common_top_image_height">150dp</dimen>
+    
     
     <!-- 道路救援列表 -->
     <dimen name="roadrescue_listview_head_width">28dp</dimen>
@@ -56,7 +59,7 @@
     <dimen name="zero_dp">0dp</dimen>
     
     <!-- FragmentHome -->
-    <dimen name="fragment_home_advert_pager_height">150dp</dimen>
+    <dimen name="fragment_home_advert_pager_height">100dp</dimen>
     <dimen name="fragment_home_content_padding_top">10dp</dimen>
     <dimen name="fragment_home_content_padding_left">4dp</dimen>
     <dimen name="fragment_home_content_padding_right">4dp</dimen>
