@@ -42,7 +42,7 @@
     <dimen name="common_listview_rewards_height">16dp</dimen>
     
     <dimen name="common_button_height">45dp</dimen>
-    <dimen name="common_top_image_height">150dp</dimen>
+    <dimen name="common_top_image_height">120dp</dimen>
     
     
     <!-- 道路救援列表 -->

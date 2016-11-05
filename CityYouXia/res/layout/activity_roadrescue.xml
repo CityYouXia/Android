@@ -10,9 +10,10 @@
     <include layout="@layout/activity_main_title_bar" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/activity_roadrescue_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_top_image_height"
+        android:scaleType="fitXY"
         android:src="@drawable/default_image" />
     
     <com.youxia.widget.pulltorefreshlistview.RefreshListView 
@@ -23,5 +24,29 @@
         android:dividerHeight="0dp"
         android:fastScrollEnabled="false"
         android:fadeScrollbars="true" 
+        android:layout_weight="1"
         style="@style/common_listview_style" />
+    
+    <com.youxia.widget.CustomLoadingView
+ 		android:id="@+id/customer_loading_view"
+ 		android:layout_width="match_parent"
+ 		android:layout_height="match_parent"
+ 		android:layout_weight="1"
+ 		android:visibility="gone" 
+ 		/>
+    
+   <Button 
+        android:id="@+id/activity_roadrescue_help_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_button_height"
+        android:layout_marginLeft="@dimen/common_margin_left"
+        android:layout_marginRight="@dimen/common_margin_right"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:layout_marginBottom="@dimen/common_margin_bottom"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/common_button_helpme"
+        android:textColor="@color/white"
+        android:textSize="@dimen/common_text_size_normal"
+        android:enabled="true"
+        android:background="@drawable/activity_button_selector"/>
 </LinearLayout>

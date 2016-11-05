@@ -406,7 +406,7 @@ public class YouXiaUtils {
     	//判断网络状态
   		int status = NetWorkHelper.getNetworkStatus(context);
   		if (status != NetWorkHelper.NETWORK_WIFI && status != NetWorkHelper.NETWORK_MOBIL) {
-  			showToast(context, context.getResources().getString(R.string.commond_nonetwork_connect), Toast.LENGTH_LONG);
+  			showToast(context, context.getResources().getString(R.string.common_network_none), Toast.LENGTH_LONG);
   			return false;
   		}
   		return true;
