@@ -52,6 +52,28 @@ public class HttpClientHelper {
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpDetail.do", param, callBack);	
 	}
 	
+	//添加评论
+	public static void 	addHelpComment(int helpId, int userId, String content, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		
+		param.put("helpId", Integer.toString(helpId));
+		param.put("userId", Integer.toString(userId));
+		param.put("content", content);
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/addHelpComment.do", param, callBack);	
+	}	
+	
+	//获取帮助信息图片
+	public static void 	queryHelpImageList(int helpId, int nowPage, int pageSize, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		
+		param.put("helpId", Integer.toString(helpId));
+		param.put("nowPage", Integer.toString(nowPage));
+		param.put("pageSize", Integer.toString(pageSize));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpImageList.do", param, callBack);	
+	}
+	
 	//加载评论列表
 	public static void 	queryHelpCommentList(int helpId, int nowPage, int pageSize, AjaxCallBack<? extends Object> callBack)
 	{

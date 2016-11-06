@@ -8,6 +8,7 @@
     <string name="activity_main_bottom_bar_home">首页</string>
     <string name="activity_main_bottom_bar_task">任务</string>
     <string name="activity_main_bottom_bar_my">我的</string>
+    <string name="input_empty">输入内容不能为空哦~</string>
 	<string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
@@ -38,5 +39,10 @@
 	<string name="activity_road_rescue_detail_title">任务详情</string>
 	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
 	<string name="activity_road_rescue_detail_solved_after">解决</string>
+	<string name="activity_road_rescue_detail_no_comment">次求助帖还没有评论哦~</string>
+	<string name="activity_road_rescue_detail_more_comments">查看更多评论</string>
+	<string name="activity_road_rescue_detail_more_images">查看更多图片</string>
+	<string name="activity_road_rescue_detail_comment_success">评论成功啦~</string>
+	<string name="activity_road_rescue_detail_comment_fail">不好意思，评论失败啦~</string>
 </resources>
 

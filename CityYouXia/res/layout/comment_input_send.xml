@@ -19,6 +19,8 @@
             android:id="@+id/comment_edittext"
             android:layout_width="@dimen/comment_edittext_width"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:paddingRight="@dimen/common_padding_right"
             android:layout_marginLeft="@dimen/common_margin_left"
             android:layout_marginRight="@dimen/common_margin_right"
             android:background="@drawable/comment_edittext_border"

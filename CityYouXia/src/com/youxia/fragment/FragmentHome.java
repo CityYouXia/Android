@@ -6,6 +6,7 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
+import com.youxia.activity.RoadRescueDetailActivity;
 import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
 
@@ -109,7 +110,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 			Intent intent = new Intent();
 			
 			intent.setClass(getActivity(), RoadRescueActivity.class);
-			
+//			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
 			startActivity(intent);
 			break;
 		case R.drawable.home_missing_person:

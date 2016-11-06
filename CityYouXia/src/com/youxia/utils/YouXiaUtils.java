@@ -527,6 +527,29 @@ public class YouXiaUtils {
   		return screenHeight; 
   	}	
 	
+    /**
+     * 判断给定字符串是否空白串。 空白串是指由空格、制表符、回车符、换行符组成的字符串 若输入字符串为null或空字符串，返回true
+     * 
+     * @param input
+     * @return boolean
+     */
+    public static boolean isEmpty(String input) {
+        if (input == null || "".equals(input) || TextUtils.isEmpty(input)) {
+            return true;
+        }
+        else {
+        	return false;
+        }
+    }
+  	
+    public static boolean inputCheckEmpty(Context context, String input){
+    	if (isEmpty(input)) {
+    		showToast(context, context.getString(R.string.input_empty), 0);
+			return true;
+		}
+    	return false;
+    }
+    
   	/**
   	 * JPush推送存储别名和标签
   	 * */

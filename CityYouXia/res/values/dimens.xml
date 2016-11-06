@@ -93,6 +93,7 @@
 	<dimen name="activity_road_rescue_detail_item_information_textsize">16sp</dimen>
 	<!-- 发送编辑框 -->
 	<dimen name="comment_edittext_width">270dp</dimen>
+	<dimen name="comment_edittext_height">38dp</dimen>
 	<dimen name="comment_edittext_margin_top_bottoom">6dp</dimen>
 	<dimen name="comment_edittext_max_height">76dp</dimen>
 	
