@@ -44,7 +44,7 @@
 	<string name="activity_road_rescue_detail_no_comment">次求助帖还没有评论哦~</string>
 	<string name="activity_road_rescue_detail_more_comments">查看更多评论</string>
 	<string name="activity_road_rescue_detail_more_images">查看更多图片</string>
-	<string name="activity_road_rescue_detail_comment_success">评论成功啦~</string>
+	<string name="activity_road_rescue_detail_comment_success">发表评论成功啦~</string>
 	<string name="activity_road_rescue_detail_comment_fail">不好意思，评论失败啦~</string>
 </resources>
 

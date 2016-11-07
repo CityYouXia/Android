@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
+import com.youxia.entity.HelpListEntity;
 import com.youxia.entity.RoadRescueDetailCommentListEntity;
 import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
@@ -172,6 +173,9 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							YouXiaUtils.showToast(RoadRescueDetailActivity.this, getString(R.string.activity_road_rescue_detail_comment_success), 0);
 							mCommentEditText.setText("");
 							//评论列表头部加一条新评论
+							loadCommentList(helpId);//重新加载评论列表
+							/*ArrayList<RoadRescueDetailCommentListEntity> paramArrayList = new ArrayList<RoadRescueDetailCommentListEntity>();
+							RoadRescueDetailActivity.this.addFirstListView(paramArrayList);*/
 						}
 						else{
 							YouXiaUtils.showToast(RoadRescueDetailActivity.this, getString(R.string.activity_road_rescue_detail_comment_fail), 0);
@@ -448,6 +452,24 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		for (int i = 0; i < paramArrayList.size(); i++)
 			this.mCommentListAdapter.addObject(paramArrayList.get(i));
 		this.mCommentListAdapter.notifyDataSetChanged();
+	}
+	
+	public void addFirstListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
+	{			
+		if (paramArrayList == null || this.mCommentListAdapter == null) return;
+		
+		for (int i = 0; i < paramArrayList.size(); i++)  
+			this.mCommentListAdapter.addFirst(paramArrayList.get(i));
+		this.mCommentListAdapter.notifyDataSetChanged();		  
+	}
+	
+	public void addLastListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
+	{
+		if (paramArrayList == null || this.mCommentListAdapter == null) return;
+		
+		for (int i = 0; i < paramArrayList.size(); i++)  
+			this.mCommentListAdapter.addLast(paramArrayList.get(i));
+		this.mCommentListAdapter.notifyDataSetChanged();		  
 	}
 
 	public void freshGridView(ArrayList<RoadRescueDetailHelpImageListEntity> paramArrayList) {
