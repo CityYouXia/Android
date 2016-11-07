@@ -10,6 +10,7 @@
     <string name="activity_main_bottom_bar_my">我的</string>
     <string name="input_empty">输入内容不能为空哦~</string>
 	<string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
+	
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
@@ -20,20 +21,21 @@
     <string name="share_save_local">保存到本地</string>
     <string name="share_copy">复制到剪贴板</string>
     
-    <!-- 通用-->
-    <string name="commond_nonetwork_connect">没有可用网络，请检查Wifi或移动网络!</string>
+    <!-- 通用-->    
+    <string name="common_loading">正在玩命为您加载...</string>
+    <string name="common_loading_failed">不好意思加载失败了，请您稍后重试哦~</string>
+    <string name="common_network_none">没有可用网络，请检查Wifi或移动网络!</string>
+    <string name="common_retry">点击屏幕，重新加载</string>
+    
     <string name="common_comment_send">发送</string>
     
     <string name="common_button_online">在线帮忙</string>
     <string name="common_button_help">立即救援</string>
     <string name="common_button_helpme">我要求助</string>
     
-    <!-- FragmentHome -->
-    <string name="need_help">我要求助</string>
     
     <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>    
-	<string name="rescue_rightnow">立即救援</string>    
 
 	<!-- 任务详情 -->
 	<string name="activity_road_rescue_detail_title">任务详情</string>

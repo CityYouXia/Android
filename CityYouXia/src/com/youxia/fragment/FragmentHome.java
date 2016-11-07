@@ -61,6 +61,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
 		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_movecar));
 		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_traffic));
+		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
 		
 		//添加第二列元素
 		LinearLayout linearLayout = getHorizontalLayout();

@@ -11,6 +11,7 @@ import com.youxia.entity.HelpListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
+import com.youxia.widget.CustomLoadingView;
 import com.youxia.widget.pulltorefreshlistview.OnRefreshListener;
 import com.youxia.widget.pulltorefreshlistview.RefreshListView;
 
@@ -38,6 +39,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	@ViewInject(id=R.id.title_bar_back,click="btnClick") 				RelativeLayout		mTitleBarBack;
 	
 	@ViewInject(id=R.id.activity_roadrescue_listview) 					RefreshListView		mListView;
+	@ViewInject(id=R.id.customer_loading_view) 							CustomLoadingView	mLoadingView;
 	
 	
 	private MyListAdapter			mListAdapter;
@@ -62,6 +64,13 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		this.mListView.setAdapter(mListAdapter);
 		this.mListView.setOnRefreshListener(this);
 		this.mListView.setOnItemClickListener(this);
+		
+		if(!YouXiaUtils.netWorkStatusCheck(this)) {			
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.network);
+			mListView.setVisibility(View.GONE);
+			
+			return;
+		}
 		
 		loadingRoadRescues();
 	}
@@ -97,6 +106,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	//加载问题和更多
 	public void loadingRoadRescues() {
 		if(!YouXiaUtils.netWorkStatusCheck(this)) return;
+		
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
 			@Override
 			public void onSuccess(String result) {
@@ -221,14 +231,14 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	public void loadingProc(boolean showloading)
 	{
-//		if (showloading) {
-//			mLoadingLayout.setVisibility(View.VISIBLE);
-//			mListView.setVisibility(View.GONE);
-//		}
-//		else {
-//			mLoadingLayout.setVisibility(View.GONE);
-//			mListView.setVisibility(View.VISIBLE);
-//		}
+		if (showloading) {
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.loading);
+			mListView.setVisibility(View.GONE);
+		}
+		else {
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.done);
+			mListView.setVisibility(View.VISIBLE);
+		}
 	}
 
 	@Override
