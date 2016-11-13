@@ -16,6 +16,7 @@
     <color name="common_titlebar_background">#ff8200</color>
     <color name="common_background">#f4f4f3</color>
     <color name="common_divide_line">#e2e2e2</color>
+    <color name="common_titlebar_text_press_color">#ff77c1ff</color>
     
     <color name="bottom_bar_text_normal_color">#2c2c2c</color>
     <color name="bottom_bar_text_press_color">#ff8200</color>

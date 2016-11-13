@@ -53,6 +53,11 @@ public class YouXiaUtils {
 	public static final String			PLATFORMWECHAT					=	Wechat.NAME;			//微信好友
 	public static final String			PLATFORMWECHATMOMENTS			=	WechatMoments.NAME;		//微信朋友圈
 	public static final String			PLATFORMSAVE					=	"save";					//保存本地
+	
+	public static final int				PROBLEM_REPORT_PHOTO_MAXNUMBER	=	6;			//问题上报图片选择数量限制
+	public static final int				PROBLEM_REPORT_CAMERA_RESULTCODE=	9999;		//问题上报照相result
+	public static final String			PROBLEM_REPORT_PHOTO_NAME		=	"help_temp.png";
+	
 	//************************************************************************
 	//以下是公用函数
 	//************************************************************************
@@ -532,7 +537,6 @@ public class YouXiaUtils {
   	 * */
   	public static void setAlias(Context context, String aliasString) {
   		if(null == aliasString || TextUtils.isEmpty(aliasString)) return;
-//  		PreferencesUtils.putString(context, YUNWEI_PUSHALIAS, PUSHALIAS+aliasString);
   	}
    	
 	/**

@@ -9,7 +9,6 @@ import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
 import com.youxia.entity.HelpListEntity;
 import com.youxia.http.HttpClientHelper;
-import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
 import com.youxia.widget.pulltorefreshlistview.OnRefreshListener;
 import com.youxia.widget.pulltorefreshlistview.RefreshListView;
@@ -36,18 +35,14 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	//title
 	@ViewInject(id=R.id.title_bar_title) 								TextView			mTitleBarTitle;
 	@ViewInject(id=R.id.title_bar_back,click="btnClick") 				RelativeLayout		mTitleBarBack;
-	
+	@ViewInject(id=R.id.title_bar_help,click="btnClick") 				RelativeLayout		mTitleBarHelp;
 	@ViewInject(id=R.id.activity_roadrescue_listview) 					RefreshListView		mListView;
-	
-	
 	private MyListAdapter			mListAdapter;
-	
 	private int						pageNo 	= 1;
 	private int						pageSize	= 5;
 	public	long 					pullRefreshId 	= 0;		//下拉刷新，最新ID
 	private boolean					loadMoreFlag	= true;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,12 +52,12 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_roadrescue));
+		mTitleBarHelp.setVisibility(View.VISIBLE);
 		
 		this.mListAdapter = new MyListAdapter(this);
 		this.mListView.setAdapter(mListAdapter);
 		this.mListView.setOnRefreshListener(this);
 		this.mListView.setOnItemClickListener(this);
-		
 		loadingRoadRescues();
 	}
 
@@ -70,6 +65,11 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		switch (v.getId()) {
 		case R.id.title_bar_back:
 			finish();
+			break;
+		case R.id.title_bar_help:
+			Intent intent = new Intent();
+			intent.setClass(this, RoadRescueHelpActivity.class);
+			startActivity(intent);
 			break;
 		}
 	}
@@ -156,7 +156,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		};
 		HttpClientHelper.loadRoadRescues(pageSize, pageNo, callBack);
 	}
-	
 	
 	private void freshRoadRescues() {
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
@@ -339,7 +338,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			}
 			else {
 			//	YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
-				
 			}
 
 			return convertView;

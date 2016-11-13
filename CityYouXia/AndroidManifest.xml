@@ -76,6 +76,9 @@
         <activity android:name="com.youxia.activity.RoadRescueActivity" />
         <activity android:name="com.youxia.activity.RoadRescueDetailActivity" />
         <activity android:name="com.youxia.activity.RoadRescueHelpActivity" />
+        <activity android:name=".activity.AlbumActivity" />
+        <activity android:name=".activity.PhotoActivity" />
+        <activity android:name=".activity.PhotoDetailsActivity" />
         
         <!-- QQ分享回调 -->
         <activity
@@ -134,7 +137,7 @@
         <!-- 百度地图 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="qOUiaGSxGQ7yXkILGoZonY1TIvmQpKXZ"/>
+            android:value="LGmSMbFCnqRMAb69q927wueWKyaAIgnf"/>
         <!--定位服务-->
         <service
             android:name="com.baidu.location.f"

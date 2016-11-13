@@ -13,23 +13,37 @@
     <dimen name="common_margin_left">15dp</dimen>
     <dimen name="common_margin_top">5dp</dimen>    
     <dimen name="common_margin_bottom">5dp</dimen>
-        
+    <dimen name="common_margin_top_m">10dp</dimen>    
+    <dimen name="common_margin_bottom_m">10dp</dimen>
+    <dimen name="common_margin_top_large">15dp</dimen>    
+    <dimen name="common_margin_bottom_large">15dp</dimen>
+    
     <dimen name="common_padding_left">15dp</dimen>
     <dimen name="common_padding_right">15dp</dimen>
     <dimen name="common_padding_top">5dp</dimen>    
     <dimen name="common_padding_bottom">5dp</dimen>
+    <dimen name="common_padding_top_m">10dp</dimen>    
+    <dimen name="common_padding_bottom_m">10dp</dimen>
+    <dimen name="common_padding_top_large">15dp</dimen>    
+    <dimen name="common_padding_bottom_large">15dp</dimen>
+    
     
     <dimen name="common_view_space_5">5dp</dimen>
     <dimen name="common_view_space_10">10dp</dimen>
     <dimen name="common_view_space_20">20dp</dimen>
     
     <dimen name="common_divide_line_height">0.5dp</dimen>
-        
+    <dimen name="common_popup_divided_line_h_height">30dp</dimen>
+    
     <dimen name="common_text_size_small">12sp</dimen>
     <dimen name="common_text_size_mediem">14sp</dimen>
     <dimen name="common_text_size_normal">16sp</dimen>
     <dimen name="common_text_size_large">18sp</dimen>
     <dimen name="common_text_size_supper_large">20sp</dimen>
+    
+    <dimen name="common_gridview_space">10dp</dimen>
+    <dimen name="common_gridview_margin">10dp</dimen>
+    <dimen name="common_gridview_space_small">5dp</dimen>
     
     <!-- 通用列表 -->
     <dimen name="common_listview_button_width">76dp</dimen>

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <include layout="@layout/common_divided_line" />
+    <include layout="@layout/common_divided_line_vertical" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -103,6 +103,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_divide_line_height"
         android:layout_marginTop="@dimen/common_margin_top"
-        layout="@layout/common_divided_line" />
+        layout="@layout/common_divided_line_vertical" />
 
 </LinearLayout>

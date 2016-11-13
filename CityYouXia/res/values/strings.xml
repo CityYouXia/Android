@@ -5,10 +5,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="cancel">取消</string>
     <string name="colons">:</string>
+    <string name="album">相册</string>
+    <string name="commit">提交</string>
     <string name="activity_main_bottom_bar_home">首页</string>
     <string name="activity_main_bottom_bar_task">任务</string>
     <string name="activity_main_bottom_bar_my">我的</string>
-	<string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
+    <string name="load_fail">不好意思加载失败了，请您稍后重试哦~</string>
+    <string name="common_pop_photopicker_carema">拍照</string>
+    <string name="common_pop_photopicker_album">从相册中选取</string>
+    <string name="common_pop_photopicker_done">完成(0)</string>
+    <string name="upload_fail">不好意思上传失败了，请您稍后重试</string>
+    
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
@@ -22,7 +29,6 @@
     <!-- 通用-->
     <string name="commond_nonetwork_connect">没有可用网络，请检查Wifi或移动网络!</string>
     <string name="common_comment_send">发送</string>
-    
     <string name="common_button_online">在线帮忙</string>
     <string name="common_button_help">立即救援</string>
     <string name="common_button_helpme">我要求助</string>
@@ -31,12 +37,20 @@
     <string name="need_help">我要求助</string>
     
     <!-- 道路救援 -->
-    <string name="activity_roadrescue">道路救援</string>    
-	<string name="rescue_rightnow">立即救援</string>    
-
-	<!-- 任务详情 -->
-	<string name="activity_road_rescue_detail_title">任务详情</string>
-	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
-	<string name="activity_road_rescue_detail_solved_after">解决</string>
+    <string name="activity_roadrescue">道路救援</string>
+    <string name="rescue_rightnow">立即救援</string>
+    <!-- 道路救援求助 -->
+    <string name="roadrescue_help_title_hint">请输入标题</string>
+    <string name="roadrescue_help_content_hint">请输入内容</string>
+    
+    <!-- 任务详情 -->
+    <string name="activity_road_rescue_detail_title">任务详情</string>
+    <string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
+    <string name="activity_road_rescue_detail_solved_after">解决</string>
+    
+    <!-- 我要求助 -->
+    <string name="help_abandoned">放弃本次编辑？</string>
+    <string name="help_abandoned_cancel">继续编辑</string>
+    <string name="help_abandoned_confirm">狠心放弃</string>
 </resources>
 

@@ -52,5 +52,10 @@
         <item name="android:divider">@color/common_background</item>
         <item name="android:dividerHeight">1.0px</item>
     </style>
- 
+    
+    <style name="MyPopAnimStyle" parent="android:Animation">  
+        <item name="@android:windowEnterAnimation">@anim/head_in</item>  //进入时的动画   
+        <item name="@android:windowExitAnimation">@anim/head_out</item>    //退出时的动画   
+    </style>
+    
 </resources>

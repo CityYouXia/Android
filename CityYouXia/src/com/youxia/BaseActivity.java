@@ -1,5 +1,7 @@
 package com.youxia;
 
+import com.youxia.utils.YouXiaActivityManager;
+
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
@@ -18,6 +20,8 @@ public abstract class BaseActivity extends FinalActivity{
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		//启动activity时不自动弹出软键盘
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        // 添加Activity到堆栈  
+        YouXiaActivityManager.getAppManager().addActivity(this);
 	}
 	
 	public void recycle() {

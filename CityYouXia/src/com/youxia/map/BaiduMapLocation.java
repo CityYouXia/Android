@@ -5,6 +5,8 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
+import com.youxia.utils.YouXiaApp;
+
 import android.content.Context;
 
 public class BaiduMapLocation {
@@ -47,8 +49,9 @@ public class BaiduMapLocation {
 				return;
 			double latitude = location.getLatitude();
 			double longitude = location.getLongitude();
+			String city = location.getCity();
 			
-			
+			YouXiaApp.setmLocation(location.getAddrStr());
 		}
 	}
 	

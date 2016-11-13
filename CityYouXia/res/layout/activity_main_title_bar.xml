@@ -38,15 +38,13 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent"
 	        android:layout_alignParentRight="true" >
-	        
-			<!-- 	        搜索 		-->
-
-		    <RelativeLayout
+	        <!-- 	        搜索 		-->
+	        <RelativeLayout
 		        android:id="@+id/title_bar_search"
 		        android:layout_width="@dimen/common_title_bar_height"
 		        android:layout_height="match_parent"
 		        android:visibility="gone" >
-
+	
 		        <ImageView 
 			        android:layout_width="@dimen/common_title_bar_image_width"
 			        android:layout_height="@dimen/common_title_bar_image_height"
@@ -54,10 +52,35 @@
 			        android:duplicateParentState="true"
 			        android:contentDescription="@string/app_name"
 			        android:src="@drawable/title_bar_search_selector" /> 
-			        
-		    </RelativeLayout>    
-
+	        </RelativeLayout>
+	        <RelativeLayout
+		        android:id="@+id/title_bar_textbtn"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:visibility="gone" >
+		        <TextView 
+		            android:id="@+id/title_bar_textbtn_tv"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_centerInParent="true"
+			        android:duplicateParentState="true"
+			        android:layout_marginRight="@dimen/common_margin_right"
+			        android:textSize="@dimen/common_text_size_large"
+			        android:textColor="@color/common_titlebar_text_selector"/>
+		    </RelativeLayout>
+	        <RelativeLayout
+		        android:id="@+id/title_bar_help"
+		        android:layout_width="@dimen/common_title_bar_height"
+		        android:layout_height="match_parent"
+		        android:visibility="gone" >
+		        <ImageView 
+			        android:layout_width="@dimen/common_title_bar_image_width"
+			        android:layout_height="@dimen/common_title_bar_image_height"
+			        android:layout_centerInParent="true"
+			        android:duplicateParentState="true"
+			        android:contentDescription="@string/app_name"
+			        android:src="@drawable/title_bar_search_selector" /> 
+		    </RelativeLayout>
 	    </LinearLayout>
-
 	</RelativeLayout>
 </LinearLayout>

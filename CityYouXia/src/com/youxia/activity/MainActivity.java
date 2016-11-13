@@ -9,7 +9,6 @@ import com.youxia.fragment.FragmentMy;
 import com.youxia.fragment.FragmentTask;
 import com.youxia.fragment.FragmentHome;
 import com.youxia.map.BaiduMapLocation;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
