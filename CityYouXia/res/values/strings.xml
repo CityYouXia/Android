@@ -33,10 +33,12 @@
     <string name="common_button_help">立即救援</string>
     <string name="common_button_helpme">我要求助</string>
     
-    
+    <!-- 评论列表 -->
+    <string name="activity_commentlist">评论列表</string>    
+
     <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>    
-
+    
 	<!-- 任务详情 -->
 	<string name="activity_road_rescue_detail_title">任务详情</string>
 	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>

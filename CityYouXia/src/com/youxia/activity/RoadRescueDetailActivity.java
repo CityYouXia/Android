@@ -9,7 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
-import com.youxia.entity.HelpListEntity;
+import com.youxia.adapter.AdapterCommentList;
 import com.youxia.entity.RoadRescueDetailCommentListEntity;
 import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
@@ -80,7 +80,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	@ViewInject(id = R.id.activity_road_rescue_detail_image_gridview)
 	GridView mImageGridView;
 
-	private CommentListAdapter mCommentListAdapter;
+	private AdapterCommentList mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
 	private int pageNo = 1;
 	private int pageSize = 5;
@@ -101,7 +101,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		helpId = this.getIntent().getExtras().getInt("id");
 		loadRoadRescueDetailById(helpId);
 		// 加载评论列表
-		mCommentListAdapter = new CommentListAdapter(this);
+		mCommentListAdapter = new AdapterCommentList(this);
 		mCommentList.setAdapter(mCommentListAdapter);
 		loadCommentList(helpId);
 		// 加载图片列表
@@ -344,65 +344,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			break;
 		}
 	}
-
-	public class CommentListAdapter extends BaseLinkedListAdapter {
-		private Context context;
-
-		public CommentListAdapter(Context context) {
-			this.context = context;
-		}
-
-		class ViewHold {
-			ImageView ivHeadPhoto;
-			TextView tvNickName;
-			TextView tvDatetime;
-			TextView tvContent;
-			TextView tvFloor;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-
-			RoadRescueDetailCommentListEntity localData = (RoadRescueDetailCommentListEntity) getItem(position);
-
-			ViewHold hold = null;
-
-			if (convertView == null) {
-
-				hold = new ViewHold();
-				convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_comment, parent,
-						false);
-
-				hold.ivHeadPhoto = (ImageView) convertView
-						.findViewById(R.id.road_rescue_detail_listitem_rescuer_portrait);
-				hold.tvNickName = (TextView) convertView
-						.findViewById(R.id.road_rescue_detail_listitem_rescuer_nickname);
-				hold.tvDatetime = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_comment_time);
-				hold.tvContent = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_comment_content);
-				hold.tvFloor = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_floor);
-
-				convertView.setTag(hold);
-			} else {
-				hold = (ViewHold) convertView.getTag();
-			}
-
-			if (hold == null)
-				return convertView;
-
-			hold.tvNickName.setText(localData.commentUserName);
-			hold.tvDatetime.setText(localData.createDate);
-			hold.tvContent.setText(localData.content);
-
-			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
-					(localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
-			YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto,
-					HttpClientHelper.Basic_YouXiaUrl + localData.commentUserPhoto, bitmap);
-
-			hold.tvFloor.setText(position + 1 + "楼");
-			return convertView;
-		}
-	}
-
+	
 	public class ImageGridViewAdapter extends BaseLinkedListAdapter {
 		private Context context;
 
