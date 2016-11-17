@@ -18,6 +18,7 @@ import com.youxia.utils.YouXiaUtils;
 import com.youxia.widget.ListViewForScrollView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -336,7 +337,9 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			break;
 		case R.id.activity_road_rescue_detail_load_more_image:
 			// 加载更多图片
-
+			Intent intent = new Intent();
+			intent.putExtra("helpId", helpId);
+			intent.setClass(this, CommentListActivity.class);
 			break;
 		case R.id.activity_road_rescue_detail_load_more_comment:
 			// 加载更多评论列表

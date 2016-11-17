@@ -7,7 +7,6 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.R;
 import com.youxia.adapter.AdapterCommentList;
-import com.youxia.entity.HelpListEntity;
 import com.youxia.entity.RoadRescueDetailCommentListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaUtils;
@@ -29,14 +28,16 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 	@ViewInject(id=R.id.title_bar_title) 								TextView			mTitleBarTitle;
 	@ViewInject(id=R.id.title_bar_back,click="btnClick") 				RelativeLayout		mTitleBarBack;
 	@ViewInject(id=R.id.activity_commentlist_listview) 					RefreshListView		mListView;
-	@ViewInject(id=R.id.customer_loading_view) 							CustomLoadingView	mLoadingView;
+	@ViewInject(id=R.id.activity_commentlist_customer_loading_view)		CustomLoadingView	mLoadingView;
 	
 	private AdapterCommentList mCommentListAdapter;
 	
 	private int						pageNo 	= 1;
 	private int						pageSize	= 5;
+	private int						helpId	= -1;
 	public	long 					pullRefreshId 	= 0;		//下拉刷新，最新ID
 	private boolean					loadMoreFlag	= true;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 			
 			return;
 		}
+		helpId = this.getIntent().getExtras().getInt("helpId");
 		loadCommentList();
 	}
 	
@@ -81,7 +83,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 							
 							if(pageNo == 1){
 								CommentListActivity.this.freshListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
-								//pullRefreshId = list.get(0).commentId;//为加载更多服务
+								pullRefreshId = list.get(0).commentId;//为加载更多服务
 							}else{
 								CommentListActivity.this.addLastListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
 							}
@@ -120,7 +122,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 				else mListView.hideFooterView();
 			}
 		};
-		HttpClientHelper.loadRoadRescues(pageSize, pageNo, callBack);
+		HttpClientHelper.queryHelpCommentList(helpId, pageNo, pageSize, callBack);
 	}
 	
 	public void freshListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
@@ -165,12 +167,21 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 	
 	@Override
 	public void onDownPullRefresh() {
-		
+		if(!YouXiaUtils.netWorkStatusCheck(this)) {
+			mListView.hideHeaderView();
+			return;
+		}
+		pageNo = 1;
+		loadCommentList();
 	}
 
 	@Override
 	public void onLoadingMore() {
-		
+		if(!YouXiaUtils.netWorkStatusCheck(this) || !loadMoreFlag) {
+			mListView.hideFooterView();
+			return;
+		}
+		loadCommentList();
 	}
 	
 
