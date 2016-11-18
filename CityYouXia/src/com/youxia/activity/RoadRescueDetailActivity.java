@@ -337,13 +337,13 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			break;
 		case R.id.activity_road_rescue_detail_load_more_image:
 			// 加载更多图片
-			Intent intent = new Intent();
-			intent.putExtra("helpId", helpId);
-			intent.setClass(this, CommentListActivity.class);
+
 			break;
 		case R.id.activity_road_rescue_detail_load_more_comment:
 			// 加载更多评论列表
-
+			Intent intent = new Intent();
+			intent.putExtra("helpId", helpId);
+			intent.setClass(this, CommentListActivity.class);
 			break;
 		}
 	}
