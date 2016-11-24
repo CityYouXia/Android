@@ -56,7 +56,8 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 			
 			return;
 		}
-		helpId = this.getIntent().getExtras().getInt("helpId");
+		Bundle bundle = this.getIntent().getBundleExtra("bundle");
+		helpId = bundle.getInt("helpId");
 		loadCommentList();
 	}
 	

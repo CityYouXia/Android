@@ -109,9 +109,8 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		switch (Integer.parseInt(v.getTag().toString())) {
 		case R.drawable.home_road_rescue:
 			Intent intent = new Intent();
-			
-			intent.setClass(getActivity(), RoadRescueActivity.class);
-//			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
+//			intent.setClass(getActivity(), RoadRescueActivity.class);
+			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
 			startActivity(intent);
 			break;
 		case R.drawable.home_missing_person:

@@ -620,4 +620,88 @@ public class YouXiaUtils {
 		DecimalFormat df = new DecimalFormat("#,###,###,##0.00");
 		return df.format(value).toString();
 	}
+	
+	/**
+     * 字符串转Byte
+     * 
+     * @param str
+     * @param defValue
+     * @return
+     */
+    public static Byte toByte(String str, Byte defValue) {
+        try {
+            return Byte.parseByte(str);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }	
+	
+	/**
+     * 字符串转整数
+     * 
+     * @param str
+     * @param defValue
+     * @return
+     */
+    public static int toInt(String str, int defValue) {
+        try {
+            return Integer.parseInt(str);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }
+	
+    /**
+     * 对象转整数
+     * 
+     * @param obj
+     * @return 转换异常返回 0
+     */
+    public static int toInt(Object obj) {
+        if (obj == null)
+            return 0;
+        return toInt(obj.toString(), 0);
+    }
+    
+    /**
+     * 字符串转长整数
+     * 
+     * @param str
+     * @return 转换异常返回 0
+     */
+    public static long toLong(String str, long defValue) {
+        try {
+            return Long.parseLong(str);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }
+
+    /**
+     * 字符串转Double
+     * 
+     * @param str
+     * @return 转换异常返回 defValue
+     */
+    public static double toDouble(String str, double defValue) {
+        try {
+            return Double.parseDouble(str);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }    
+    
+    /**
+     * 字符串转布尔值
+     * 
+     * @param b
+     * @return 转换异常返回 false
+     */
+    public static boolean toBool(String b, boolean defValue) {
+        try {
+            return Boolean.parseBoolean(b);
+        } catch (Exception e) {
+        }
+        return defValue;
+    }
 }

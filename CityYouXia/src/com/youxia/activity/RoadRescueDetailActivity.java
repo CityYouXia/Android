@@ -3,6 +3,7 @@ package com.youxia.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.alibaba.fastjson.JSON;
@@ -26,6 +27,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -83,6 +86,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 
 	private AdapterCommentList mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
+	private ArrayList<RoadRescueDetailHelpImageListEntity> mImageList;
 	private int pageNo = 1;
 	private int pageSize = 5;
 	private int userId = 1;
@@ -99,16 +103,44 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_road_rescue_detail_title));
 		// 加载基本信息
-		helpId = this.getIntent().getExtras().getInt("id");
-		loadRoadRescueDetailById(helpId);
+		helpId = this.getIntent().getIntExtra("id", -1);
+		//loadRoadRescueDetailById(helpId);
 		// 加载评论列表
 		mCommentListAdapter = new AdapterCommentList(this);
 		mCommentList.setAdapter(mCommentListAdapter);
-		loadCommentList(helpId);
+		//loadCommentList(helpId);
 		// 加载图片列表
 		mImageGridAdapter = new ImageGridViewAdapter(this);
 		mImageGridView.setAdapter(mImageGridAdapter);
-		loadImageList(helpId);
+		mImageGridView.setOnItemClickListener(new ImageGridViewItemClickListener());
+		mImageGridView.setHorizontalSpacing(YouXiaUtils.dip2px(this, 1));
+		//loadImageList(helpId);
+		
+		//test
+		mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
+		hasImages(true);
+		
+		RoadRescueDetailHelpImageListEntity entity0 = new RoadRescueDetailHelpImageListEntity();
+		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
+		entity0.createDate = "2016";
+		entity0.helpId = "0";
+		entity0.imageId = "0";
+		entity0.modifyDate = "2016";
+		entity0.name = "123";
+		entity0.orders = "123";
+		RoadRescueDetailHelpImageListEntity entity1 = new RoadRescueDetailHelpImageListEntity();
+		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+		RoadRescueDetailHelpImageListEntity entity2 = new RoadRescueDetailHelpImageListEntity();
+		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
+		mImageList.add(entity0);
+		mImageList.add(entity1);
+		mImageList.add(entity2);
+		RoadRescueDetailActivity.this.freshGridView(mImageList);
+		if (mImageList.size() < pageSize) {
+			hasMoreImages(false);
+		} else {
+			hasMoreImages(true);
+		}
 	}
 
 	private void loadRoadRescueDetailById(Integer id) {
@@ -171,15 +203,14 @@ public class RoadRescueDetailActivity extends BaseActivity {
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
 						if (result.equals("0")) {
-							YouXiaUtils.showToast(RoadRescueDetailActivity.this, getString(R.string.activity_road_rescue_detail_comment_success), 0);
+							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
+									getString(R.string.activity_road_rescue_detail_comment_success), 0);
 							mCommentEditText.setText("");
-							//评论列表头部加一条新评论
-							loadCommentList(helpId);//重新加载评论列表
-							/*ArrayList<RoadRescueDetailCommentListEntity> paramArrayList = new ArrayList<RoadRescueDetailCommentListEntity>();
-							RoadRescueDetailActivity.this.addFirstListView(paramArrayList);*/
-						}
-						else{
-							YouXiaUtils.showToast(RoadRescueDetailActivity.this, getString(R.string.activity_road_rescue_detail_comment_fail), 0);
+							// 评论列表头部加一条新评论
+							loadCommentList(helpId);// 重新加载评论列表
+						} else {
+							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
+									getString(R.string.activity_road_rescue_detail_comment_fail), 0);
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
@@ -213,9 +244,9 @@ public class RoadRescueDetailActivity extends BaseActivity {
 								RoadRescueDetailCommentListEntity.class); // 评论列表
 						if (list == null || list.size() <= 0) {
 							// 没有评论信息
-							hasComment(false);
+							hasComments(false);
 						} else {
-							hasComment(true);
+							hasComments(true);
 							RoadRescueDetailActivity.this
 									.freshListView((ArrayList<RoadRescueDetailCommentListEntity>) list);
 							if (list.size() < pageSize) {
@@ -229,7 +260,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 					}
 				} else {
 					// 没有评论信息
-					hasComment(false);
+					hasComments(false);
 				}
 			}
 
@@ -237,6 +268,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
 				YouXiaUtils.showToast(getApplication(), getString(R.string.load_fail), 0);
+				hasComments(false);
 			}
 		};
 		HttpClientHelper.queryHelpCommentList(helpId, pageNo, pageSize, callBack);
@@ -252,15 +284,16 @@ public class RoadRescueDetailActivity extends BaseActivity {
 				// 网络请求成功
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
-						List<RoadRescueDetailHelpImageListEntity> list = JSON.parseArray(result,
+						mImageList = (ArrayList<RoadRescueDetailHelpImageListEntity>) JSON.parseArray(result,
 								RoadRescueDetailHelpImageListEntity.class); // 图片列表
-						if (list == null || list.size() <= 0) {
+						if (mImageList == null || mImageList.size() <= 0) {
 							// 没有图片
+							hasImages(false);
 						} else {
-							hasComment(true);
+							hasImages(true);
 							RoadRescueDetailActivity.this
-									.freshGridView((ArrayList<RoadRescueDetailHelpImageListEntity>) list);
-							if (list.size() < pageSize) {
+									.freshGridView(mImageList);
+							if (mImageList.size() < 3) {
 								hasMoreImages(false);
 							} else {
 								hasMoreImages(true);
@@ -268,6 +301,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
+						hasImages(false);
 					}
 				}
 			}
@@ -276,9 +310,10 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
 				YouXiaUtils.showToast(getApplication(), getString(R.string.load_fail), 0);
+				hasImages(false);
 			}
 		};
-		HttpClientHelper.queryHelpImageList(helpId, pageNo, pageSize, callBack);
+		HttpClientHelper.queryHelpImageList(helpId, -1, -1, callBack);
 	}
 
 	// true 已解决 false未解决
@@ -295,7 +330,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	}
 
 	// true有评论，false没有评论
-	private void hasComment(Boolean flag) {
+	private void hasComments(Boolean flag) {
 		if (flag) {
 			mNoCommentTextView.setVisibility(View.GONE);
 			mCommentList.setVisibility(View.VISIBLE);
@@ -314,6 +349,16 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		}
 	}
 
+	//true有图片，false无图片
+	private void hasImages(Boolean flag){
+		if (flag) {
+			mImageGridView.setVisibility(View.VISIBLE);
+		}
+		else {
+			mImageGridView.setVisibility(View.GONE);
+		}
+	}
+	
 	// true有更多图片，false没有更多图片
 	private void hasMoreImages(Boolean flag) {
 		if (flag) {
@@ -323,7 +368,19 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		}
 	}
 
-	public void btnClick(View v) {
+	// 跳转到某个Activity,
+	private void jumpToActivity(Class<?> activityClass, Bundle bundle) {
+		Intent intent = new Intent();
+		if (bundle != null) {
+			intent.putExtra("bundle", bundle);
+		}
+		intent.setClass(this, activityClass);
+		startActivity(intent);
+	}
+
+	public void btnClick(View v) throws JSONException {
+		Bundle bundle = new Bundle();
+		bundle.putInt("helpId", helpId);
 		switch (v.getId()) {
 		case R.id.title_bar_back:
 			finish();
@@ -337,17 +394,17 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			break;
 		case R.id.activity_road_rescue_detail_load_more_image:
 			// 加载更多图片
-
+			bundle.putInt("position", 3);
+			bundle.putSerializable("imageList", mImageList);
+			jumpToActivity(ImageListActivity.class, bundle);
 			break;
 		case R.id.activity_road_rescue_detail_load_more_comment:
 			// 加载更多评论列表
-			Intent intent = new Intent();
-			intent.putExtra("helpId", helpId);
-			intent.setClass(this, CommentListActivity.class);
+			jumpToActivity(CommentListActivity.class, bundle);
 			break;
 		}
 	}
-	
+
 	public class ImageGridViewAdapter extends BaseLinkedListAdapter {
 		private Context context;
 
@@ -383,12 +440,27 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			if (hold == null)
 				return convertView;
 			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
+//			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
+//					bitmap);
+			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, localData.imageUrl,
 					bitmap);
 			return convertView;
 		}
 	}
 
+	private class ImageGridViewItemClickListener implements OnItemClickListener {
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			Bundle bundle = new Bundle();
+			bundle.putInt("helpId", helpId);
+			bundle.putInt("position", position);
+			bundle.putSerializable("imageList", mImageList);
+			jumpToActivity(ImageListActivity.class, bundle);
+		}
+		
+	} 
+	
 	public void freshListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
@@ -398,23 +470,23 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			this.mCommentListAdapter.addObject(paramArrayList.get(i));
 		this.mCommentListAdapter.notifyDataSetChanged();
 	}
-	
-	public void addFirstListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
-	{			
-		if (paramArrayList == null || this.mCommentListAdapter == null) return;
-		
-		for (int i = 0; i < paramArrayList.size(); i++)  
+
+	public void addFirstListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+		if (paramArrayList == null || this.mCommentListAdapter == null)
+			return;
+
+		for (int i = 0; i < paramArrayList.size(); i++)
 			this.mCommentListAdapter.addFirst(paramArrayList.get(i));
-		this.mCommentListAdapter.notifyDataSetChanged();		  
+		this.mCommentListAdapter.notifyDataSetChanged();
 	}
-	
-	public void addLastListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
-	{
-		if (paramArrayList == null || this.mCommentListAdapter == null) return;
-		
-		for (int i = 0; i < paramArrayList.size(); i++)  
+
+	public void addLastListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+		if (paramArrayList == null || this.mCommentListAdapter == null)
+			return;
+
+		for (int i = 0; i < paramArrayList.size(); i++)
 			this.mCommentListAdapter.addLast(paramArrayList.get(i));
-		this.mCommentListAdapter.notifyDataSetChanged();		  
+		this.mCommentListAdapter.notifyDataSetChanged();
 	}
 
 	public void freshGridView(ArrayList<RoadRescueDetailHelpImageListEntity> paramArrayList) {

@@ -133,15 +133,16 @@
             <GridView
                 android:id="@+id/activity_road_rescue_detail_image_gridview"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/activity_road_rescue_detail_grid_view_height"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/common_margin_left"
                 android:layout_marginRight="@dimen/common_margin_right"
                 android:gravity="center"
                 android:listSelector="@android:color/transparent"
-                android:numColumns="4"
+                android:numColumns="3"
                 android:scrollbars="none" >
             </GridView>
+            
             <TextView
                 android:id="@+id/activity_road_rescue_detail_load_more_image"
                 android:layout_width="match_parent"
