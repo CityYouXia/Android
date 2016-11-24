@@ -147,6 +147,7 @@
                 android:id="@+id/activity_road_rescue_detail_load_more_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_top"
                 android:gravity="center_horizontal"
                 android:text="@string/activity_road_rescue_detail_more_images"
                 android:textColor="@color/orange"

@@ -1,8 +1,5 @@
 package com.youxia.fragment;
 
-import net.tsz.afinal.FinalActivity;
-import net.tsz.afinal.annotation.view.ViewInject;
-
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
@@ -20,6 +17,8 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import net.tsz.afinal.FinalActivity;
+import net.tsz.afinal.annotation.view.ViewInject;
 
 @SuppressLint("InflateParams")
 public class FragmentHome extends BaseFragment implements OnClickListener {
@@ -109,8 +108,8 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		switch (Integer.parseInt(v.getTag().toString())) {
 		case R.drawable.home_road_rescue:
 			Intent intent = new Intent();
-//			intent.setClass(getActivity(), RoadRescueActivity.class);
-			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
+			intent.setClass(getActivity(), RoadRescueActivity.class);
+//			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
 			startActivity(intent);
 			break;
 		case R.drawable.home_missing_person:

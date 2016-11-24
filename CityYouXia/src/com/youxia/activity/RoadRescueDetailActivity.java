@@ -104,43 +104,46 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		mTitleBarTitle.setText(getString(R.string.activity_road_rescue_detail_title));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
-		//loadRoadRescueDetailById(helpId);
+		loadRoadRescueDetailById(helpId);
 		// 加载评论列表
 		mCommentListAdapter = new AdapterCommentList(this);
 		mCommentList.setAdapter(mCommentListAdapter);
-		//loadCommentList(helpId);
+		loadCommentList(helpId);
 		// 加载图片列表
 		mImageGridAdapter = new ImageGridViewAdapter(this);
 		mImageGridView.setAdapter(mImageGridAdapter);
 		mImageGridView.setOnItemClickListener(new ImageGridViewItemClickListener());
 		mImageGridView.setHorizontalSpacing(YouXiaUtils.dip2px(this, 1));
-		//loadImageList(helpId);
+		loadImageList(helpId);
 		
 		//test
-		mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
-		hasImages(true);
-		
-		RoadRescueDetailHelpImageListEntity entity0 = new RoadRescueDetailHelpImageListEntity();
-		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
-		entity0.createDate = "2016";
-		entity0.helpId = "0";
-		entity0.imageId = "0";
-		entity0.modifyDate = "2016";
-		entity0.name = "123";
-		entity0.orders = "123";
-		RoadRescueDetailHelpImageListEntity entity1 = new RoadRescueDetailHelpImageListEntity();
-		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-		RoadRescueDetailHelpImageListEntity entity2 = new RoadRescueDetailHelpImageListEntity();
-		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
-		mImageList.add(entity0);
-		mImageList.add(entity1);
-		mImageList.add(entity2);
-		RoadRescueDetailActivity.this.freshGridView(mImageList);
-		if (mImageList.size() < pageSize) {
-			hasMoreImages(false);
-		} else {
-			hasMoreImages(true);
-		}
+//		mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
+//		hasImages(true);
+//		
+//		RoadRescueDetailHelpImageListEntity entity0 = new RoadRescueDetailHelpImageListEntity();
+//		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
+//		entity0.createDate = "2016";
+//		entity0.helpId = "0";
+//		entity0.imageId = "0";
+//		entity0.modifyDate = "2016";
+//		entity0.name = "123";
+//		entity0.orders = "123";
+//		RoadRescueDetailHelpImageListEntity entity1 = new RoadRescueDetailHelpImageListEntity();
+//		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+//		RoadRescueDetailHelpImageListEntity entity2 = new RoadRescueDetailHelpImageListEntity();
+//		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
+//		RoadRescueDetailHelpImageListEntity entity3 = new RoadRescueDetailHelpImageListEntity();
+//		entity3.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+//		mImageList.add(entity0);
+//		mImageList.add(entity1);
+//		mImageList.add(entity2);
+//		mImageList.add(entity3);
+//		RoadRescueDetailActivity.this.freshGridView(mImageList);
+//		if (mImageList.size() < 3) {
+//			hasMoreImages(false);
+//		} else {
+//			hasMoreImages(true);
+//		}
 	}
 
 	private void loadRoadRescueDetailById(Integer id) {
@@ -453,7 +456,6 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Bundle bundle = new Bundle();
-			bundle.putInt("helpId", helpId);
 			bundle.putInt("position", position);
 			bundle.putSerializable("imageList", mImageList);
 			jumpToActivity(ImageListActivity.class, bundle);
