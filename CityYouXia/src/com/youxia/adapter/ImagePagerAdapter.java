@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.youxia.R;
 import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
+import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.widget.imageshow.ImageShowViewPager;
 import com.youxia.widget.imageshow.TouchImageView;
@@ -59,7 +60,7 @@ public class ImagePagerAdapter extends PagerAdapter {
 	public Object instantiateItem(ViewGroup container, int position) {
 		View view = inflater.from(context).inflate(R.layout.details_imageshow_item, null);
 		full_image = (TouchImageView)view.findViewById(R.id.full_image);
-		YouXiaApp.mFinalBitmap.display(full_image, imgsUrl.get(position).imageUrl);
+		YouXiaApp.mFinalBitmap.display(full_image, HttpClientHelper.Basic_YouXiaUrl + imgsUrl.get(position).imageUrl);
 		((ViewPager) container).addView(view);
 		return view;
 	}

@@ -3,28 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context="${relativePackage}.${activityClass}" >
 
     <include layout="@layout/activity_main_title_bar" />
 
     <com.youxia.widget.pulltorefreshlistview.RefreshListView
         android:id="@+id/activity_commentlist_listview"
-        style="@style/common_listview_style"
-        android:layout_width="fill_parent"
+        android:fadingEdgeLength="0.0dip" 
+        android:layout_width="fill_parent" 
         android:layout_height="fill_parent"
-        android:layout_weight="1"
         android:dividerHeight="0dp"
-        android:fadeScrollbars="true"
-        android:fadingEdgeLength="0.0dip"
-        android:fastScrollEnabled="false" />
+        android:fastScrollEnabled="false"
+        android:fadeScrollbars="true" 
+        android:layout_weight="1"
+        style="@style/common_listview_style" />
 
     <com.youxia.widget.CustomLoadingView
         android:id="@+id/activity_commentlist_customer_loading_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:visibility="gone" />
+ 		android:layout_width="match_parent"
+ 		android:layout_height="match_parent"
+ 		android:layout_weight="1"
+ 		android:visibility="gone" 
+ 		/>
 
 </LinearLayout>

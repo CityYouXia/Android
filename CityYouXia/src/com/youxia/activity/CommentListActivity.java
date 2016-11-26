@@ -33,11 +33,10 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 	private AdapterCommentList mCommentListAdapter;
 	
 	private int						pageNo 	= 1;
-	private int						pageSize	= 5;
+	private int						pageSize	= 8;
 	private int						helpId	= -1;
-	public	long 					pullRefreshId 	= 0;		//下拉刷新，最新ID
 	private boolean					loadMoreFlag	= true;
-	
+	private boolean					refreshFlag = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_commentlist));
 		mCommentListAdapter = new AdapterCommentList(this);
+		mListView.setAdapter(mCommentListAdapter);
 		mListView.setOnRefreshListener(this);
 		if(!YouXiaUtils.netWorkStatusCheck(this)) {			
 			mLoadingView.notifyViewChanged(CustomLoadingView.State.network);
@@ -58,7 +58,19 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 		}
 		Bundle bundle = this.getIntent().getBundleExtra("bundle");
 		helpId = bundle.getInt("helpId");
+//		String result = "[{\"commentId\":28,\"helpId\":5,\"userId\":1,\"content\":\"我勒个去的啊\",\"createDate\":\"2分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":27,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":26,\"helpId\":5,\"userId\":1,\"content\":\"我的楼主又丢了啊\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":25,\"helpId\":5,\"userId\":1,\"content\":\"谁抢我沙发\",\"createDate\":\"42分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":24,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"1小时前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1}]";
+//		List<RoadRescueDetailCommentListEntity> list = JSON.parseArray(result,
+//				RoadRescueDetailCommentListEntity.class); 
+//		freshListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
 		loadCommentList();
+	}
+	
+	public void btnClick(View v){
+		switch (v.getId()) {
+		case R.id.title_bar_back:
+			finish();
+			break;
+		}
 	}
 	
 	//加载问题和更多
@@ -84,7 +96,6 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 							
 							if(pageNo == 1){
 								CommentListActivity.this.freshListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
-								pullRefreshId = list.get(0).commentId;//为加载更多服务
 							}else{
 								CommentListActivity.this.addLastListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
 							}
@@ -96,9 +107,17 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 						else mListView.hideFooterView();
 					}
 				}
+				else {
+					loadMoreFlag = false;
+				}
 				
 				if(pageNo == 1)	CommentListActivity.this.loadingProc(false);
 				else mListView.hideFooterView();
+				
+				if (refreshFlag) {
+					mListView.hideHeaderView();
+					refreshFlag = false;
+				}
 				
 				if(!loadMoreFlag) { 
 					mListView.showNoMoreView();
@@ -121,6 +140,11 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 				super.onFailure(t, errorNo, strMsg);
 				if(pageNo == 1)	CommentListActivity.this.loadingProc(false);
 				else mListView.hideFooterView();
+				
+				if (refreshFlag) {
+					mListView.hideHeaderView();
+					refreshFlag = false;
+				}
 			}
 		};
 		HttpClientHelper.queryHelpCommentList(helpId, pageNo, pageSize, callBack);
@@ -173,6 +197,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 			return;
 		}
 		pageNo = 1;
+		refreshFlag = true;
 		loadCommentList();
 	}
 

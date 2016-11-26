@@ -5,6 +5,7 @@ import com.youxia.R;
 import com.youxia.entity.RoadRescueDetailCommentListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
+import com.youxia.utils.YouXiaUtils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -62,12 +63,14 @@ public class AdapterCommentList extends BaseLinkedListAdapter {
 		hold.tvNickName.setText(localData.commentUserName);
 		hold.tvDatetime.setText(localData.createDate);
 		hold.tvContent.setText(localData.content);
-
-		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
-				(localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
-		YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto,
-				HttpClientHelper.Basic_YouXiaUrl + localData.commentUserPhoto, bitmap);
-
+		if (YouXiaUtils.isEmpty(localData.commentUserPhoto)) {
+			hold.ivHeadPhoto.setImageResource((localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
+		}
+		else {
+			Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), (localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
+			YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto,
+					HttpClientHelper.Basic_YouXiaUrl + localData.commentUserPhoto, bitmap);
+		}
 		hold.tvFloor.setText(position + 1 + "楼");
 		return convertView;
 	}

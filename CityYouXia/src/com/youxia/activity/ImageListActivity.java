@@ -35,7 +35,7 @@ public class ImageListActivity extends BaseActivity{
 		mImageList = (ArrayList<RoadRescueDetailHelpImageListEntity>) bundle.getSerializable("imageList");
 		int pageNo = bundle.getInt("position");
 		mImageShowViewPager.setOnPageChangeListener(new PageChangeListener());
-		
+		mPageNumber.setText((pageNo+1) + "/" + mImageList.size());
 		if (mImageList != null && mImageList.size() > 0) {
 			mImagePagerAdapter = new ImagePagerAdapter(this, mImageList);
 			mImageShowViewPager.setAdapter(mImagePagerAdapter);

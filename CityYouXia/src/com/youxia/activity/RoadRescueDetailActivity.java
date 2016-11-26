@@ -27,6 +27,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -115,35 +116,43 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		mImageGridView.setOnItemClickListener(new ImageGridViewItemClickListener());
 		mImageGridView.setHorizontalSpacing(YouXiaUtils.dip2px(this, 1));
 		loadImageList(helpId);
-		
-		//test
-//		mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
-//		hasImages(true);
-//		
-//		RoadRescueDetailHelpImageListEntity entity0 = new RoadRescueDetailHelpImageListEntity();
-//		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
-//		entity0.createDate = "2016";
-//		entity0.helpId = "0";
-//		entity0.imageId = "0";
-//		entity0.modifyDate = "2016";
-//		entity0.name = "123";
-//		entity0.orders = "123";
-//		RoadRescueDetailHelpImageListEntity entity1 = new RoadRescueDetailHelpImageListEntity();
-//		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-//		RoadRescueDetailHelpImageListEntity entity2 = new RoadRescueDetailHelpImageListEntity();
-//		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
-//		RoadRescueDetailHelpImageListEntity entity3 = new RoadRescueDetailHelpImageListEntity();
-//		entity3.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-//		mImageList.add(entity0);
-//		mImageList.add(entity1);
-//		mImageList.add(entity2);
-//		mImageList.add(entity3);
-//		RoadRescueDetailActivity.this.freshGridView(mImageList);
-//		if (mImageList.size() < 3) {
-//			hasMoreImages(false);
-//		} else {
-//			hasMoreImages(true);
-//		}
+
+		// test
+		// mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
+		// hasImages(true);
+		//
+		// RoadRescueDetailHelpImageListEntity entity0 = new
+		// RoadRescueDetailHelpImageListEntity();
+		// entity0.imageUrl =
+		// "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
+		// entity0.createDate = "2016";
+		// entity0.helpId = "0";
+		// entity0.imageId = "0";
+		// entity0.modifyDate = "2016";
+		// entity0.name = "123";
+		// entity0.orders = "123";
+		// RoadRescueDetailHelpImageListEntity entity1 = new
+		// RoadRescueDetailHelpImageListEntity();
+		// entity1.imageUrl =
+		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+		// RoadRescueDetailHelpImageListEntity entity2 = new
+		// RoadRescueDetailHelpImageListEntity();
+		// entity2.imageUrl =
+		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
+		// RoadRescueDetailHelpImageListEntity entity3 = new
+		// RoadRescueDetailHelpImageListEntity();
+		// entity3.imageUrl =
+		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+		// mImageList.add(entity0);
+		// mImageList.add(entity1);
+		// mImageList.add(entity2);
+		// mImageList.add(entity3);
+		// RoadRescueDetailActivity.this.freshGridView(mImageList);
+		// if (mImageList.size() < 3) {
+		// hasMoreImages(false);
+		// } else {
+		// hasMoreImages(true);
+		// }
 	}
 
 	private void loadRoadRescueDetailById(Integer id) {
@@ -171,9 +180,9 @@ public class RoadRescueDetailActivity extends BaseActivity {
 								HttpClientHelper.Basic_YouXiaUrl + json.getString("userPhoto"), bitmap);
 
 						int isSolve = json.getInt("isSolve");
-						if (isSolve == 0) {
+						if (isSolve == 1) {
 							isResolved(false);
-						} else {
+						} else if (isSolve == 2) {
 							isResolved(true);
 						}
 
@@ -209,6 +218,10 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
 									getString(R.string.activity_road_rescue_detail_comment_success), 0);
 							mCommentEditText.setText("");
+							InputMethodManager imm = (InputMethodManager) getSystemService(
+									RoadRescueDetailActivity.this.INPUT_METHOD_SERVICE);
+							// 隐藏键盘
+							imm.hideSoftInputFromWindow(mCommentEditText.getWindowToken(), 0);
 							// 评论列表头部加一条新评论
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
@@ -294,8 +307,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							hasImages(false);
 						} else {
 							hasImages(true);
-							RoadRescueDetailActivity.this
-									.freshGridView(mImageList);
+							RoadRescueDetailActivity.this.freshGridView(mImageList);
 							if (mImageList.size() < 3) {
 								hasMoreImages(false);
 							} else {
@@ -352,16 +364,15 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		}
 	}
 
-	//true有图片，false无图片
-	private void hasImages(Boolean flag){
+	// true有图片，false无图片
+	private void hasImages(Boolean flag) {
 		if (flag) {
 			mImageGridView.setVisibility(View.VISIBLE);
-		}
-		else {
+		} else {
 			mImageGridView.setVisibility(View.GONE);
 		}
 	}
-	
+
 	// true有更多图片，false没有更多图片
 	private void hasMoreImages(Boolean flag) {
 		if (flag) {
@@ -443,9 +454,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			if (hold == null)
 				return convertView;
 			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-//			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
-//					bitmap);
-			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, localData.imageUrl,
+			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
 					bitmap);
 			return convertView;
 		}
@@ -460,9 +469,9 @@ public class RoadRescueDetailActivity extends BaseActivity {
 			bundle.putSerializable("imageList", mImageList);
 			jumpToActivity(ImageListActivity.class, bundle);
 		}
-		
-	} 
-	
+
+	}
+
 	public void freshListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
