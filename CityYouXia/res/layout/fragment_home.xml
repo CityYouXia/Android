@@ -5,99 +5,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
-    <!-- 广告轮播viewpager-->
-    <com.youxia.widget.ViewPagerAdvert
-        android:id="@+id/fragment_homepage_advert"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/fragment_home_advert_pager_height"
-        app:showTitle="true"
-        app:turnDelayTime="5"
-        android:layout_alignParentTop="true"
-        app:turnIntevalTime="10" />
-    <ScrollView 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fragment_homepage_advert">
-        <LinearLayout 
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:paddingLeft="@dimen/fragment_home_content_padding_left"
-	        android:paddingRight="@dimen/fragment_home_content_padding_right"
-	        android:paddingTop="@dimen/fragment_home_content_padding_top"
-	        android:paddingBottom="@dimen/common_padding_bottom">
-	        <LinearLayout 
-	            android:layout_width="0dp"
-	            android:layout_weight="1"
-	            android:layout_height="wrap_content"
-	            android:orientation="vertical">
-	            <com.youxia.widget.NumImageView
-		            android:id="@+id/road_rescure"
-		            android:layout_width="@dimen/fragment_home_content_image_width"
-		            android:layout_height="@dimen/fragment_home_content_image_height"
-		            android:background="@drawable/fragment_home_road_rescure" />
-	            <com.youxia.widget.NumImageView
-		            android:id="@+id/move_car"
-		            android:layout_width="@dimen/fragment_home_content_image_width"
-		            android:layout_height="@dimen/fragment_home_content_image_height_small"
-		            android:layout_marginTop="@dimen/fragment_home_content_margin_top"
-		            android:background="@drawable/fragment_home_move_car" />
-	            <com.youxia.widget.NumImageView
-		            android:id="@+id/road_conditions"
-		            android:layout_width="@dimen/fragment_home_content_image_width"
-		            android:layout_height="@dimen/fragment_home_content_image_height_small"
-		            android:layout_marginTop="@dimen/fragment_home_content_margin_top"
-		            android:background="@drawable/fragment_home_road_conditions" />
-	        </LinearLayout>
-	        <LinearLayout 
-	            android:layout_width="0dp"
-	            android:layout_weight="1"
-	            android:layout_height="wrap_content"
-	            android:orientation="vertical">
-	            <LinearLayout 
-	                android:layout_width="fill_parent"
-	                android:layout_height="wrap_content"
-	                android:orientation="horizontal">
-	                <com.youxia.widget.NumImageView
-	                    android:id="@+id/people_search"
-	                    android:layout_width="@dimen/fragment_home_content_image_width_small"
-	                    android:layout_height="@dimen/fragment_home_content_image_height_small"
-	                    android:background="@drawable/fragment_home_people_search" />
-	                <View 
-	                    android:layout_width="@dimen/fragment_home_content_margin_top"
-	                    android:layout_height="match_parent"/>
-	                <com.youxia.widget.NumImageView
-	                    android:id="@+id/things_search"
-	                    android:layout_width="@dimen/fragment_home_content_image_width_small"
-	                    android:layout_height="@dimen/fragment_home_content_image_height_small"
-	                    android:background="@drawable/fragment_home_things_search" />
-	            </LinearLayout>
-	            
-	            <com.youxia.widget.NumImageView
-	                android:id="@+id/express"
-	                android:layout_width="@dimen/fragment_home_content_image_width"
-	                android:layout_height="130dp"
-	                android:layout_marginTop="@dimen/fragment_home_content_margin_top"
-	                android:background="@drawable/fragment_home_express" />
-	            
-	            <com.youxia.widget.NumImageView
-	                android:id="@+id/asking"
-	                android:layout_width="@dimen/fragment_home_content_image_width"
-	                android:layout_height="@dimen/fragment_home_content_image_height_small"
-	                android:layout_marginTop="@dimen/fragment_home_content_margin_top"
-	                android:background="@drawable/fragment_home_asking" />
-	        </LinearLayout>
-	    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >        
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 广告轮播viewpager-->
+		    <com.youxia.widget.ViewPagerAdvert
+		        android:id="@+id/fragment_homepage_advert"
+		        android:layout_width="fill_parent"
+		        android:layout_height="@dimen/fragment_home_advert_pager_height"
+		        app:showTitle="true"
+		        app:turnDelayTime="5"
+		        android:layout_alignParentTop="true"
+		        app:turnIntevalTime="10" />
+                
+            
+          <LinearLayout  
+            android:layout_width="fill_parent"  
+            android:layout_height="fill_parent"  
+            android:background="@android:color/background_light"  
+            android:orientation="horizontal"  
+            android:padding="2dp" >  
+  
+            <LinearLayout  
+                android:id="@+id/home_first_layout"  
+                android:layout_width="fill_parent"  
+                android:layout_height="fill_parent"  
+                android:layout_weight="1"  
+                android:orientation="vertical" 
+                android:paddingRight="2dp">  
+            </LinearLayout>  
+  
+            <LinearLayout  
+                android:id="@+id/home_second_layout"  
+                android:layout_width="fill_parent"  
+                android:layout_height="fill_parent"  
+                android:layout_weight="1"  
+                android:orientation="vertical" 
+                android:paddingRight="2dp">  
+            </LinearLayout>  
+        </LinearLayout>  
+        </LinearLayout>
     </ScrollView>
-    
-    <Button 
-        android:id="@+id/need_help_btn"
-        android:layout_width="@dimen/fragment_home_help_btn_width"
-        android:layout_height="@dimen/fragment_home_help_btn_height"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/fragment_home_help_btn_margin_bottom"
-        android:text="@string/need_help"
-        android:textColor="@color/white"
-        android:background="@drawable/fragment_home_help_btn_selector"/>
+        
 </RelativeLayout>

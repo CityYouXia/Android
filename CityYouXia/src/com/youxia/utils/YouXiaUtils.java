@@ -228,8 +228,8 @@ public class YouXiaUtils {
 		OutputStreamWriter writer = null;
 		try {
 			if (YouXiaUtils.sdCardIsAvailable()) {
-            	File  parentpath 	= new File(YouXiaUtils.getSDPath() + "/SolarKE");
-            	File  logpath 		= new File(YouXiaUtils.getSDPath() + "/SolarKE/" + "debug.log");
+            	File  parentpath 	= new File(YouXiaUtils.getSDPath() + "/YouXia");
+            	File  logpath 		= new File(YouXiaUtils.getSDPath() + "/YouXia/" + "debug.log");
             	if (!parentpath.exists()) {
             		boolean ret = parentpath.mkdirs();
             	}
@@ -275,8 +275,8 @@ public class YouXiaUtils {
 	public static boolean savePic(Bitmap bitmap, String picName, String folderName) {
 		FileOutputStream fos = null;
 		try {			
-			File  parentpath 	= new File(getSDPath() + "/SolarKE/" + folderName);
-        	File  picpath 		= new File(getSDPath() + "/SolarKE/" + folderName + picName);
+			File  parentpath 	= new File(getSDPath() + "/YouXia/" + folderName);
+        	File  picpath 		= new File(getSDPath() + "/YouXia/" + folderName + picName);
         	if (!parentpath.exists()) {
         		boolean ret = parentpath.mkdirs();
         	}
@@ -411,7 +411,7 @@ public class YouXiaUtils {
     	//判断网络状态
   		int status = NetWorkHelper.getNetworkStatus(context);
   		if (status != NetWorkHelper.NETWORK_WIFI && status != NetWorkHelper.NETWORK_MOBIL) {
-  			showToast(context, context.getResources().getString(R.string.commond_nonetwork_connect), Toast.LENGTH_LONG);
+  			showToast(context, context.getResources().getString(R.string.common_network_none), Toast.LENGTH_LONG);
   			return false;
   		}
   		return true;
@@ -532,6 +532,29 @@ public class YouXiaUtils {
   		return screenHeight; 
   	}	
 	
+    /**
+     * 判断给定字符串是否空白串。 空白串是指由空格、制表符、回车符、换行符组成的字符串 若输入字符串为null或空字符串，返回true
+     * 
+     * @param input
+     * @return boolean
+     */
+    public static boolean isEmpty(String input) {
+        if (input == null || "".equals(input) || TextUtils.isEmpty(input)) {
+            return true;
+        }
+        else {
+        	return false;
+        }
+    }
+  	
+    public static boolean inputCheckEmpty(Context context, String input){
+    	if (isEmpty(input)) {
+    		showToast(context, context.getString(R.string.input_empty), 0);
+			return true;
+		}
+    	return false;
+    }
+    
   	/**
   	 * JPush推送存储别名和标签
   	 * */

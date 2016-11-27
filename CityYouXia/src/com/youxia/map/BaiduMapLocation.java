@@ -45,12 +45,9 @@ public class BaiduMapLocation {
 		@Override
 		public void onReceiveLocation(BDLocation location)
 		{
-			if (location == null)
-				return;
-			double latitude = location.getLatitude();
-			double longitude = location.getLongitude();
-			String city = location.getCity();
-			
+			if (location == null) return;
+			YouXiaApp.setmLongitude(location.getLongitude());
+			YouXiaApp.setmLatitude(location.getLatitude());
 			YouXiaApp.setmLocation(location.getAddrStr());
 		}
 	}

@@ -6,8 +6,8 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
-import com.youxia.utils.YouXiaApp;
-import com.youxia.widget.NumImageView;
+import com.youxia.activity.RoadRescueDetailActivity;
+import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
 
 import android.annotation.SuppressLint;
@@ -15,22 +15,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 @SuppressLint("InflateParams")
-public class FragmentHome extends BaseFragment {
+public class FragmentHome extends BaseFragment implements OnClickListener {
 	
 	public static final String TAG = FragmentHome.class.getSimpleName();
-
-	@ViewInject(id=R.id.road_rescure,click="btnClick") 		NumImageView 	roadRescure;		//道路救援
-	@ViewInject(id=R.id.move_car,click="btnClick") 			NumImageView 	moveCar;			//挪车
-	@ViewInject(id=R.id.road_conditions,click="btnClick") 	NumImageView 	roadConditions;		//报路况
-	@ViewInject(id=R.id.people_search,click="btnClick") 	NumImageView 	peopleSearch;		//寻人
-	@ViewInject(id=R.id.things_search,click="btnClick") 	NumImageView 	thingsSearch;		//寻物
-	@ViewInject(id=R.id.express,click="btnClick")			NumImageView 	express;			//顺风递
-	@ViewInject(id=R.id.asking,click="btnClick") 			NumImageView 	asking;				//问询求助
-	@ViewInject(id=R.id.need_help_btn,click="btnClick") 	Button 			needHelp;
 	
 	@ViewInject(id=R.id.fragment_homepage_advert) 			ViewPagerAdvert	viewPagerAdvert;
 	
@@ -47,43 +41,97 @@ public class FragmentHome extends BaseFragment {
 		initView();
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void initView() {
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女1");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女2");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女3");
-		viewPagerAdvert.addALocalImageToViewPager("test.jpg", R.drawable.test, "美女4");
+		viewPagerAdvert.addALocalImageToViewPager("ad1.jpg", R.drawable.ad1, "广告1");
+		viewPagerAdvert.addALocalImageToViewPager("ad2.jpg", R.drawable.ad2, "广告2");
+		viewPagerAdvert.addALocalImageToViewPager("ad3.jpg", R.drawable.ad3, "广告3");
 		viewPagerAdvert.notifyViewPager();
 		
-		roadRescure.setNum(15);
-		moveCar.setNum(5);
-		roadConditions.setNum(8);
-		peopleSearch.setNum(20);
-		thingsSearch.setNum(13);
-		express.setNum(1);
-		asking.setNum(5);
+
+		//计算单位图片宽度
+		int imageWidth = (getActivity().getWindowManager().getDefaultDisplay().getWidth() - 8) / 4;
+		int imageHeight= (int)(imageWidth * 0.78);
+		
+		//获取列布局
+		LinearLayout firstLinearLayout  = (LinearLayout)getActivity().findViewById(R.id.home_first_layout);	
+		LinearLayout secondLinearLayout = (LinearLayout)getActivity().findViewById(R.id.home_second_layout);
+		
+		//添加第一列元素
+		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
+		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_movecar));
+		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_traffic));
+		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
+		
+		//添加第二列元素
+		LinearLayout linearLayout = getHorizontalLayout();
+		
+		linearLayout.addView(getImageView(imageWidth, imageHeight, R.drawable.home_missing_person));
+		linearLayout.addView(getImageView(imageWidth, imageHeight,R.drawable.home_missing_thing));
+
+		secondLinearLayout.addView(linearLayout);
+
+		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight * 2,R.drawable.home_express));
+		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_asking));
+	}
+	
+	public LinearLayout getHorizontalLayout()
+	{
+		LinearLayout layout = new LinearLayout(getActivity());  
+        LinearLayout.LayoutParams itemParam = new LinearLayout.LayoutParams(  
+        		LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);  
+        layout.setOrientation(LinearLayout.HORIZONTAL);  
+        layout.setLayoutParams(itemParam);  
+
+        return layout;
+	}
+	
+	public ImageView getImageView(int layout_width, int layout_height, int resId) 
+	{
+		TouchFingerImageView imageView = new TouchFingerImageView(getActivity());
+		
+		imageView.setImageResource(resId);
+		
+		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(layout_width, layout_height); 
+		layoutParams.setMargins(8, 8, 8, 8);
+		imageView.setLayoutParams(layoutParams);
+		
+		imageView.setTag(resId);
+		
+		imageView.setOnClickListener(this);
+		
+		return imageView;
+	}
+	
+	@Override
+	public void onClick(View v) {
+		
+		switch (Integer.parseInt(v.getTag().toString())) {
+		case R.drawable.home_road_rescue:
+			Intent intent = new Intent();
+			
+			intent.setClass(getActivity(), RoadRescueActivity.class);
+//			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
+			startActivity(intent);
+			break;
+		case R.drawable.home_missing_person:
+			break;
+		case R.drawable.home_missing_thing:
+			break;
+		case R.drawable.home_traffic:
+			break;
+		case R.drawable.home_express:
+			break;
+		case R.drawable.home_movecar:
+			break;
+		case R.drawable.home_asking:
+			break;
+		}
 	}
 	
 	public void btnClick(View v){
-		Intent intent = new Intent();
-		switch (v.getId()) {
-		case R.id.road_rescure:
-			intent.setClass(getActivity(), RoadRescueActivity.class);
-			break;
-		case R.id.move_car:
-			break;
-		case R.id.road_conditions:
-			break;
-		case R.id.people_search:
-			break;
-		case R.id.things_search:
-			break;
-		case R.id.express:
-			break;
-		case R.id.asking:
-			break;
-		case R.id.need_help_btn:
-			break;
-		}
-		startActivity(intent);
+	
 	}
+
+
 }

@@ -9,7 +9,9 @@ import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
 import com.youxia.entity.HelpListEntity;
 import com.youxia.http.HttpClientHelper;
+import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
+import com.youxia.widget.CustomLoadingView;
 import com.youxia.widget.pulltorefreshlistview.OnRefreshListener;
 import com.youxia.widget.pulltorefreshlistview.RefreshListView;
 
@@ -23,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -35,8 +38,10 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	//title
 	@ViewInject(id=R.id.title_bar_title) 								TextView			mTitleBarTitle;
 	@ViewInject(id=R.id.title_bar_back,click="btnClick") 				RelativeLayout		mTitleBarBack;
-	@ViewInject(id=R.id.title_bar_help,click="btnClick") 				RelativeLayout		mTitleBarHelp;
+	@ViewInject(id=R.id.activity_roadrescue_help_button,click="btnClick") Button			mHelpBtn;
 	@ViewInject(id=R.id.activity_roadrescue_listview) 					RefreshListView		mListView;
+	@ViewInject(id=R.id.customer_loading_view) 							CustomLoadingView	mLoadingView;
+	
 	private MyListAdapter			mListAdapter;
 	private int						pageNo 	= 1;
 	private int						pageSize	= 5;
@@ -52,12 +57,19 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_roadrescue));
-		mTitleBarHelp.setVisibility(View.VISIBLE);
 		
 		this.mListAdapter = new MyListAdapter(this);
 		this.mListView.setAdapter(mListAdapter);
 		this.mListView.setOnRefreshListener(this);
 		this.mListView.setOnItemClickListener(this);
+		
+		if(!YouXiaUtils.netWorkStatusCheck(this)) {			
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.network);
+			mListView.setVisibility(View.GONE);
+			
+			return;
+		}
+		
 		loadingRoadRescues();
 	}
 
@@ -66,7 +78,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		case R.id.title_bar_back:
 			finish();
 			break;
-		case R.id.title_bar_help:
+		case R.id.activity_roadrescue_help_button:
 			Intent intent = new Intent();
 			intent.setClass(this, RoadRescueHelpActivity.class);
 			startActivity(intent);
@@ -97,6 +109,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	//加载问题和更多
 	public void loadingRoadRescues() {
 		if(!YouXiaUtils.netWorkStatusCheck(this)) return;
+		
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
 			@Override
 			public void onSuccess(String result) {
@@ -220,14 +233,14 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 	
 	public void loadingProc(boolean showloading)
 	{
-//		if (showloading) {
-//			mLoadingLayout.setVisibility(View.VISIBLE);
-//			mListView.setVisibility(View.GONE);
-//		}
-//		else {
-//			mLoadingLayout.setVisibility(View.GONE);
-//			mListView.setVisibility(View.VISIBLE);
-//		}
+		if (showloading) {
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.loading);
+			mListView.setVisibility(View.GONE);
+		}
+		else {
+			mLoadingView.notifyViewChanged(CustomLoadingView.State.done);
+			mListView.setVisibility(View.VISIBLE);
+		}
 	}
 
 	@Override
@@ -323,7 +336,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			}
 			else {
 				Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), (localData.sex == true) ? R.drawable.male_little_default : R.drawable.female_little_default);
-		//		YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + localData.userPhoto, bitmap);
+				YouXiaApp.mFinalBitmap.display(hold.ivHeadPhoto, HttpClientHelper.Basic_YouXiaUrl + localData.userPhoto, bitmap);
 			}
 			
 			if (localData.isSolve == 2) {
@@ -338,6 +351,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			}
 			else {
 			//	YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
+				YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
 			}
 
 			return convertView;

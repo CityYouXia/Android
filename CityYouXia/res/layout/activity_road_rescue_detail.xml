@@ -58,7 +58,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="会飞的猴子"
                             android:textColor="@color/activity_road_rescue_detail_nickname_color"
                             android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
 
@@ -86,7 +85,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
                             android:includeFontPadding="false"
-                            android:text="50积分"
                             android:textColor="@color/activity_road_rescue_detail_score_color"
                             android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
 
@@ -98,12 +96,11 @@
                             android:src="@drawable/clock" />
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_time_detail"
+                            android:id="@+id/road_rescue_detail_listitem_comment_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
                             android:includeFontPadding="false"
-                            android:text="2分钟前"
                             android:textColor="@color/activity_road_rescue_detail_score_color"
                             android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
                     </LinearLayout>
@@ -111,7 +108,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_title"
+                android:id="@+id/activity_road_rescue_detail_rescue_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
@@ -119,7 +116,6 @@
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_title_margin_top"
                 android:includeFontPadding="false"
                 android:maxLines="2"
-                android:text="汽车亏电了，谁来帮忙对个火啊？我没有连接线。"
                 android:textColor="@color/activity_road_rescue_detail_title_color"
                 android:textSize="@dimen/common_text_size_large" />
 
@@ -131,7 +127,6 @@
                 android:layout_marginRight="@dimen/common_margin_right"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_information_margin_top"
                 android:includeFontPadding="false"
-                android:text="忘关大灯亏电了，哪位好心人能来帮忙对个火我在石铜南二环往北100米路西，白色的捷达，车牌号是冀A5M489，谢谢！"
                 android:textColor="@color/activity_road_rescue_detail_information_color"
                 android:textSize="@dimen/common_text_size_normal" />
 
@@ -147,6 +142,14 @@
                 android:numColumns="4"
                 android:scrollbars="none" >
             </GridView>
+            <TextView
+                android:id="@+id/activity_road_rescue_detail_load_more_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/activity_road_rescue_detail_more_images"
+                android:textColor="@color/orange"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -169,7 +172,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
                     android:includeFontPadding="false"
-                    android:text="石家庄桥西区石铜路交口"
                     android:textColor="@color/activity_road_rescue_detail_score_color"
                     android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
             </LinearLayout>
@@ -181,7 +183,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
                 android:background="@drawable/fragment_home_help_btn_selector"
-                android:text="@string/rescue_rightnow"
+                android:text="@string/common_button_helpme"
                 android:textColor="@color/white"
                 android:textSize="@dimen/common_text_size_large" />
 
@@ -191,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
                 android:gravity="right|center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -216,12 +218,11 @@
                     android:id="@+id/activity_road_rescue_detail_rescuers_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:includeFontPadding="false"
                     android:layout_marginRight="@dimen/common_view_space_5"
-                    android:text="骑着毛驴追幸福"
+                    android:includeFontPadding="false"
                     android:textColor="@color/common_titlebar_background"
                     android:textSize="@dimen/common_text_size_supper_large" />
-                
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,6 +244,14 @@
                 android:background="@color/common_background" >
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/activity_road_rescue_detail_no_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/activity_road_rescue_detail_no_comment"
+                android:textColor="@color/orange"/>
+            
             <com.youxia.widget.ListViewForScrollView
                 android:id="@+id/activity_road_rescue_detail_comment_list"
                 android:layout_width="match_parent"
@@ -250,6 +259,15 @@
                 android:fadeScrollbars="true"
                 android:fadingEdgeLength="0.0dip"
                 android:fastScrollEnabled="false" />
+
+            <TextView
+                android:id="@+id/activity_road_rescue_detail_load_more_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/activity_road_rescue_detail_more_comments"
+                android:textColor="@color/orange"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 
