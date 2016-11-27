@@ -4,6 +4,7 @@
     android:id="@+id/listitem_comment"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:minHeight="@dimen/activity_road_rescue_detail_list_item_min_height"
     android:background="@color/white"
     android:orientation="vertical" >
 
@@ -28,7 +29,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
             android:layout_marginRight="@dimen/common_margin_right"
             android:orientation="vertical" >
@@ -93,16 +94,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/common_margin_right"
                 android:includeFontPadding="false"
-                android:text="楼主在哪啊？"
+                android:text="楼主在哪啊？woefsov iajfdgo asdf asdfajsdf扫地方骄傲地方啊我及佛爱家发熟练度附近空哦啊无接缝氨基酸两地分居偶爱就无法哦啊积分"
                 android:textColor="@color/activity_road_rescue_detail_information_color"
                 android:textSize="@dimen/activity_road_rescue_detail_item_information_textsize" />
         </LinearLayout>
     </LinearLayout>
-
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_divide_line_height"
-        android:layout_marginTop="@dimen/common_margin_top"
-        layout="@layout/common_divided_line_vertical" />
-
 </LinearLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.youxia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,8 +13,8 @@
     <ScrollView
         android:id="@+id/activity_road_rescue_detail_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_road_rescue_detail_title" >
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -133,20 +133,22 @@
             <GridView
                 android:id="@+id/activity_road_rescue_detail_image_gridview"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/activity_road_rescue_detail_grid_view_height"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/common_margin_left"
                 android:layout_marginRight="@dimen/common_margin_right"
                 android:gravity="center"
                 android:listSelector="@android:color/transparent"
-                android:numColumns="4"
+                android:numColumns="3"
                 android:scrollbars="none" >
             </GridView>
+
             <TextView
                 android:id="@+id/activity_road_rescue_detail_load_more_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/common_margin_top"
                 android:text="@string/activity_road_rescue_detail_more_images"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
@@ -250,21 +252,24 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/activity_road_rescue_detail_no_comment"
-                android:textColor="@color/orange"/>
-            
+                android:textColor="@color/orange" />
+
             <com.youxia.widget.ListViewForScrollView
                 android:id="@+id/activity_road_rescue_detail_comment_list"
+                style="@style/common_listview_style"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fadeScrollbars="true"
                 android:fadingEdgeLength="0.0dip"
                 android:fastScrollEnabled="false" />
-
+			
+            <include layout="@layout/common_divided_line_vertical"/>
+            
             <TextView
                 android:id="@+id/activity_road_rescue_detail_load_more_comment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_height="50dp"
+                android:gravity="center"
                 android:text="@string/activity_road_rescue_detail_more_comments"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
@@ -277,4 +282,4 @@
         android:layout_alignParentBottom="true"
         layout="@layout/comment_input_send" />
 
-</RelativeLayout>
+</LinearLayout>

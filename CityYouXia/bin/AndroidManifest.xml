@@ -75,6 +75,8 @@
         
         <activity android:name="com.youxia.activity.RoadRescueActivity" />
         <activity android:name="com.youxia.activity.RoadRescueDetailActivity" />
+        <activity android:name="com.youxia.activity.CommentListActivity" />
+        <activity android:name="com.youxia.activity.ImageListActivity" />
         <activity android:name="com.youxia.activity.RoadRescueHelpActivity" />
         <activity android:name=".activity.AlbumActivity" />
         <activity android:name=".activity.PhotoActivity" />

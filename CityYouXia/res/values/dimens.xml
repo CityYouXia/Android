@@ -3,35 +3,29 @@
     <dimen name="common_title_bar_height">45dp</dimen>
     <dimen name="common_title_bar_image_width">20dp</dimen>
     <dimen name="common_title_bar_image_height">20dp</dimen>
-    
     <dimen name="common_bottom_bar_height">48dp</dimen>
     <dimen name="common_bottom_bar_task_width">80dp</dimen>
     <dimen name="common_bottom_bar_task_height">80dp</dimen>
     <dimen name="common_divided_bar_height">20dp</dimen>
-    
     <dimen name="common_margin_right">15dp</dimen>
     <dimen name="common_margin_left">15dp</dimen>
-    <dimen name="common_margin_top">5dp</dimen>    
+    <dimen name="common_margin_top">5dp</dimen>
     <dimen name="common_margin_bottom">5dp</dimen>
     <dimen name="common_margin_top_m">10dp</dimen>    
     <dimen name="common_margin_bottom_m">10dp</dimen>
     <dimen name="common_margin_top_large">15dp</dimen>    
     <dimen name="common_margin_bottom_large">15dp</dimen>
-    
     <dimen name="common_padding_left">15dp</dimen>
     <dimen name="common_padding_right">15dp</dimen>
-    <dimen name="common_padding_top">5dp</dimen>    
+    <dimen name="common_padding_top">5dp</dimen>
     <dimen name="common_padding_bottom">5dp</dimen>
     <dimen name="common_padding_top_m">10dp</dimen>    
     <dimen name="common_padding_bottom_m">10dp</dimen>
     <dimen name="common_padding_top_large">15dp</dimen>    
     <dimen name="common_padding_bottom_large">15dp</dimen>
-    
-    
     <dimen name="common_view_space_5">5dp</dimen>
     <dimen name="common_view_space_10">10dp</dimen>
     <dimen name="common_view_space_20">20dp</dimen>
-    
     <dimen name="common_divide_line_height">0.5dp</dimen>
     <dimen name="common_popup_divided_line_h_height">30dp</dimen>
     
@@ -54,11 +48,9 @@
     <dimen name="common_listview_mapsite_height">16dp</dimen>
     <dimen name="common_listview_rewards_width">16dp</dimen>
     <dimen name="common_listview_rewards_height">16dp</dimen>
-    
     <dimen name="common_button_height">45dp</dimen>
     <dimen name="common_top_image_height">120dp</dimen>
-    
-    
+
     <!-- 道路救援列表 -->
     <dimen name="roadrescue_listview_head_width">28dp</dimen>
     <dimen name="roadrescue_listview_head_height">28dp</dimen>
@@ -69,9 +61,8 @@
     <dimen name="roadrescue_listview_result_height">16dp</dimen>
     <dimen name="roadrescue_listview_scene_width">70dp</dimen>
     <dimen name="roadrescue_listview_scene_height">58dp</dimen>
-
     <dimen name="zero_dp">0dp</dimen>
-    
+
     <!-- FragmentHome -->
     <dimen name="fragment_home_advert_pager_height">100dp</dimen>
     <dimen name="fragment_home_content_padding_top">10dp</dimen>
@@ -85,33 +76,35 @@
     <dimen name="fragment_home_help_btn_width">160dp</dimen>
     <dimen name="fragment_home_help_btn_margin_bottom">20dp</dimen>
     <dimen name="fragment_home_content_margin_top">4dp</dimen>
-    
+
     <!-- RoadRescueDetailActivity -->
     <dimen name="activity_road_rescue_detail_title_text_size">20sp</dimen>
     <dimen name="activity_road_rescue_detail_content_text_size">15sp</dimen>
     <dimen name="activity_road_rescue_detail_reward_goal_area_height">20dp</dimen>
-	<dimen name="activity_road_rescue_detail_reward_goal_area_padding">2dp</dimen>
-	<dimen name="activity_road_rescue_detail_portrait_width_height">60.0dp</dimen>
-	<dimen name="activity_road_rescue_detail_portrait_corner_radius">30.0dp</dimen>
-	<dimen name="activity_road_rescue_rescue_detail_rescuer_portrait_width_height">30.0dp</dimen>
-	<dimen name="activity_road_rescue_detail_rescuer_portrait_corner_radius">15.0dp</dimen>
-	<dimen name="activity_road_rescue_detail_portrait_margin_top">8dp</dimen>
-	<dimen name="activity_road_rescue_detail_head_text_margin_left">12dp</dimen>
-	<dimen name="activity_road_rescue_detail_nickname_textsize">13sp</dimen>
-	<dimen name="activity_road_rescue_detail_nickname_margin_top">4dp</dimen>
-	<dimen name="activity_road_rescue_detail_status_height">15dp</dimen>
-	<dimen name="activity_road_rescue_detail_title_margin_top">22dp</dimen>
-	<dimen name="activity_road_rescue_detail_information_margin_top">15dp</dimen>
-	<dimen name="activity_road_rescue_detail_grid_view_height">80dp</dimen>
-	<dimen name="activity_road_rescue_detail_button_width">175dp</dimen>
-	<dimen name="activity_road_rescue_detail_button_height">44dp</dimen>
-	<dimen name="activity_road_rescue_detail_rescue_button_margin_top">11dp</dimen>
-	<dimen name="activity_road_rescue_detail_item_nickname_margin_top">16dp</dimen>
-	<dimen name="activity_road_rescue_detail_item_information_textsize">16sp</dimen>
-	<!-- 发送编辑框 -->
-	<dimen name="comment_edittext_width">270dp</dimen>
-	<dimen name="comment_edittext_height">38dp</dimen>
-	<dimen name="comment_edittext_margin_top_bottoom">6dp</dimen>
-	<dimen name="comment_edittext_max_height">76dp</dimen>
-	
+    <dimen name="activity_road_rescue_detail_reward_goal_area_padding">2dp</dimen>
+    <dimen name="activity_road_rescue_detail_portrait_width_height">60.0dp</dimen>
+    <dimen name="activity_road_rescue_detail_portrait_corner_radius">30.0dp</dimen>
+    <dimen name="activity_road_rescue_rescue_detail_rescuer_portrait_width_height">30.0dp</dimen>
+    <dimen name="activity_road_rescue_detail_rescuer_portrait_corner_radius">15.0dp</dimen>
+    <dimen name="activity_road_rescue_detail_portrait_margin_top">8dp</dimen>
+    <dimen name="activity_road_rescue_detail_head_text_margin_left">12dp</dimen>
+    <dimen name="activity_road_rescue_detail_nickname_textsize">13sp</dimen>
+    <dimen name="activity_road_rescue_detail_nickname_margin_top">4dp</dimen>
+    <dimen name="activity_road_rescue_detail_status_height">15dp</dimen>
+    <dimen name="activity_road_rescue_detail_title_margin_top">22dp</dimen>
+    <dimen name="activity_road_rescue_detail_information_margin_top">15dp</dimen>
+    <dimen name="activity_road_rescue_detail_grid_view_height">80dp</dimen>
+    <dimen name="activity_road_rescue_detail_button_width">175dp</dimen>
+    <dimen name="activity_road_rescue_detail_button_height">44dp</dimen>
+    <dimen name="activity_road_rescue_detail_rescue_button_margin_top">11dp</dimen>
+    <dimen name="activity_road_rescue_detail_item_nickname_margin_top">16dp</dimen>
+    <dimen name="activity_road_rescue_detail_item_information_textsize">16sp</dimen>
+    <dimen name="activity_road_rescue_detail_image_item_width_height">80dp</dimen>
+    <dimen name="activity_road_rescue_detail_list_item_min_height">109dp</dimen>
+    <!-- 发送编辑框 -->
+    <dimen name="comment_edittext_width">270dp</dimen>
+    <dimen name="comment_edittext_height">38dp</dimen>
+    <dimen name="comment_edittext_margin_top_bottoom">6dp</dimen>
+    <dimen name="comment_edittext_max_height">76dp</dimen>
+
 </resources>

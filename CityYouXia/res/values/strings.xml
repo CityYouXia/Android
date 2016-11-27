@@ -16,7 +16,7 @@
     <string name="common_pop_photopicker_done">完成(0)</string>
     <string name="upload_fail">不好意思上传失败了，请您稍后重试</string>
     <string name="input_empty">输入内容不能为空哦~</string>
-
+	
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
@@ -39,7 +39,6 @@
     <string name="common_button_helpme">我要求助</string>
     
     <!-- 道路救援 -->
-    <string name="activity_roadrescue">道路救援</string>
     <string name="activity_roadrescue_help">我要求助</string>
     <string name="rescue_rightnow">立即救援</string>
     <!-- 道路救援求助 -->
@@ -51,11 +50,17 @@
     <string name="help_abandoned_cancel">继续编辑</string>
     <string name="help_abandoned_confirm">狠心放弃</string>
 
+    <!-- 评论列表 -->
+    <string name="activity_commentlist">评论列表</string>    
+
+    <!-- 道路救援 -->
+    <string name="activity_roadrescue">道路救援</string>    
+    
 	<!-- 任务详情 -->
 	<string name="activity_road_rescue_detail_title">任务详情</string>
 	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
 	<string name="activity_road_rescue_detail_solved_after">解决</string>
-	<string name="activity_road_rescue_detail_no_comment">次求助帖还没有评论哦~</string>
+	<string name="activity_road_rescue_detail_no_comment">此求助帖还没有评论哦~</string>
 	<string name="activity_road_rescue_detail_more_comments">查看更多评论</string>
 	<string name="activity_road_rescue_detail_more_images">查看更多图片</string>
 	<string name="activity_road_rescue_detail_comment_success">发表评论成功啦~</string>
