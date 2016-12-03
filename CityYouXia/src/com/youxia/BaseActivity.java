@@ -22,6 +22,7 @@ public abstract class BaseActivity extends FinalActivity{
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         // 添加Activity到堆栈  
         YouXiaActivityManager.getAppManager().addActivity(this);
+        
 	}
 	
 	public void recycle() {
