@@ -207,6 +207,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		if (!YouXiaUtils.netWorkStatusCheck(this))
 			return;
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
+			@SuppressWarnings("static-access")
 			@Override
 			public void onSuccess(String result) {
 				super.onSuccess(result);

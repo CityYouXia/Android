@@ -14,6 +14,7 @@ public class FileUtils {
 	public static String SDPATH = Environment.getExternalStorageDirectory()
 			+ "/formats/";
 
+	@SuppressWarnings("unused")
 	public static void saveBitmap(Bitmap bm, String picName) {
 		Log.e("", "保存图片");
 		try {

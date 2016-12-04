@@ -69,6 +69,7 @@ public class AlbumHelper {
 	/**
 	 * 从数据库中得到缩略图
 	 */
+	@SuppressWarnings("unused")
 	private void getThumbnailColumnData(Cursor cur) {
 		if (cur.moveToFirst()) {
 			int _id;
@@ -153,6 +154,7 @@ public class AlbumHelper {
 	/**
 	 * 得到图片集
 	 */
+	@SuppressWarnings("unused")
 	void buildImagesBucketList() {
 		long startTime = System.currentTimeMillis();
 		// 构造缩略图索引

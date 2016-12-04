@@ -284,6 +284,7 @@ public class ShareUtil implements PlatformActionListener,IUiListener {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private String getFolderPath() {
 		File picpath = new File(YouXiaUtils.getSDPath() + "/SolarKE_YunWei/Share/");
 		return picpath.toString();
