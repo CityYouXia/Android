@@ -39,7 +39,6 @@ public class CommentListAdapter extends BaseLinkedListAdapter {
 		ViewHold hold = null;
 
 		if (convertView == null) {
-
 			hold = new ViewHold();
 			convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_comment, parent,
 					false);
