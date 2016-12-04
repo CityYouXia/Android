@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
-import com.youxia.adapter.AdapterCommentList;
+import com.youxia.adapter.CommentListAdapter;
 import com.youxia.entity.HelpCommentListEntity;
 import com.youxia.entity.HelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
@@ -84,7 +84,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	@ViewInject(id = R.id.activity_road_rescue_detail_image_gridview)
 	GridView mImageGridView;
 
-	private AdapterCommentList mCommentListAdapter;
+	private CommentListAdapter mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
 	private ArrayList<HelpImageListEntity> mImageList;
 	private int pageNo = 1;
@@ -95,7 +95,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_road_rescue_detail);
+		setContentView(R.layout.activity_roadrescue_detail);
 		mTitleTextView.setText(getString(R.string.activity_road_rescue_detail_title));
 		initView();
 	}
@@ -106,7 +106,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		helpId = this.getIntent().getIntExtra("id", -1);
 		loadRoadRescueDetailById(helpId);
 		// 加载评论列表
-		mCommentListAdapter = new AdapterCommentList(this);
+		mCommentListAdapter = new CommentListAdapter(this);
 		mCommentList.setAdapter(mCommentListAdapter);
 		loadCommentList(helpId);
 		// 加载图片列表

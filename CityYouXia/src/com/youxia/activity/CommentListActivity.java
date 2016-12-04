@@ -6,7 +6,7 @@ import java.util.List;
 import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.R;
-import com.youxia.adapter.AdapterCommentList;
+import com.youxia.adapter.CommentListAdapter;
 import com.youxia.entity.HelpCommentListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaUtils;
@@ -30,7 +30,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 	@ViewInject(id=R.id.activity_commentlist_listview) 					RefreshListView		mListView;
 	@ViewInject(id=R.id.activity_commentlist_customer_loading_view)		CustomLoadingView	mLoadingView;
 	
-	private AdapterCommentList mCommentListAdapter;
+	private CommentListAdapter mCommentListAdapter;
 	
 	private int						pageNo 	= 1;
 	private int						pageSize	= 8;
@@ -47,7 +47,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 
 	private void initView() {
 		mTitleBarTitle.setText(getString(R.string.activity_commentlist));
-		mCommentListAdapter = new AdapterCommentList(this);
+		mCommentListAdapter = new CommentListAdapter(this);
 		mListView.setAdapter(mCommentListAdapter);
 		mListView.setOnRefreshListener(this);
 		if(!YouXiaUtils.netWorkStatusCheck(this)) {			

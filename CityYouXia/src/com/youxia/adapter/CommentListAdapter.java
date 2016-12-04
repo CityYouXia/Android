@@ -16,10 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AdapterCommentList extends BaseLinkedListAdapter {
+public class CommentListAdapter extends BaseLinkedListAdapter {
 	private Context context;
 
-	public AdapterCommentList(Context context) {
+	public CommentListAdapter(Context context) {
 		this.context = context;
 	}
 

@@ -64,9 +64,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		this.mListView.setOnItemClickListener(this);
 		
 		if(!YouXiaUtils.netWorkStatusCheck(this)) {			
-			mLoadingView.notifyViewChanged(CustomLoadingView.State.network);
-			mListView.setVisibility(View.GONE);
-			
+			this.loadingProc(CustomLoadingView.State.network);	
 			return;
 		}
 		
@@ -136,12 +134,12 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 					}
 					catch (Exception e) {
 						System.out.println(e.getMessage());
-						if(pageNo == 1)	RoadRescueActivity.this.loadingProc(false);
+						if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.failed);
 						else mListView.hideFooterView();
 					}
 				}
 				
-				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(false);
+				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.failed);
 				else mListView.hideFooterView();
 				
 				if(!loadMoreFlag) { 
@@ -157,13 +155,13 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 			public void onStart() {
 				super.onStart();
 				//启动设置
-				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(true);
+				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.loading);
 			}
 			
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(false);
+				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.failed);
 				else mListView.hideFooterView();
 			}
 		};
@@ -231,15 +229,16 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 		this.mListAdapter.notifyDataSetChanged();		  
 	}
 	
-	public void loadingProc(boolean showloading)
+	public void loadingProc(CustomLoadingView.State state)
 	{
-		if (showloading) {
-			mLoadingView.notifyViewChanged(CustomLoadingView.State.loading);
-			mListView.setVisibility(View.GONE);
-		}
-		else {
+		
+		if (state == CustomLoadingView.State.done) {
 			mLoadingView.notifyViewChanged(CustomLoadingView.State.done);
 			mListView.setVisibility(View.VISIBLE);
+		}
+		else {
+			mLoadingView.notifyViewChanged(state);
+			mListView.setVisibility(View.GONE);		
 		}
 	}
 
@@ -350,7 +349,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				hold.layoutScene.setVisibility(View.GONE);
 			}
 			else {
-			//	YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
 				YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
 			}
 
