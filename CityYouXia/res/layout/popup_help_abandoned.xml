@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_50p" >
+	
+    <LinearLayout 
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="@color/white">
+        <TextView 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_top_large"
+            android:layout_marginBottom="@dimen/common_margin_bottom_large"
+            android:layout_marginLeft="@dimen/common_margin_left"
+            android:layout_marginRight="@dimen/common_margin_right"
+            android:textSize="@dimen/common_text_size_normal"
+            android:text="@string/help_abandoned"
+            android:background="@null"/>
+        <include layout="@layout/common_divided_line_vertical"/>
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/common_padding_top_m"
+            android:paddingBottom="@dimen/common_padding_bottom_m"
+            android:orientation="horizontal">
+            <TextView 
+                android:id="@+id/popup_help_abandoned_confirm_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/common_text_size_normal"
+                android:textColor="@color/lightgrey"
+                android:text="@string/help_abandoned_confirm"/>
+            <View 
+                android:layout_width="@dimen/common_divide_line_height"
+                android:layout_height="@dimen/common_popup_divided_line_h_height"
+                android:background="@color/common_divide_line"/>
+            <TextView 
+                android:id="@+id/popup_help_abandoned_cancel_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/common_text_size_normal"
+                android:textColor="@color/red"
+                android:text="@string/help_abandoned_cancel"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

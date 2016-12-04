@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_photopicker_selector"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_50p" >
+	
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divide_line_height"
+            android:background="@color/orange"/>
+        <TextView 
+            android:id="@+id/popup_photopicker_camera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_padding_top_large"
+            android:paddingBottom="@dimen/common_padding_bottom_large"
+            android:gravity="center"
+            android:textSize="@dimen/common_text_size_large"
+            android:text="@string/common_pop_photopicker_carema"/>
+        <include layout="@layout/common_divided_line_vertical"/>
+        <TextView 
+            android:id="@+id/popup_photopicker_album"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_padding_top_large"
+            android:paddingBottom="@dimen/common_padding_bottom_large"
+            android:gravity="center"
+            android:textSize="@dimen/common_text_size_large"
+            android:text="@string/common_pop_photopicker_album"/>
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divided_bar_height"
+            android:background="@color/common_divide_line"/>
+        <TextView 
+            android:id="@+id/popup_photopicker_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_padding_top_large"
+            android:paddingBottom="@dimen/common_padding_bottom_large"
+            android:gravity="center"
+            android:textSize="@dimen/common_text_size_large"
+            android:text="@string/cancel"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_50p"
+    tools:context="${relativePackage}.${activityClass}" >
+    <!-- title -->
+    <include layout="@layout/activity_main_title_bar"/>
+    <GridView
+        android:id="@+id/activity_photo_gv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/common_gridview_margin"
+        android:horizontalSpacing="@dimen/common_gridview_space_small"
+        android:verticalSpacing="@dimen/common_gridview_space_small"
+        android:numColumns="3"
+        android:scrollbars="none">
+    </GridView>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divide_line_height"
+            android:background="@color/orange"/>
+        <TextView 
+            android:id="@+id/activity_photo_done_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_padding_top_large"
+            android:paddingBottom="@dimen/common_padding_bottom_large"
+            android:gravity="center"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/common_text_size_large"
+            android:text="@string/common_pop_photopicker_done"/>
+    </LinearLayout>
+</LinearLayout>

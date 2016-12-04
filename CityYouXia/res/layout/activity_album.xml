@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_50p"
+    tools:context="${relativePackage}.${activityClass}" >
+    <!-- title -->
+    <include layout="@layout/activity_main_title_bar"/>
+    <GridView
+        android:id="@+id/activity_album_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/common_gridview_margin"
+        android:horizontalSpacing="@dimen/common_gridview_space"
+        android:verticalSpacing="@dimen/common_gridview_space"
+        android:numColumns="2"
+        android:scrollbars="none">
+    </GridView>
+</LinearLayout>
