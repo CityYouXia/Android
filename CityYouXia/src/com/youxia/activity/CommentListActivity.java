@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.youxia.BaseActivity;
 import com.youxia.R;
 import com.youxia.adapter.AdapterCommentList;
-import com.youxia.entity.RoadRescueDetailCommentListEntity;
+import com.youxia.entity.HelpCommentListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaUtils;
 import com.youxia.widget.CustomLoadingView;
@@ -85,8 +85,8 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")){
 					try 
 					{
-						List<RoadRescueDetailCommentListEntity> list = JSON.parseArray(result,
-								RoadRescueDetailCommentListEntity.class); // 评论列表
+						List<HelpCommentListEntity> list = JSON.parseArray(result,
+								HelpCommentListEntity.class); // 评论列表
 						if (list == null || list.size() <= 0) {
 							loadMoreFlag = false;
 						}
@@ -95,9 +95,9 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 							else loadMoreFlag = true;
 							
 							if(pageNo == 1){
-								CommentListActivity.this.freshListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
+								CommentListActivity.this.freshListView((ArrayList<HelpCommentListEntity>)list);
 							}else{
-								CommentListActivity.this.addLastListView((ArrayList<RoadRescueDetailCommentListEntity>)list);
+								CommentListActivity.this.addLastListView((ArrayList<HelpCommentListEntity>)list);
 							}
 						}
 					}
@@ -150,7 +150,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 		HttpClientHelper.queryHelpCommentList(helpId, pageNo, pageSize, callBack);
 	}
 	
-	public void freshListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+	public void freshListView(ArrayList<HelpCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
 
@@ -160,7 +160,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 		this.mCommentListAdapter.notifyDataSetChanged();
 	}
 	
-	public void addFirstListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
+	public void addFirstListView(ArrayList<HelpCommentListEntity> paramArrayList)
 	{			
 		if (paramArrayList == null || this.mCommentListAdapter == null) return;
 		
@@ -169,7 +169,7 @@ public class CommentListActivity extends BaseActivity implements OnRefreshListen
 		this.mCommentListAdapter.notifyDataSetChanged();		  
 	}
 	
-	public void addLastListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList)
+	public void addLastListView(ArrayList<HelpCommentListEntity> paramArrayList)
 	{
 		if (paramArrayList == null || this.mCommentListAdapter == null) return;
 		

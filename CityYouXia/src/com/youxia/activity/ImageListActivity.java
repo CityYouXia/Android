@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.youxia.BaseActivity;
 import com.youxia.R;
 import com.youxia.adapter.ImagePagerAdapter;
-import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
+import com.youxia.entity.HelpImageListEntity;
 import com.youxia.widget.imageshow.ImageShowViewPager;
 
 import android.os.Bundle;
@@ -19,7 +19,7 @@ public class ImageListActivity extends BaseActivity{
 	@ViewInject(id = R.id.page_number)
 	TextView mPageNumber;
 	
-	private ArrayList<RoadRescueDetailHelpImageListEntity> mImageList;
+	private ArrayList<HelpImageListEntity> mImageList;
 	private ImagePagerAdapter mImagePagerAdapter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class ImageListActivity extends BaseActivity{
 	
 	@SuppressWarnings("unchecked")
 	private void initView() {
-		mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
+		mImageList = new ArrayList<HelpImageListEntity>();
 		Bundle bundle = this.getIntent().getBundleExtra("bundle"); 
-		mImageList = (ArrayList<RoadRescueDetailHelpImageListEntity>) bundle.getSerializable("imageList");
+		mImageList = (ArrayList<HelpImageListEntity>) bundle.getSerializable("imageList");
 		int pageNo = bundle.getInt("position");
 		mImageShowViewPager.setOnPageChangeListener(new PageChangeListener());
 		mPageNumber.setText((pageNo+1) + "/" + mImageList.size());

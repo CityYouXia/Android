@@ -2,7 +2,7 @@ package com.youxia.entity;
 
 import java.io.Serializable;
 
-public class RoadRescueDetailCommentListEntity implements Serializable{
+public class HelpCommentListEntity implements Serializable{
 	
 	/**
 	 * 

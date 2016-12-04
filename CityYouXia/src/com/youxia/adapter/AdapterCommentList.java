@@ -2,7 +2,7 @@ package com.youxia.adapter;
 
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
-import com.youxia.entity.RoadRescueDetailCommentListEntity;
+import com.youxia.entity.HelpCommentListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
@@ -34,7 +34,7 @@ public class AdapterCommentList extends BaseLinkedListAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		RoadRescueDetailCommentListEntity localData = (RoadRescueDetailCommentListEntity) getItem(position);
+		HelpCommentListEntity localData = (HelpCommentListEntity) getItem(position);
 
 		ViewHold hold = null;
 

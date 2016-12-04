@@ -3,7 +3,7 @@ package com.youxia.adapter;
 import java.util.ArrayList;
 
 import com.youxia.R;
-import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
+import com.youxia.entity.HelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.widget.imageshow.ImageShowViewPager;
@@ -21,12 +21,12 @@ import android.view.ViewGroup;
  */
 public class ImagePagerAdapter extends PagerAdapter {
 	Context context;
-	ArrayList<RoadRescueDetailHelpImageListEntity> imgsUrl;
+	ArrayList<HelpImageListEntity> imgsUrl;
 	LayoutInflater inflater = null;
 	//view内控件
 	TouchImageView full_image;
 	
-	public ImagePagerAdapter(Context context, ArrayList<RoadRescueDetailHelpImageListEntity> imgsUrl) {
+	public ImagePagerAdapter(Context context, ArrayList<HelpImageListEntity> imgsUrl) {
 		this.context = context;
 		this.imgsUrl = imgsUrl;
 		inflater = LayoutInflater.from(context);

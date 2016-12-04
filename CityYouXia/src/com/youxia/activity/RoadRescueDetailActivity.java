@@ -11,8 +11,8 @@ import com.youxia.BaseActivity;
 import com.youxia.BaseLinkedListAdapter;
 import com.youxia.R;
 import com.youxia.adapter.AdapterCommentList;
-import com.youxia.entity.RoadRescueDetailCommentListEntity;
-import com.youxia.entity.RoadRescueDetailHelpImageListEntity;
+import com.youxia.entity.HelpCommentListEntity;
+import com.youxia.entity.HelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
@@ -86,7 +86,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 
 	private AdapterCommentList mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
-	private ArrayList<RoadRescueDetailHelpImageListEntity> mImageList;
+	private ArrayList<HelpImageListEntity> mImageList;
 	private int pageNo = 1;
 	private int pageSize = 5;
 	private int userId = 1;
@@ -255,15 +255,15 @@ public class RoadRescueDetailActivity extends BaseActivity {
 				// 网络请求成功
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
-						List<RoadRescueDetailCommentListEntity> list = JSON.parseArray(result,
-								RoadRescueDetailCommentListEntity.class); // 评论列表
+						List<HelpCommentListEntity> list = JSON.parseArray(result,
+								HelpCommentListEntity.class); // 评论列表
 						if (list == null || list.size() <= 0) {
 							// 没有评论信息
 							hasComments(false);
 						} else {
 							hasComments(true);
 							RoadRescueDetailActivity.this
-									.freshListView((ArrayList<RoadRescueDetailCommentListEntity>) list);
+									.freshListView((ArrayList<HelpCommentListEntity>) list);
 							if (list.size() < pageSize) {
 								hasMoreComments(false);
 							} else {
@@ -299,8 +299,8 @@ public class RoadRescueDetailActivity extends BaseActivity {
 				// 网络请求成功
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
-						mImageList = (ArrayList<RoadRescueDetailHelpImageListEntity>) JSON.parseArray(result,
-								RoadRescueDetailHelpImageListEntity.class); // 图片列表
+						mImageList = (ArrayList<HelpImageListEntity>) JSON.parseArray(result,
+								HelpImageListEntity.class); // 图片列表
 						if (mImageList == null || mImageList.size() <= 0) {
 							// 没有图片
 							hasImages(false);
@@ -432,7 +432,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 
-			RoadRescueDetailHelpImageListEntity localData = (RoadRescueDetailHelpImageListEntity) getItem(position);
+			HelpImageListEntity localData = (HelpImageListEntity) getItem(position);
 
 			ViewHold hold = null;
 
@@ -471,7 +471,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 
 	}
 
-	public void freshListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+	public void freshListView(ArrayList<HelpCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
 
@@ -481,7 +481,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		this.mCommentListAdapter.notifyDataSetChanged();
 	}
 
-	public void addFirstListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+	public void addFirstListView(ArrayList<HelpCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
 
@@ -490,7 +490,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		this.mCommentListAdapter.notifyDataSetChanged();
 	}
 
-	public void addLastListView(ArrayList<RoadRescueDetailCommentListEntity> paramArrayList) {
+	public void addLastListView(ArrayList<HelpCommentListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mCommentListAdapter == null)
 			return;
 
@@ -499,7 +499,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		this.mCommentListAdapter.notifyDataSetChanged();
 	}
 
-	public void freshGridView(ArrayList<RoadRescueDetailHelpImageListEntity> paramArrayList) {
+	public void freshGridView(ArrayList<HelpImageListEntity> paramArrayList) {
 		if (paramArrayList == null || this.mImageGridAdapter == null)
 			return;
 
