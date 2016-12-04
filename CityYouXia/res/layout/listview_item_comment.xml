@@ -37,7 +37,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero_dp"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_nickname_margin_top"
+                android:layout_marginTop="@dimen/activity_road_rescue_detail_head_text_margin_left"
                 android:layout_weight="1.0"
                 android:orientation="horizontal" >
 
@@ -47,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_weight="1.0"
+                    android:layout_marginTop="@dimen/common_margin_top"
                     android:includeFontPadding="false"
                     android:text="秋天的秋千"
                     android:textColor="@color/activity_road_rescue_detail_nickname_color"
@@ -68,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero_dp"
                 android:layout_weight="1.0"
+                android:layout_marginTop="@dimen/common_margin_top"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
@@ -93,6 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/common_margin_right"
+                android:layout_marginTop="@dimen/common_margin_top"
                 android:includeFontPadding="false"
                 android:text="楼主在哪啊？woefsov iajfdgo asdf asdfajsdf扫地方骄傲地方啊我及佛爱家发熟练度附近空哦啊无接缝氨基酸两地分居偶爱就无法哦啊积分"
                 android:textColor="@color/activity_road_rescue_detail_information_color"
