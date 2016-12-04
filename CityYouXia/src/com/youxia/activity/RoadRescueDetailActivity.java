@@ -441,7 +441,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 
 				hold = new ViewHold();
 				convertView = LayoutInflater.from(parent.getContext())
-						.inflate(R.layout.listview_item_roadrescuedetail_image, parent, false);
+						.inflate(R.layout.gridview_item_help_image, parent, false);
 
 				hold.ivRoadRescue = (ImageView) convertView
 						.findViewById(R.id.road_rescue_detail_listitem_rescuer_portrait);
