@@ -3,7 +3,6 @@ package com.youxia.fragment;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.RoadRescueActivity;
-import com.youxia.activity.RoadRescueDetailActivity;
 import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
 

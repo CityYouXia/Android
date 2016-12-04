@@ -108,14 +108,14 @@ public class PhotoDetailsActivity extends BaseActivity {
 		pager.setCurrentItem(id);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void initListViews(Bitmap bm) {
 		if (listViews == null)
 			listViews = new ArrayList<View>();
 		ImageView img = new ImageView(this);// 构造textView对象
 		img.setBackgroundColor(0xff000000);
 		img.setImageBitmap(bm);
-		img.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
-				LayoutParams.FILL_PARENT));
+		img.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
 		listViews.add(img);// 添加view
 	}
 

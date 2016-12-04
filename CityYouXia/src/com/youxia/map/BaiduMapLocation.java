@@ -17,7 +17,8 @@ public class BaiduMapLocation {
 	public void initLocation(Context context, int scanPeriod){
 		if(null == context) return;
 		mContext = context;
-		mLocationClient = new LocationClient(context);
+		
+		mLocationClient = new LocationClient(this.mContext);
 		mMyLocationListener = new MyLocationListener();
 		mLocationClient.registerLocationListener(mMyLocationListener);
 		// 设置定位的相关配置
