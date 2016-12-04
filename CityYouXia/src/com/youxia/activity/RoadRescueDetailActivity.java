@@ -43,46 +43,26 @@ import net.tsz.afinal.http.AjaxCallBack;
 public class RoadRescueDetailActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.title_bar_title)	TextView mTitleBarTitle;// 标题
-	@ViewInject(id = R.id.activity_road_rescue_detail_address)
-	TextView mSiteTextView;// 地址
-	@ViewInject(id = R.id.activity_road_rescue_detail_score)
-	TextView mRewardPointsTextView;// 积分
-	@ViewInject(id = R.id.activity_road_rescue_detail_nickname)
-	TextView mNickNameTextView;// 求助者昵称
-	@ViewInject(id = R.id.road_rescue_detail_listitem_comment_time)
-	TextView mCreateDateTextView;// 发布多长时间
-	@ViewInject(id = R.id.title_bar_title)
-	TextView mTitleTextView; // 标题
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_title)
-	TextView mDetailTitleTextView;// 任务详情标题
-	@ViewInject(id = R.id.activity_road_rescue_detail_information)
-	TextView mContentTextView;// 求助详细信息
-	@ViewInject(id = R.id.comment_send, click = "btnClick")
-	TextView mSendTextView;// 发送
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescuers_nickname)
-	TextView mHelpUserNameTextView;// 帮助者姓名
-	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_image, click = "btnClick")
-	TextView mLoadMoreImageTextView;// 加载更多图片
-	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_comment, click = "btnClick")
-	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
-	@ViewInject(id = R.id.activity_road_rescue_detail_no_comment)
-	TextView mNoCommentTextView;// 没有评论提示
-	@ViewInject(id = R.id.comment_edittext)
-	EditText mCommentEditText;// 消息编辑框
-	@ViewInject(id = R.id.title_bar_back, click = "btnClick")
-	RelativeLayout mTitleBarBack;// 返回
-	@ViewInject(id = R.id.activity_road_rescue_detail_resoved_information)
-	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
-	@ViewInject(id = R.id.activity_road_rescue_detail_user_portrait)
-	ImageView mUserPortraitImageView;// 求助者头像
-	@ViewInject(id = R.id.activity_road_rescue_detail_status)
-	ImageView mStatusImageView;// 道路救援详情解决状态
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_button)
-	Button mButtonRescue;// 立即救援按钮
-	@ViewInject(id = R.id.activity_road_rescue_detail_comment_list)
-	ListViewForScrollView mCommentList;// 评论列表
-	@ViewInject(id = R.id.activity_road_rescue_detail_image_gridview)
-	GridView mImageGridView;
+	@ViewInject(id = R.id.activity_road_rescue_detail_address)	TextView mSiteTextView;// 地址
+	@ViewInject(id = R.id.activity_road_rescue_detail_score)	TextView mRewardPointsTextView;// 积分
+	@ViewInject(id = R.id.activity_road_rescue_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
+	@ViewInject(id = R.id.road_rescue_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
+	@ViewInject(id = R.id.title_bar_title)	TextView mTitleTextView; // 标题
+	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
+	@ViewInject(id = R.id.activity_road_rescue_detail_information)	TextView mContentTextView;// 求助详细信息
+	@ViewInject(id = R.id.comment_send, click = "btnClick")	TextView mSendTextView;// 发送
+	@ViewInject(id = R.id.activity_road_rescue_detail_rescuers_nickname)	TextView mHelpUserNameTextView;// 帮助者姓名
+	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_image, click = "btnClick")	TextView mLoadMoreImageTextView;// 加载更多图片
+	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_comment, click = "btnClick")	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
+	@ViewInject(id = R.id.activity_road_rescue_detail_no_comment)	TextView mNoCommentTextView;// 没有评论提示
+	@ViewInject(id = R.id.comment_edittext)	EditText mCommentEditText;// 消息编辑框
+	@ViewInject(id = R.id.title_bar_back, click = "btnClick")	RelativeLayout mTitleBarBack;// 返回
+	@ViewInject(id = R.id.activity_road_rescue_detail_resoved_information)	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
+	@ViewInject(id = R.id.activity_road_rescue_detail_user_portrait)	ImageView mUserPortraitImageView;// 求助者头像
+	@ViewInject(id = R.id.activity_road_rescue_detail_status)	ImageView mStatusImageView;// 道路救援详情解决状态
+	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_button)	Button mButtonRescue;// 立即救援按钮
+	@ViewInject(id = R.id.activity_road_rescue_detail_comment_list)	ListViewForScrollView mCommentList;// 评论列表
+	@ViewInject(id = R.id.activity_road_rescue_detail_image_gridview)	GridView mImageGridView;
 
 	private CommentListAdapter mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;

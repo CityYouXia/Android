@@ -14,10 +14,8 @@ import android.widget.TextView;
 import net.tsz.afinal.annotation.view.ViewInject;
 
 public class ImageListActivity extends BaseActivity{
-	@ViewInject(id = R.id.image_pager)
-	ImageShowViewPager mImageShowViewPager;
-	@ViewInject(id = R.id.page_number)
-	TextView mPageNumber;
+	@ViewInject(id = R.id.image_pager)	ImageShowViewPager mImageShowViewPager;
+	@ViewInject(id = R.id.page_number)	TextView mPageNumber;
 	
 	private ArrayList<HelpImageListEntity> mImageList;
 	private ImagePagerAdapter mImagePagerAdapter;
