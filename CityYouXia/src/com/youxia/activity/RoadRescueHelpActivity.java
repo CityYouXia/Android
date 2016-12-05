@@ -38,6 +38,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import net.tsz.afinal.annotation.view.ViewInject;
 import net.tsz.afinal.http.AjaxCallBack;
 
@@ -117,9 +118,9 @@ public class RoadRescueHelpActivity extends BaseActivity {
 				//网络请求成功
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")){
 					if(TextUtils.equals(result, "0")){
-						
+						Toast.makeText(RoadRescueHelpActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
 					}else {
-						
+						finish();
 					}
 				}
 			}

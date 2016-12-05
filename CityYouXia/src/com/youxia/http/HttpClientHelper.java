@@ -14,7 +14,7 @@ public class HttpClientHelper {
 	
 	//public static String Basic_YouXiaUrl 	= "http://www.youxia.com";		//游侠网
 	
-	public static String Basic_YouXiaUrl 	= "http://1597e1873r.iask.in:20773";		//游侠网
+	public static String Basic_YouXiaUrl 	= "http://1597e1873r.iask.in:20773/CityYouXia";		//游侠网
 	
 	private static FinalHttp finalHttp = new FinalHttp();
 	

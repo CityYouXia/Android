@@ -139,7 +139,7 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 					}
 				}
 				
-				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.failed);
+				if(pageNo == 1)	RoadRescueActivity.this.loadingProc(CustomLoadingView.State.done);
 				else mListView.hideFooterView();
 				
 				if(!loadMoreFlag) { 
