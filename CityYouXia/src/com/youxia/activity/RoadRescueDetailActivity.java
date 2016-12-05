@@ -97,41 +97,37 @@ public class RoadRescueDetailActivity extends BaseActivity {
 		loadImageList(helpId);
 
 		// test
-		// mImageList = new ArrayList<RoadRescueDetailHelpImageListEntity>();
-		// hasImages(true);
-		//
-		// RoadRescueDetailHelpImageListEntity entity0 = new
-		// RoadRescueDetailHelpImageListEntity();
-		// entity0.imageUrl =
-		// "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
-		// entity0.createDate = "2016";
-		// entity0.helpId = "0";
-		// entity0.imageId = "0";
-		// entity0.modifyDate = "2016";
-		// entity0.name = "123";
-		// entity0.orders = "123";
-		// RoadRescueDetailHelpImageListEntity entity1 = new
-		// RoadRescueDetailHelpImageListEntity();
-		// entity1.imageUrl =
-		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-		// RoadRescueDetailHelpImageListEntity entity2 = new
-		// RoadRescueDetailHelpImageListEntity();
-		// entity2.imageUrl =
-		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
-		// RoadRescueDetailHelpImageListEntity entity3 = new
-		// RoadRescueDetailHelpImageListEntity();
-		// entity3.imageUrl =
-		// "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-		// mImageList.add(entity0);
-		// mImageList.add(entity1);
-		// mImageList.add(entity2);
-		// mImageList.add(entity3);
-		// RoadRescueDetailActivity.this.freshGridView(mImageList);
-		// if (mImageList.size() < 3) {
-		// hasMoreImages(false);
-		// } else {
-		// hasMoreImages(true);
-		// }
+//		mImageList = new ArrayList<HelpImageListEntity>();
+//		hasImages(true);
+//
+//		HelpImageListEntity entity0 = new HelpImageListEntity();
+//		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
+//		entity0.createDate = "2016";
+//		entity0.helpId = "0";
+//		entity0.imageId = "0";
+//		entity0.modifyDate = "2016";
+//		entity0.name = "123";
+//		entity0.orders = "123";
+//		HelpImageListEntity entity1 = new HelpImageListEntity();
+//		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+//		HelpImageListEntity entity2 = new HelpImageListEntity();
+//		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
+//		HelpImageListEntity entity3 = new HelpImageListEntity();
+//		entity3.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
+//		mImageList.add(entity0);
+//		mImageList.add(entity1);
+//		mImageList.add(entity2);
+//		mImageList.add(entity3);
+//		RoadRescueDetailActivity.this.freshGridView(mImageList);
+//		if (mImageList.size() < 3) {
+//			hasMoreImages(false);
+//		} else {
+//			hasMoreImages(true);
+//		}
+//		
+//		String commentList = "[{\"commentId\":28,\"helpId\":5,\"userId\":1,\"content\":\"我勒个去的啊\",\"createDate\":\"2分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":27,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":26,\"helpId\":5,\"userId\":1,\"content\":\"我的楼主又丢了啊\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":25,\"helpId\":5,\"userId\":1,\"content\":\"谁抢我沙发\",\"createDate\":\"42分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":24,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"1小时前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1}]";
+//		List<HelpCommentListEntity> list = JSON.parseArray(commentList,HelpCommentListEntity.class); // 评论列表
+//		freshListView((ArrayList<HelpCommentListEntity>) list);
 	}
 
 	private void loadRoadRescueDetailById(Integer id) {

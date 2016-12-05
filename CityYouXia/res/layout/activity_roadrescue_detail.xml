@@ -185,7 +185,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
                 android:background="@drawable/fragment_home_help_btn_selector"
-                android:text="@string/common_button_helpme"
+                android:text="@string/rescue_rightnow"
                 android:textColor="@color/white"
                 android:textSize="@dimen/common_text_size_large" />
 
