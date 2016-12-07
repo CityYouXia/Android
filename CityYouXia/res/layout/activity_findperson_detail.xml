@@ -7,11 +7,11 @@
     android:orientation="vertical" >
 
     <include
-        android:id="@+id/activity_road_rescue_detail_title"
+        android:id="@+id/activity_findperson_detail_title"
         layout="@layout/activity_main_title_bar" />
 
     <ScrollView
-        android:id="@+id/activity_road_rescue_detail_scroll_view"
+        android:id="@+id/activity_findperson_detail_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -30,7 +30,7 @@
                 android:orientation="horizontal" >
 
                 <com.youxia.widget.roundimage.RoundedImageView
-                    android:id="@+id/activity_road_rescue_detail_user_portrait"
+                    android:id="@+id/activity_findperson_detail_user_portrait"
                     android:layout_width="@dimen/activity_road_rescue_detail_portrait_width_height"
                     android:layout_height="@dimen/activity_road_rescue_detail_portrait_width_height"
                     android:layout_marginLeft="@dimen/common_margin_left"
@@ -54,7 +54,7 @@
                         android:orientation="horizontal" >
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_nickname"
+                            android:id="@+id/activity_findperson_detail_nickname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -62,7 +62,7 @@
                             android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
 
                         <ImageView
-                            android:id="@+id/activity_road_rescue_detail_status"
+                            android:id="@+id/activity_findperson_detail_status"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/activity_road_rescue_detail_status_height"
                             android:src="@drawable/unresolved" />
@@ -80,7 +80,7 @@
                             android:src="@drawable/score" />
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_score"
+                            android:id="@+id/activity_findperson_detail_score"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
@@ -96,7 +96,7 @@
                             android:src="@drawable/clock" />
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_listitem_comment_time"
+                            android:id="@+id/activity_findperson_detail_listitem_comment_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
@@ -108,7 +108,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_rescue_title"
+                android:id="@+id/activity_findperson_detail_rescue_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
@@ -120,7 +120,7 @@
                 android:textSize="@dimen/common_text_size_large" />
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_information"
+                android:id="@+id/activity_findperson_detail_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
@@ -131,7 +131,7 @@
                 android:textSize="@dimen/common_text_size_normal" />
 
             <GridView
-                android:id="@+id/activity_road_rescue_detail_image_gridview"
+                android:id="@+id/activity_findperson_detail_image_gridview"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -144,7 +144,7 @@
             </GridView>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_load_more_image"
+                android:id="@+id/activity_findperson_detail_load_more_image"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
@@ -169,7 +169,7 @@
                     android:src="@drawable/map_site_icon" />
 
                 <TextView
-                    android:id="@+id/activity_road_rescue_detail_address"
+                    android:id="@+id/activity_findperson_detail_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
@@ -179,7 +179,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/activity_road_rescue_detail_rescue_button"
+                android:id="@+id/activity_findperson_detail_rescue_button"
                 android:layout_width="@dimen/activity_road_rescue_detail_button_width"
                 android:layout_height="@dimen/activity_road_rescue_detail_button_height"
                 android:layout_gravity="center_horizontal"
@@ -190,7 +190,7 @@
                 android:textSize="@dimen/common_text_size_large" />
 
             <LinearLayout
-                android:id="@+id/activity_road_rescue_detail_resoved_information"
+                android:id="@+id/activity_findperson_detail_resoved_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
@@ -206,7 +206,7 @@
                     android:textSize="@dimen/common_text_size_supper_large" />
 
                 <com.youxia.widget.roundimage.RoundedImageView
-                    android:id="@+id/activity_road_rescue_detail_rescuers_portrait"
+                    android:id="@+id/activity_findperson_detail_rescuers_portrait"
                     android:layout_width="@dimen/activity_road_rescue_rescue_detail_rescuer_portrait_width_height"
                     android:layout_height="@dimen/activity_road_rescue_rescue_detail_rescuer_portrait_width_height"
                     android:layout_marginLeft="@dimen/common_view_space_5"
@@ -217,7 +217,7 @@
                     app:corner_radius="@dimen/activity_road_rescue_detail_rescuer_portrait_corner_radius" />
 
                 <TextView
-                    android:id="@+id/activity_road_rescue_detail_rescuers_nickname"
+                    android:id="@+id/activity_findperson_detail_rescuers_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/common_view_space_5"
@@ -247,7 +247,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_no_comment"
+                android:id="@+id/activity_findperson_detail_no_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -255,7 +255,7 @@
                 android:textColor="@color/orange" />
 
             <com.youxia.widget.ListViewForScrollView
-                android:id="@+id/activity_road_rescue_detail_comment_list"
+                android:id="@+id/activity_findperson_detail_comment_list"
                 style="@style/common_listview_style"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -266,7 +266,7 @@
             <include layout="@layout/common_divided_line_vertical"/>
             
             <TextView
-                android:id="@+id/activity_road_rescue_detail_load_more_comment"
+                android:id="@+id/activity_findperson_detail_load_more_comment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"

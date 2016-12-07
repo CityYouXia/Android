@@ -47,7 +47,7 @@ public class CommentListAdapter extends BaseLinkedListAdapter {
 					.findViewById(R.id.road_rescue_detail_listitem_rescuer_portrait);
 			hold.tvNickName = (TextView) convertView
 					.findViewById(R.id.road_rescue_detail_listitem_rescuer_nickname);
-			hold.tvDatetime = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_comment_time);
+			hold.tvDatetime = (TextView) convertView.findViewById(R.id.activity_road_rescue_detail_listitem_comment_time);
 			hold.tvContent = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_comment_content);
 			hold.tvFloor = (TextView) convertView.findViewById(R.id.road_rescue_detail_listitem_floor);
 
