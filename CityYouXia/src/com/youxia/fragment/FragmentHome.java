@@ -2,6 +2,7 @@ package com.youxia.fragment;
 
 import com.youxia.BaseFragment;
 import com.youxia.R;
+import com.youxia.activity.FindPersonActivity;
 import com.youxia.activity.RoadRescueActivity;
 import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
@@ -46,7 +47,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		viewPagerAdvert.addALocalImageToViewPager("ad3.jpg", R.drawable.ad3, "广告3");
 		viewPagerAdvert.notifyViewPager();
 		
-
+		 
 		//计算单位图片宽度
 		int imageWidth = (getActivity().getWindowManager().getDefaultDisplay().getWidth() - 8) / 4;
 		int imageHeight= (int)(imageWidth * 0.78);
@@ -59,7 +60,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
 		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_movecar));
 		firstLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_traffic));
-		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_road_rescue));
+		firstLinearLayout.addView(getImageView(imageWidth * 2,  imageHeight* 2, R.drawable.home_hero_post));
 		
 		//添加第二列元素
 		LinearLayout linearLayout = getHorizontalLayout();
@@ -71,6 +72,7 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 
 		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight * 2,R.drawable.home_express));
 		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_asking));
+		secondLinearLayout.addView(getImageView(imageWidth * 2, imageHeight,R.drawable.home_traffic_limit));
 	}
 	
 	public LinearLayout getHorizontalLayout()
@@ -104,14 +106,16 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		
+		Intent intent = new Intent();
+		
 		switch (Integer.parseInt(v.getTag().toString())) {
 		case R.drawable.home_road_rescue:
-			Intent intent = new Intent();
 			intent.setClass(getActivity(), RoadRescueActivity.class);
-//			intent.setClass(getActivity(), RoadRescueDetailActivity.class);
 			startActivity(intent);
 			break;
 		case R.drawable.home_missing_person:
+			intent.setClass(getActivity(), FindPersonActivity.class);
+			startActivity(intent);			
 			break;
 		case R.drawable.home_missing_thing:
 			break;
@@ -122,6 +126,8 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 		case R.drawable.home_movecar:
 			break;
 		case R.drawable.home_asking:
+			break;
+		case R.drawable.home_hero_post:
 			break;
 		}
 	}

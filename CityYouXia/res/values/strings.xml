@@ -40,7 +40,8 @@
     
     <!-- 道路救援 -->
     <string name="activity_roadrescue_help">我要求助</string>
-    <string name="rescue_rightnow">立即救援</string>
+
+    
     <!-- 道路救援求助 -->
     <string name="roadrescue_help_title_hint">请输入标题</string>
     <string name="roadrescue_help_content_hint">请输入内容</string>
@@ -54,7 +55,9 @@
     <string name="activity_commentlist">评论列表</string>    
 
     <!-- 道路救援 -->
-    <string name="activity_roadrescue">道路救援</string>    
+    <string name="activity_roadrescue">道路救援</string>
+    <string name="activity_findperson">寻人</string>
+           
     
 	<!-- 任务详情 -->
 	<string name="activity_road_rescue_detail_title">任务详情</string>

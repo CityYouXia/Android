@@ -45,8 +45,8 @@ public class HttpClientHelper {
 	public static void loadPullRefreshRoadRescues(long pullRefreshId, AjaxCallBack<? extends Object> callBack)
 	{
 		AjaxParams param = new AjaxParams();
-		param.put("pullRefreshId", Long.toString(pullRefreshId));
-		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryRoadRescue.do", param, callBack);
+		param.put("helpId", Long.toString(pullRefreshId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/refreshRoadRescueList.do", param, callBack);
 	}
 	
 	//加载道路救援详细信息
@@ -55,6 +55,24 @@ public class HttpClientHelper {
 		AjaxParams param = new AjaxParams();
 		param.put("helpId", Integer.toString(helpId));
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryHelpDetail.do", param, callBack);	
+	}
+	
+	//加载寻人列表
+	public static void loadFindPersons(int pageSize, int pageNo, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("pageSize", Integer.toString(pageSize));
+		param.put("nowPage", Integer.toString(pageNo));
+		
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryFindPeopleList.do", param, callBack);
+	}
+	
+	//刷新寻人列表
+	public static void loadPullRefreshFindPersons(long pullRefreshId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("helpId", Long.toString(pullRefreshId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/refreshFindPeopleList.do", param, callBack);
 	}
 	
 	//我要求助

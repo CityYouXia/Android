@@ -61,6 +61,18 @@
     <dimen name="roadrescue_listview_result_height">16dp</dimen>
     <dimen name="roadrescue_listview_scene_width">70dp</dimen>
     <dimen name="roadrescue_listview_scene_height">58dp</dimen>
+    
+    <!-- 寻人列表 -->
+    <dimen name="findperson_listview_head_width">28dp</dimen>
+    <dimen name="findperson_listview_head_height">28dp</dimen>
+    <dimen name="findperson_listview_head_corner_radius">14dp</dimen>
+    <dimen name="findperson_listview_comment_width">20dp</dimen>
+    <dimen name="findperson_listview_comment_height">16dp</dimen>
+    <dimen name="findperson_listview_result_width">32dp</dimen>
+    <dimen name="findperson_listview_result_height">16dp</dimen>
+    <dimen name="findperson_listview_scene_height">112dp</dimen>
+    <dimen name="findperson_listview_image_radius">20dp</dimen>    
+    
     <dimen name="zero_dp">0dp</dimen>
 
     <!-- FragmentHome -->
@@ -101,6 +113,7 @@
     <dimen name="activity_road_rescue_detail_item_information_textsize">16sp</dimen>
     <dimen name="activity_road_rescue_detail_image_item_width_height">80dp</dimen>
     <dimen name="activity_road_rescue_detail_list_item_min_height">109dp</dimen>
+    
     <!-- 发送编辑框 -->
     <dimen name="comment_edittext_width">270dp</dimen>
     <dimen name="comment_edittext_height">38dp</dimen>

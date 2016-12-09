@@ -10,12 +10,12 @@
     
     <LinearLayout android:id="@+id/customer_loading_failed" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:visibility="gone">
 	    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loading_failed" />
-	    <TextView  android:layout_width="wrap_content"  android:layout_height="wrap_content" android:layout_gravity="center_vertical"  android:gravity="center" android:layout_marginLeft="@dimen/common_margin_left" android:text="@string/common_loading_failed" android:textColor="#ff919191"  android:textSize="16sp" />
+	    <TextView  android:layout_width="wrap_content"  android:layout_height="wrap_content" android:text="@string/common_loading_failed" android:textColor="#ff919191"  android:textSize="16sp" android:layout_marginTop="@dimen/common_margin_top" />
     </LinearLayout>
 
    <LinearLayout android:id="@+id/customer_network_none" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:visibility="gone">
 	   <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/network_failed" />
-	   <TextView  android:layout_width="wrap_content" android:layout_height="wrap_content"  android:text="@string/common_network_none"  android:textColor="#ff919191"  android:textSize="16sp" />
+	   <TextView  android:layout_width="wrap_content" android:layout_height="wrap_content"  android:text="@string/common_network_none"  android:textColor="#ff919191"  android:textSize="16sp" android:layout_marginTop="@dimen/common_margin_top"/>
 	   <TextView android:layout_width="wrap_content"  android:layout_height="wrap_content" android:text="@string/common_retry"  android:textColor="#ff919191" android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
