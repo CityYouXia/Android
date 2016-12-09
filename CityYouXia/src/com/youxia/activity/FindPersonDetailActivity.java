@@ -29,7 +29,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -37,31 +36,32 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 import net.tsz.afinal.annotation.view.ViewInject;
 import net.tsz.afinal.http.AjaxCallBack;
 
-public class RoadRescueDetailActivity extends BaseActivity {
+public class FindPersonDetailActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.title_bar_title)	TextView mTitleBarTitle;// 标题
-	@ViewInject(id = R.id.activity_road_rescue_detail_address)	TextView mSiteTextView;// 地址
-	@ViewInject(id = R.id.activity_road_rescue_detail_score)	TextView mRewardPointsTextView;// 积分
-	@ViewInject(id = R.id.activity_road_rescue_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
-	@ViewInject(id = R.id.activity_road_rescue_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
-	@ViewInject(id = R.id.activity_road_rescue_detail_information)	TextView mContentTextView;// 求助详细信息
+	@ViewInject(id = R.id.activity_findperson_detail_address)	TextView mSiteTextView;// 地址
+	@ViewInject(id = R.id.activity_findperson_detail_score)	TextView mRewardPointsTextView;// 积分
+	@ViewInject(id = R.id.activity_findperson_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
+	@ViewInject(id = R.id.activity_findperson_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
+	@ViewInject(id = R.id.activity_findperson_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
+	@ViewInject(id = R.id.activity_findperson_detail_information)	TextView mContentTextView;// 求助详细信息
 	@ViewInject(id = R.id.comment_send, click = "btnClick")	TextView mSendTextView;// 发送
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescuers_nickname)	TextView mHelpUserNameTextView;// 帮助者姓名
-	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_image, click = "btnClick")	TextView mLoadMoreImageTextView;// 加载更多图片
-	@ViewInject(id = R.id.activity_road_rescue_detail_load_more_comment, click = "btnClick")	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
-	@ViewInject(id = R.id.activity_road_rescue_detail_no_comment)	TextView mNoCommentTextView;// 没有评论提示
+	@ViewInject(id = R.id.activity_findperson_detail_rescuers_nickname)	TextView mHelpUserNameTextView;// 帮助者姓名
+	@ViewInject(id = R.id.activity_findperson_detail_load_more_image, click = "btnClick")	TextView mLoadMoreImageTextView;// 加载更多图片
+	@ViewInject(id = R.id.activity_findperson_detail_load_more_comment, click = "btnClick")	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
+	@ViewInject(id = R.id.activity_findperson_detail_no_comment)	TextView mNoCommentTextView;// 没有评论提示
 	@ViewInject(id = R.id.comment_edittext)	EditText mCommentEditText;// 消息编辑框
 	@ViewInject(id = R.id.title_bar_back, click = "btnClick")	RelativeLayout mTitleBarBack;// 返回
-	@ViewInject(id = R.id.activity_road_rescue_detail_resoved_information)	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
-	@ViewInject(id = R.id.activity_road_rescue_detail_user_portrait)	ImageView mUserPortraitImageView;// 求助者头像
-	@ViewInject(id = R.id.activity_road_rescue_detail_status)	ImageView mStatusImageView;// 道路救援详情解决状态
-	@ViewInject(id = R.id.activity_road_rescue_detail_rescue_button)	Button mButtonRescue;// 立即救援按钮
-	@ViewInject(id = R.id.activity_road_rescue_detail_comment_list)	ListViewForScrollView mCommentList;// 评论列表
-	@ViewInject(id = R.id.activity_road_rescue_detail_image_gridview)	GridView mImageGridView;
+	@ViewInject(id = R.id.activity_findperson_detail_resoved_information)	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
+	@ViewInject(id = R.id.activity_findperson_detail_user_portrait)	ImageView mUserPortraitImageView;// 求助者头像
+	@ViewInject(id = R.id.activity_findperson_detail_status)	ImageView mStatusImageView;// 道路救援详情解决状态
+	@ViewInject(id = R.id.activity_findperson_detail_rescue_button)	Button mButtonRescue;// 立即救援按钮
+	@ViewInject(id = R.id.activity_findperson_detail_comment_list)	ListViewForScrollView mCommentList;// 评论列表
+	@ViewInject(id = R.id.activity_findperson_detail_image_gridview)	GridView mImageGridView;
 
 	private CommentListAdapter mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
@@ -74,7 +74,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_roadrescue_detail);
+		setContentView(R.layout.activity_findperson_detail);
 		initView();
 	}
 
@@ -116,7 +116,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 //		mImageList.add(entity1);
 //		mImageList.add(entity2);
 //		mImageList.add(entity3);
-//		RoadRescueDetailActivity.this.freshGridView(mImageList);
+//		FindPersonDetailActivity.this.freshGridView(mImageList);
 //		if (mImageList.size() < 3) {
 //			hasMoreImages(false);
 //		} else {
@@ -147,7 +147,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 						mRewardPointsTextView.setText(json.getString("rewardPoints") + "积分");
 						mCreateDateTextView.setText(json.getString("createDate"));
 						int iSex = json.getInt("sex");
-						Bitmap bitmap = BitmapFactory.decodeResource(RoadRescueDetailActivity.this.getResources(),
+						Bitmap bitmap = BitmapFactory.decodeResource(FindPersonDetailActivity.this.getResources(),
 								(iSex == 1) ? R.drawable.male_little_default : R.drawable.female_little_default);
 						YouXiaApp.mFinalBitmap.display(mUserPortraitImageView,
 								HttpClientHelper.Basic_YouXiaUrl + json.getString("userPhoto"), bitmap);
@@ -189,17 +189,17 @@ public class RoadRescueDetailActivity extends BaseActivity {
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
 						if (result.equals("0")) {
-							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
+							YouXiaUtils.showToast(FindPersonDetailActivity.this,
 									getString(R.string.activity_road_rescue_detail_comment_success), 0);
 							mCommentEditText.setText("");
 							InputMethodManager imm = (InputMethodManager) getSystemService(
-									RoadRescueDetailActivity.this.INPUT_METHOD_SERVICE);
+									FindPersonDetailActivity.this.INPUT_METHOD_SERVICE);
 							// 隐藏键盘
 							imm.hideSoftInputFromWindow(mCommentEditText.getWindowToken(), 0);
 							// 评论列表头部加一条新评论
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
-							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
+							YouXiaUtils.showToast(FindPersonDetailActivity.this,
 									getString(R.string.activity_road_rescue_detail_comment_fail), 0);
 						}
 					} catch (Exception e) {
@@ -237,7 +237,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							hasComments(false);
 						} else {
 							hasComments(true);
-							RoadRescueDetailActivity.this
+							FindPersonDetailActivity.this
 									.freshListView((ArrayList<HelpCommentListEntity>) list);
 							if (list.size() < pageSize) {
 								hasMoreComments(false);
@@ -281,7 +281,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							hasImages(false);
 						} else {
 							hasImages(true);
-							RoadRescueDetailActivity.this.freshGridView(mImageList);
+							FindPersonDetailActivity.this.freshGridView(mImageList);
 							if (mImageList.size() < 3) {
 								hasMoreImages(false);
 							} else {

@@ -60,7 +60,7 @@
            
     
 	<!-- 任务详情 -->
-	<string name="activity_road_rescue_detail_title">任务详情</string>
+	<string name="activity_road_rescue_detail_title">道路救援详情</string>
 	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
 	<string name="activity_road_rescue_detail_solved_after">解决</string>
 	<string name="activity_road_rescue_detail_no_comment">此求助帖还没有评论哦~</string>
@@ -68,4 +68,7 @@
 	<string name="activity_road_rescue_detail_more_images">查看更多图片</string>
 	<string name="activity_road_rescue_detail_comment_success">发表评论成功啦~</string>
 	<string name="activity_road_rescue_detail_comment_fail">不好意思，评论失败啦~</string>
+	
+	<!-- 寻人详情 -->
+	<string name="activity_findperson_detail_title">寻人详情</string>
 </resources>

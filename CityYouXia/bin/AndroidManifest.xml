@@ -82,6 +82,7 @@
         <activity android:name=".activity.PhotoActivity" />
         <activity android:name=".activity.PhotoDetailsActivity" />
         <activity android:name="com.youxia.activity.FindPersonActivity" />
+        <activity android:name="com.youxia.activity.FindPersonDetailActivity"/>
         
         <!-- QQ分享回调 -->
         <activity
