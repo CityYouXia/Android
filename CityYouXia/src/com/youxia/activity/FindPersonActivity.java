@@ -347,9 +347,13 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			if (localData.helpPhotoCount <= 0) {
 				hold.layoutScene.setVisibility(View.GONE);
 			}
-//			else {
-//				YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl);
-//			}
+			else {
+				if (localData.helpPhotoUrl.get(0) == null || localData.helpPhotoUrl.get(0).isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
+				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl.get(0));
+				
+				if (localData.helpPhotoUrl.get(1) == null || localData.helpPhotoUrl.get(1).isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
+				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl.get(1));
+			}
 
 			return convertView;
 		}	

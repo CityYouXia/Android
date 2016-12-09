@@ -1,6 +1,7 @@
 package com.youxia.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class HelpListEntity implements Serializable{
 	/**
@@ -30,7 +31,7 @@ public class HelpListEntity implements Serializable{
 	public int 		viewCount;		/*浏览次数*/
 	public int		commentCount;	/*评论次数*/ 
 	
-	public String   helpPhotoUrl;
+	public List<String> helpPhotoUrl;
 	public int      helpPhotoCount;
 		
 	public String  	createDate;		/*距当前时间*/	
