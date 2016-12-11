@@ -349,8 +349,6 @@ public class RoadRescueActivity extends BaseActivity implements ListView.OnItemC
 				hold.layoutScene.setVisibility(View.GONE);
 			}
 			else {
-				String a = localData.helpPhotoUrl.get(0).toString();
-				System.out.print(localData.helpPhotoUrl.get(0).toString());
 				YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl.get(0));
 			}
 

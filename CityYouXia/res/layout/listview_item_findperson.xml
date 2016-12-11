@@ -114,7 +114,7 @@
             android:layout_height="@dimen/findperson_listview_scene_height"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/scene_default"
             app:corner_radius="@dimen/findperson_listview_head_corner_radius" />
 
@@ -126,6 +126,7 @@
             android:layout_weight="1"
             android:src="@drawable/scene_default"
             app:corner_radius="@dimen/findperson_listview_head_corner_radius" />
+
     </LinearLayout>
       
      <RelativeLayout

@@ -347,12 +347,18 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			if (localData.helpPhotoCount <= 0) {
 				hold.layoutScene.setVisibility(View.GONE);
 			}
-			else {
-				if (localData.helpPhotoUrl.get(0) == null || localData.helpPhotoUrl.get(0).isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
-				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl.get(0));
+			else {				
+				String photoUrl = null;
+				if (localData.helpPhotoUrl.size() >= 1)	photoUrl = localData.helpPhotoUrl.get(0);
 				
-				if (localData.helpPhotoUrl.get(1) == null || localData.helpPhotoUrl.get(1).isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
-				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + localData.helpPhotoUrl.get(1));
+				if (photoUrl == null || photoUrl.isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
+				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + photoUrl);
+
+				photoUrl = null;
+				if (localData.helpPhotoUrl.size() >= 2)	photoUrl = localData.helpPhotoUrl.get(1);
+
+				if (photoUrl == null || photoUrl.isEmpty()) hold.ivScenePhoto2.setVisibility(View.GONE);
+				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto2, HttpClientHelper.Basic_YouXiaUrl + photoUrl);
 			}
 
 			return convertView;
