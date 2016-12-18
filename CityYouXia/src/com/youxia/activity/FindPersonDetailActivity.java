@@ -47,6 +47,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 	@ViewInject(id = R.id.activity_findperson_detail_score)	TextView mRewardPointsTextView;// 积分
 	@ViewInject(id = R.id.activity_findperson_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
 	@ViewInject(id = R.id.activity_findperson_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
+	@ViewInject(id = R.id.activity_findperson_detail_listitem_view_times)	TextView mViewTimesTextView;// 发布多长时间
 	@ViewInject(id = R.id.activity_findperson_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
 	@ViewInject(id = R.id.activity_findperson_detail_information)	TextView mContentTextView;// 求助详细信息
 	@ViewInject(id = R.id.comment_send, click = "btnClick")	TextView mSendTextView;// 发送
@@ -82,7 +83,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 		mTitleBarTitle.setText(getString(R.string.activity_road_rescue_detail_title));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
-		loadRoadRescueDetailById(helpId);
+		loadFindPersonDetailById(helpId);
 		// 加载评论列表
 		mCommentListAdapter = new CommentListAdapter(this);
 		mCommentList.setAdapter(mCommentListAdapter);
@@ -128,7 +129,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 //		freshListView((ArrayList<HelpCommentListEntity>) list);
 	}
 
-	private void loadRoadRescueDetailById(Integer id) {
+	private void loadFindPersonDetailById(Integer id) {
 		if (!YouXiaUtils.netWorkStatusCheck(this))
 			return;
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
@@ -146,6 +147,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 						mHelpUserNameTextView.setText(json.getString("helpUserName"));
 						mRewardPointsTextView.setText(json.getString("rewardPoints") + "积分");
 						mCreateDateTextView.setText(json.getString("createDate"));
+						mViewTimesTextView.setText(json.getString("viewCount"));
 						int iSex = json.getInt("sex");
 						Bitmap bitmap = BitmapFactory.decodeResource(FindPersonDetailActivity.this.getResources(),
 								(iSex == 1) ? R.drawable.male_little_default : R.drawable.female_little_default);
@@ -173,7 +175,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 				YouXiaUtils.showToast(getApplication(), getString(R.string.load_fail), 0);
 			}
 		};
-		HttpClientHelper.loadRoadRescueDetailById(id, callBack);
+		HttpClientHelper.loadFindPersonDetailById(id, callBack);
 
 	}
 

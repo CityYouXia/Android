@@ -258,7 +258,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 		
 		intent.putExtras(bundle);
 		
-		intent.setClass(this, RoadRescueDetailActivity.class);
+		intent.setClass(this, FindPersonDetailActivity.class);
 		startActivity(intent);
 	}
 	

@@ -110,6 +110,14 @@ public class HttpClientHelper {
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/addHelpComment.do", param, callBack);	
 	}	
 	
+	//加载寻人详情信息
+	public static void loadFindPersonDetailById(int helpId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("helpId", Integer.toString(helpId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryFindPeopleDetail.do", param, callBack);	
+	}
+	
 	//获取帮助信息图片
 	public static void 	queryHelpImageList(int helpId, int nowPage, int pageSize, AjaxCallBack<? extends Object> callBack)
 	{

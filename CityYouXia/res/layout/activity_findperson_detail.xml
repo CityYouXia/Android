@@ -103,6 +103,22 @@
                             android:includeFontPadding="false"
                             android:textColor="@color/activity_road_rescue_detail_score_color"
                             android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
+                        
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/activity_road_rescue_detail_status_height"
+                            android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/view_icon" />
+                        
+                        <TextView
+                            android:id="@+id/activity_findperson_detail_listitem_view_times"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/activity_road_rescue_detail_score_color"
+                            android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
