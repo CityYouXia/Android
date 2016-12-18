@@ -190,7 +190,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 					try {
 						if (result.equals("0")) {
 							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
-									getString(R.string.activity_road_rescue_detail_comment_success), 0);
+									getString(R.string.comment_success), 0);
 							mCommentEditText.setText("");
 							InputMethodManager imm = (InputMethodManager) getSystemService(
 									RoadRescueDetailActivity.this.INPUT_METHOD_SERVICE);
@@ -200,7 +200,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
 							YouXiaUtils.showToast(RoadRescueDetailActivity.this,
-									getString(R.string.activity_road_rescue_detail_comment_fail), 0);
+									getString(R.string.comment_fail), 0);
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());

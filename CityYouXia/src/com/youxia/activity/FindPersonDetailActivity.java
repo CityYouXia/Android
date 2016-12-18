@@ -80,7 +80,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 	}
 
 	private void initView() {
-		mTitleBarTitle.setText(getString(R.string.activity_road_rescue_detail_title));
+		mTitleBarTitle.setText(getString(R.string.activity_findperson_detail_title));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
 		loadFindPersonDetailById(helpId);
@@ -192,7 +192,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 					try {
 						if (result.equals("0")) {
 							YouXiaUtils.showToast(FindPersonDetailActivity.this,
-									getString(R.string.activity_road_rescue_detail_comment_success), 0);
+									getString(R.string.comment_success), 0);
 							mCommentEditText.setText("");
 							InputMethodManager imm = (InputMethodManager) getSystemService(
 									FindPersonDetailActivity.this.INPUT_METHOD_SERVICE);
@@ -202,7 +202,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
 							YouXiaUtils.showToast(FindPersonDetailActivity.this,
-									getString(R.string.activity_road_rescue_detail_comment_fail), 0);
+									getString(R.string.comment_fail), 0);
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
@@ -382,13 +382,13 @@ public class FindPersonDetailActivity extends BaseActivity {
 				addHelpComment(mCommentEditText.getText().toString());
 			}
 			break;
-		case R.id.activity_road_rescue_detail_load_more_image:
+		case R.id.activity_findperson_detail_load_more_image:
 			// 加载更多图片
 			bundle.putInt("position", 3);
 			bundle.putSerializable("imageList", mImageList);
 			jumpToActivity(ImageListActivity.class, bundle);
 			break;
-		case R.id.activity_road_rescue_detail_load_more_comment:
+		case R.id.activity_findperson_detail_load_more_comment:
 			// 加载更多评论列表
 			jumpToActivity(CommentListActivity.class, bundle);
 			break;
