@@ -2,12 +2,31 @@
     android:id="@+id/full_image_root"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg_full_image" >
+    android:background="@color/half_transparent" >
 
     <com.youxia.widget.imageshow.TouchImageView
         android:id="@+id/full_image"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/defaultimage" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@style/full_image_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/retry"
+        style="@style/full_image_retry_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableTop="@drawable/ic_full_image_failed"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/retry_large_image" />
 </RelativeLayout>

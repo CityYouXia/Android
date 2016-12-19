@@ -18,7 +18,7 @@
     <string name="input_empty">输入内容不能为空哦~</string>
 	<string name="comment_success">发表评论成功啦~</string>
 	<string name="comment_fail">不好意思，评论失败啦~</string>
-	
+	<string name="retry_large_image"><u>加载失败，点击重试</u></string>
     <!-- 分享 -->
     <string name="share_app_wechat">微信好友</string>
     <string name="share_app_wechat_moments">微信朋友圈</string>
