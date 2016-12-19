@@ -49,7 +49,7 @@ public class MainActivity extends BaseFragmentActivity {
 		getWindow().setFormat(PixelFormat.TRANSLUCENT);
 		
 		mLocation = new BaiduMapLocation();
-		mLocation.initLocation(this,600000);
+		mLocation.initLocation(this,30000);
 		
 		initView(savedInstanceState);
 	}
@@ -302,5 +302,33 @@ public class MainActivity extends BaseFragmentActivity {
         }).create();
         
         alertbBuilder.show();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+	
+	@Override
+	protected void onPause() {
+		mLocation.onStop();
+		super.onPause();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+	
+	@Override
+	protected void onStart() {
+		mLocation.onStart();
+		super.onStart();
+	}
+	
+	@Override
+	protected void onStop() {
+		mLocation.onStop();
+		super.onStop();
 	}
 }

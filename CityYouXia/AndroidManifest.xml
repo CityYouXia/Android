@@ -8,8 +8,8 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="19" />
 
-    	<!-- Bug -->
-    	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Bug -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -30,9 +30,9 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 	<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
-    	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-    	<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    	<uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
 	<uses-permission android:name="android.permission.BROADCAST_STICKY" />
 	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
 	<uses-permission android:name="android.permission.CAMERA" />
@@ -78,11 +78,23 @@
         <activity android:name="com.youxia.activity.CommentListActivity" />
         <activity android:name="com.youxia.activity.ImageListActivity" />
         <activity android:name="com.youxia.activity.RoadRescueHelpActivity" />
-        <activity android:name=".activity.AlbumActivity" />
-        <activity android:name=".activity.PhotoActivity" />
-        <activity android:name=".activity.PhotoDetailsActivity" />
+        <activity android:name="com.youxia.activity.AlbumActivity" />
+        <activity android:name="com.youxia.activity.PhotoActivity" />
+        <activity android:name="com.youxia.activity.PhotoDetailsActivity" />
         <activity android:name="com.youxia.activity.FindPersonActivity" />
         <activity android:name="com.youxia.activity.FindPersonDetailActivity"/>
+        <activity android:name="com.youxia.activity.FindPersonHelpActivity"/>
+        
+        <!-- 百度地图 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="f4FI4gjU0XPnzLfuufytFz97e2G8qPW6"/>
+        <!--定位服务-->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
         
         <!-- QQ分享回调 -->
         <activity
@@ -138,16 +150,7 @@
 		android:theme="@android:style/Theme.Translucent.NoTitleBar"
 		android:configChanges="keyboardHidden|orientation|screenSize"
 		android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <!-- 百度地图 -->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="LGmSMbFCnqRMAb69q927wueWKyaAIgnf"/>
-        <!--定位服务-->
-        <service
-            android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote" >
-        </service>
+        
         <!-- 极光推送 -->
         <!-- 推送 -->
 	<!-- JPush推送Required SDK核心功能-->

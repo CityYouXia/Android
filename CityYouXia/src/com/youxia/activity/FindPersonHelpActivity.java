@@ -45,7 +45,7 @@ import android.widget.Toast;
 import net.tsz.afinal.annotation.view.ViewInject;
 import net.tsz.afinal.http.AjaxCallBack;
 
-public class RoadRescueHelpActivity extends BaseActivity {
+public class FindPersonHelpActivity extends BaseActivity {
 	
 	//title
 	@ViewInject(id=R.id.title_bar_title) 								TextView			mTitleBarTitle;
@@ -53,11 +53,11 @@ public class RoadRescueHelpActivity extends BaseActivity {
 	@ViewInject(id=R.id.title_bar_textbtn,click="commit") 				RelativeLayout		mTitleBarDone;
 	@ViewInject(id=R.id.title_bar_back,click="abord") 					RelativeLayout		mTitleBarBack;
 	
-	@ViewInject(id=R.id.road_rescue_help_title_et) 						EditText			mHelpTitle;
-	@ViewInject(id=R.id.road_rescue_help_content_et) 					EditText			mHelpContent;
-	@ViewInject(id=R.id.road_rescue_location_tv,click="setLocation") 	TextView			mHelpLocation;
-	@ViewInject(id=R.id.road_rescue_reward_points_tv,click="setReward")	TextView			mHelpReward;
-	@ViewInject(id=R.id.road_rescue_help_gv) 							NoScrollGridView	mPhotoGV;
+	@ViewInject(id=R.id.find_person_help_title_et) 						EditText			mHelpTitle;
+	@ViewInject(id=R.id.find_person_help_content_et) 					EditText			mHelpContent;
+	@ViewInject(id=R.id.find_person_location_tv,click="setLocation") 	TextView			mHelpLocation;
+	@ViewInject(id=R.id.find_person_reward_points_tv,click="setReward")	TextView			mHelpReward;
+	@ViewInject(id=R.id.find_person_help_gv) 							NoScrollGridView	mPhotoGV;
 	
 	private GridAdapter mAdapter;
 	private int			mReward		= 0;
@@ -66,7 +66,7 @@ public class RoadRescueHelpActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_roadrescue_help);
+		setContentView(R.layout.activity_findperson_help);
 		mLocation = YouXiaApp.getmLocation();
 		initView();
 	}
@@ -124,7 +124,7 @@ public class RoadRescueHelpActivity extends BaseActivity {
 				//网络请求成功
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")){
 					if(TextUtils.equals(result, "0")){
-						Toast.makeText(RoadRescueHelpActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
+						Toast.makeText(FindPersonHelpActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
 					}else {
 						finish();
 					}
@@ -224,7 +224,7 @@ public class RoadRescueHelpActivity extends BaseActivity {
 						photoChoice();
 					} 
 					else {
-						Intent intent = new Intent(RoadRescueHelpActivity.this, PhotoDetailsActivity.class);
+						Intent intent = new Intent(FindPersonHelpActivity.this, PhotoDetailsActivity.class);
 						intent.putExtra("ID", coord);
 						startActivity(intent);
 					}

@@ -29,7 +29,7 @@ public class BaiduMapLocation {
 			option.setScanSpan(scanPeriod);
 		}
 		else {
-			option.setScanSpan(600000);
+			option.setScanSpan(30000);
 		}
 		option.setIsNeedAddress(true); //可选，设置是否需要地址信息，默认不需要
 		option.setOpenGps(true); //可选，默认false,设置是否使用gps

@@ -7,6 +7,11 @@
     <dimen name="common_bottom_bar_task_width">80dp</dimen>
     <dimen name="common_bottom_bar_task_height">80dp</dimen>
     <dimen name="common_divided_bar_height">20dp</dimen>
+    <dimen name="common_space_small">5dp</dimen>								<!-- @间距 -->
+    <dimen name="common_space_mediem">10dp</dimen>
+    <dimen name="common_space_normal">15dp</dimen>
+    <dimen name="common_space_large">20dp</dimen>
+    <dimen name="common_space_super_large">25dp</dimen>
     <dimen name="common_margin_right">15dp</dimen>
     <dimen name="common_margin_left">15dp</dimen>
     <dimen name="common_margin_top">5dp</dimen>

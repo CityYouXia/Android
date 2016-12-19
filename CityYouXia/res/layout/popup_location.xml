@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_location_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_50p" >
+	
+    <LinearLayout 
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/common_space_mediem"
+        android:background="@color/white">
+        <EditText 
+            android:id="@+id/popup_location_et"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/common_space_normal"
+            android:layout_marginLeft="@dimen/common_space_normal"
+            android:layout_marginRight="@dimen/common_space_normal"
+            android:paddingBottom="@dimen/common_space_small"
+            android:textSize="@dimen/common_text_size_normal"
+            android:hint="输入地址"
+            android:background="@null"/>
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divide_line_height"
+            android:background="@color/orange"
+            android:layout_marginBottom="@dimen/common_space_small"
+            android:layout_marginLeft="@dimen/common_space_normal"
+            android:layout_marginRight="@dimen/common_space_normal"/>
+        <include layout="@layout/common_divided_line_vertical"/>
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/common_space_mediem"
+            android:paddingBottom="@dimen/common_space_mediem"
+            android:orientation="horizontal">
+            <TextView 
+                android:id="@+id/popup_location_cancel_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/common_text_size_normal"
+                android:textColor="@color/lightgrey"
+                android:text="@string/cancel"/>
+            <View 
+                android:layout_width="@dimen/common_divide_line_height"
+                android:layout_height="@dimen/common_popup_divided_line_h_height"
+                android:background="@color/common_divide_line"/>
+            <TextView 
+                android:id="@+id/popup_location_ok_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/common_text_size_normal"
+                android:textColor="@color/orange"
+                android:text="@string/comfirm"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
