@@ -10,7 +10,7 @@
     <color name="lightgrey">#909090</color>
     <color name="darkgray">#ffc0c0c0</color>
     <color name="mattblack">#ff303030</color>
-    
+    <color name="half_transparent">#99000000</color>
     <color name="black_50p">#80000000</color>
         
     <color name="common_titlebar_background">#ff8200</color>
