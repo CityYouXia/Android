@@ -43,8 +43,9 @@ public class ImagePagerAdapter extends PagerAdapter {
 	public ImagePagerAdapter(Context context, ArrayList<HelpImageListEntity> imgsUrl) {
 		this.context = context;
 		this.imgsUrl = imgsUrl;
-		imageLoader.init(ImageLoaderConfiguration.createDefault(context));
 		inflater = LayoutInflater.from(context);
+		
+		imageLoader.init(ImageLoaderConfiguration.createDefault(context));
 		options = Options.getListOptions();
 	}
 	
@@ -119,22 +120,8 @@ public class ImagePagerAdapter extends PagerAdapter {
 			@Override
 			public void onLoadingCancelled(String imageUri, View view) {
 				showLoadState(loadState.cancelled);
-			}
+			}			
 		});
-		
-		/*			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-		YouXiaApp.mFinalBitmap.configLoadfailImage(R.drawable.defaultimage);
-		YouXiaApp.mFinalBitmap.display(full_image, imgsUrl.get(position).imageUrl, bitmap);*/
-		//full_image = (TouchImageView)view.findViewById(R.id.full_image);
-		//YouXiaApp.mFinalBitmap.configLoadingImage(R.drawable.default_image);
-		//YouXiaApp.mFinalBitmap.configLoadfailImage(R.drawable.loading_failed);
-		//Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-		//YouXiaApp.mFinalBitmap.display(full_image, imgsUrl.get(position).imageUrl, bitmap);
-		//YouXiaApp.mFinalBitmap.display(full_image, HttpClientHelper.Basic_YouXiaUrl + imgsUrl.get(position).imageUrl);
-//		Bitmap loadfailBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.loading_failed);
-//		Bitmap loadingBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-//		YouXiaApp.mFinalBitmap.display(full_image, HttpClientHelper.Basic_YouXiaUrl + imgsUrl.get(position).imageUrl, loadingBitmap, loadfailBitmap);
-		//imageLoader.displayImage(imgsUrl.get(position).imageUrl, full_image);
 	}
 	
 	private void showLoadState(loadState state){
