@@ -149,7 +149,7 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/common_margin_top"
-                android:text="@string/common_more_images"
+                android:text="@string/activity_road_rescue_detail_more_images"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
 
@@ -201,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="@string/common_solved_ahead"
+                    android:text="@string/activity_road_rescue_detail_solved_ahead"
                     android:textColor="@color/activity_road_rescue_detail_information_color"
                     android:textSize="@dimen/common_text_size_supper_large" />
 
@@ -229,7 +229,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="@string/common_solved_after"
+                    android:text="@string/activity_road_rescue_detail_solved_after"
                     android:textColor="@color/activity_road_rescue_detail_information_color"
                     android:textSize="@dimen/common_text_size_supper_large" />
             </LinearLayout>
@@ -251,7 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/common_no_comment"
+                android:text="@string/activity_road_rescue_detail_no_comment"
                 android:textColor="@color/orange" />
 
             <com.youxia.widget.ListViewForScrollView
@@ -270,7 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@string/common_more_comments"
+                android:text="@string/activity_road_rescue_detail_more_comments"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
         </LinearLayout>

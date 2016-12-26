@@ -78,7 +78,7 @@ public class RoadRescueHelpActivity extends BaseActivity {
 	}
 	
 	private void initView() {
-		mTitleBarTitle.setText(getString(R.string.activity_help));
+		mTitleBarTitle.setText(getString(R.string.activity_roadrescue_help));
 		mTitleBarDone.setVisibility(View.VISIBLE);
 		mTitleBarDoneText.setText(getString(R.string.commit));
 		mHelpLocation.setText(mLocation);
