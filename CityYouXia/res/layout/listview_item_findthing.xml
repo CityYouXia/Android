@@ -1,0 +1,219 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/common_background" 
+    tools:context="${relativePackage}.${activityClass}" xmlns:app="http://schemas.android.com/apk/res/com.youxia">
+    
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:layout_marginBottom="@dimen/common_margin_bottom">
+        
+     <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_right"
+        android:paddingTop="@dimen/common_padding_top"
+        android:paddingBottom="@dimen/common_padding_bottom" >
+        
+      	<com.youxia.widget.roundimage.RoundedImageView
+            android:id="@+id/findthing_listview_userphoto"
+            android:layout_width="@dimen/findthing_listview_head_width"
+            android:layout_height="@dimen/findthing_listview_head_height"            
+            android:src="@drawable/female_little_default"
+            app:corner_radius="@dimen/findthing_listview_head_corner_radius"  />
+
+        <TextView
+            android:id="@+id/findthing_listview_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/findthing_listview_userphoto"
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:text="会飞的猴子"            
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
+
+        
+        <TextView
+            android:id="@+id/findthing_listview_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:text="8"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
+        
+        <ImageView
+            android:id="@+id/findthing_listview_comment_img"
+            android:layout_width="@dimen/findthing_listview_comment_width"
+            android:layout_height="@dimen/findthing_listview_comment_height"        
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_view_space_10"
+            android:layout_toLeftOf="@id/findthing_listview_comment_count"    
+            android:src="@drawable/comment_icon" />
+        
+        <TextView
+            android:id="@+id/findthing_listview_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_toLeftOf="@id/findthing_listview_comment_img"
+            android:text="22分钟前"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/common_text_size_small" />
+    </RelativeLayout>
+    
+    <include layout="@layout/common_divided_line_vertical" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_padding_bottom"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_right"
+        android:paddingTop="@dimen/common_padding_top" >
+
+        <ImageView
+            android:id="@+id/findthing_listview_solved_img"
+            android:layout_width="@dimen/roadrescue_listview_result_width"
+            android:layout_height="@dimen/roadrescue_listview_result_height"
+            android:src="@drawable/help_result_unsolved" />
+
+   		<FrameLayout 
+             android:id="@+id/findthing_listview_scene_layout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" 
+             android:layout_alignParentRight="true">
+             
+            <ImageView
+            	android:id="@+id/findthing_listview_scenephoto"
+            	android:layout_width="@dimen/findthing_listview_scene_width"
+            	android:layout_height="@dimen/findthing_listview_scene_height"
+            	android:src="@drawable/scene_default" />   
+         </FrameLayout>
+                
+         <TextView
+             android:id="@+id/findthing_listview_content"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_toRightOf="@id/findthing_listview_solved_img"
+             android:layout_toLeftOf="@id/findthing_listview_scene_layout"
+            android:lines="2"
+             android:maxLines="2"
+             android:paddingLeft="@dimen/common_view_space_10"
+             android:text="今天打车去火车站，丢失行李包一个，谁拾到请联系我，谢谢。"
+             android:textColor="@color/mattblack"
+             android:textSize="@dimen/common_text_size_mediem"/>
+     </RelativeLayout>
+      
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" 
+         android:paddingBottom="@dimen/common_padding_bottom"
+         android:paddingLeft="@dimen/common_padding_left"
+         android:paddingRight="@dimen/common_padding_right"
+         android:paddingTop="@dimen/common_padding_top" >
+
+         <ImageView
+             android:id="@+id/findthing_listview_mapsite"
+             android:layout_width="@dimen/common_listview_mapsite_width"
+             android:layout_height="@dimen/common_listview_mapsite_height"
+             android:src="@drawable/map_site_icon" />
+
+         <TextView
+             android:id="@+id/findthing_listview_address"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_toRightOf="@id/findthing_listview_mapsite"
+             android:text="石家庄桥西区石铜路交口" 
+             android:textSize="@dimen/common_text_size_small"
+             android:textColor="@color/gray" />"
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" 
+             android:layout_alignParentRight="true">
+
+             <ImageView
+                 android:layout_width="@dimen/common_listview_rewards_width"
+                 android:layout_height="@dimen/common_listview_rewards_width"
+                 android:src="@drawable/rewards_icon" />
+
+             <TextView
+                 android:id="@+id/findthing_listview_rewardpoints"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:gravity="center_vertical|center_horizontal"
+                 android:text="50积分"
+                 android:textColor="@color/gray"
+                 android:textSize="@dimen/common_text_size_small" />
+
+         </LinearLayout>
+
+     </RelativeLayout>
+     
+     <include layout="@layout/common_divided_line_vertical"/>
+     
+     <RelativeLayout     
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" 
+         android:paddingBottom="@dimen/common_padding_bottom"
+         android:paddingLeft="@dimen/common_padding_left"
+         android:paddingRight="@dimen/common_padding_right"
+         android:paddingTop="@dimen/common_padding_top" >
+         
+         <ImageView
+             android:id="@+id/findthing_listview_view"
+             android:layout_width="@dimen/common_listview_view_width"
+             android:layout_height="@dimen/common_listview_view_height"
+             android:layout_centerVertical="true"
+             android:src="@drawable/view_icon" />
+
+         <TextView
+             android:id="@+id/findthing_listview_viewcount"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+             android:layout_toRightOf="@id/findthing_listview_view"
+             android:text="围观  100 次"
+             android:textColor="@color/gray"
+             android:textSize="@dimen/common_text_size_small" />
+"
+         
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true" >
+
+             <Button
+                 android:id="@+id/findthing_listview_btn_online"
+                 android:layout_width="@dimen/common_listview_button_width"
+                 android:layout_height="@dimen/common_listview_button_height"
+                 android:layout_gravity="center_vertical|center_horizontal"
+                 android:background="@drawable/listview_button_empty_selector"
+                 android:text="@string/common_button_online"
+                 android:textColor="@color/listview_button_text_color"
+                 android:textSize="@dimen/common_text_size_normal" 
+                 android:focusable="false"
+                 android:focusableInTouchMode="false"/>
+             
+         </LinearLayout>
+
+     </RelativeLayout>
+     
+  </LinearLayout>
+    
+    
+</LinearLayout>

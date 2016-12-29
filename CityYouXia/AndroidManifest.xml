@@ -84,6 +84,7 @@
         <activity android:name="com.youxia.activity.FindPersonActivity" />
         <activity android:name="com.youxia.activity.FindPersonDetailActivity"/>
         <activity android:name="com.youxia.activity.FindPersonHelpActivity"/>
+        <activity android:name="com.youxia.activity.FindThingActivity" />
         
         <!-- 百度地图 -->
         <meta-data

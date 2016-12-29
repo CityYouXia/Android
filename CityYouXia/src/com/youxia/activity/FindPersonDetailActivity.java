@@ -47,6 +47,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 	@ViewInject(id = R.id.activity_findperson_detail_score)	TextView mRewardPointsTextView;// 积分
 	@ViewInject(id = R.id.activity_findperson_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
 	@ViewInject(id = R.id.activity_findperson_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
+	@ViewInject(id = R.id.activity_findperson_detail_listitem_view_times)	TextView mViewTimesTextView;// 发布多长时间
 	@ViewInject(id = R.id.activity_findperson_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
 	@ViewInject(id = R.id.activity_findperson_detail_information)	TextView mContentTextView;// 求助详细信息
 	@ViewInject(id = R.id.comment_send, click = "btnClick")	TextView mSendTextView;// 发送
@@ -82,7 +83,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 		mTitleBarTitle.setText(getString(R.string.activity_findperson_detail));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
-		loadRoadRescueDetailById(helpId);
+		loadFindPersonDetailById(helpId);
 		// 加载评论列表
 		mCommentListAdapter = new CommentListAdapter(this);
 		mCommentList.setAdapter(mCommentListAdapter);
@@ -93,42 +94,9 @@ public class FindPersonDetailActivity extends BaseActivity {
 		mImageGridView.setOnItemClickListener(new ImageGridViewItemClickListener());
 		mImageGridView.setHorizontalSpacing(YouXiaUtils.dip2px(this, 1));
 		loadImageList(helpId);
-
-		// test
-//		mImageList = new ArrayList<HelpImageListEntity>();
-//		hasImages(true);
-//
-//		HelpImageListEntity entity0 = new HelpImageListEntity();
-//		entity0.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/qrcode/APKDownload_huayi.png";
-//		entity0.createDate = "2016";
-//		entity0.helpId = "0";
-//		entity0.imageId = "0";
-//		entity0.modifyDate = "2016";
-//		entity0.name = "123";
-//		entity0.orders = "123";
-//		HelpImageListEntity entity1 = new HelpImageListEntity();
-//		entity1.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-//		HelpImageListEntity entity2 = new HelpImageListEntity();
-//		entity2.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_3.png";
-//		HelpImageListEntity entity3 = new HelpImageListEntity();
-//		entity3.imageUrl = "http://222.222.60.178:19927/icpms_appserver/images/head/carowner_1.png";
-//		mImageList.add(entity0);
-//		mImageList.add(entity1);
-//		mImageList.add(entity2);
-//		mImageList.add(entity3);
-//		FindPersonDetailActivity.this.freshGridView(mImageList);
-//		if (mImageList.size() < 3) {
-//			hasMoreImages(false);
-//		} else {
-//			hasMoreImages(true);
-//		}
-//		
-//		String commentList = "[{\"commentId\":28,\"helpId\":5,\"userId\":1,\"content\":\"我勒个去的啊\",\"createDate\":\"2分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":27,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":26,\"helpId\":5,\"userId\":1,\"content\":\"我的楼主又丢了啊\",\"createDate\":\"41分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":25,\"helpId\":5,\"userId\":1,\"content\":\"谁抢我沙发\",\"createDate\":\"42分钟前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1},{\"commentId\":24,\"helpId\":5,\"userId\":1,\"content\":\"嗯嗯\",\"createDate\":\"1小时前\",\"commentUserName\":\"会飞的猪\",\"commentUserPhoto\":\"/userImages/doudou.jpg\",\"sex\":1}]";
-//		List<HelpCommentListEntity> list = JSON.parseArray(commentList,HelpCommentListEntity.class); // 评论列表
-//		freshListView((ArrayList<HelpCommentListEntity>) list);
 	}
 
-	private void loadRoadRescueDetailById(Integer id) {
+	private void loadFindPersonDetailById(Integer id) {
 		if (!YouXiaUtils.netWorkStatusCheck(this))
 			return;
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
@@ -146,6 +114,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 						mHelpUserNameTextView.setText(json.getString("helpUserName"));
 						mRewardPointsTextView.setText(json.getString("rewardPoints") + "积分");
 						mCreateDateTextView.setText(json.getString("createDate"));
+						mViewTimesTextView.setText(json.getString("viewCount"));
 						int iSex = json.getInt("sex");
 						Bitmap bitmap = BitmapFactory.decodeResource(FindPersonDetailActivity.this.getResources(),
 								(iSex == 1) ? R.drawable.male_little_default : R.drawable.female_little_default);
@@ -173,7 +142,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 				YouXiaUtils.showToast(getApplication(), getString(R.string.load_fail), 0);
 			}
 		};
-		HttpClientHelper.loadRoadRescueDetailById(id, callBack);
+		HttpClientHelper.loadFindPersonDetailById(id, callBack);
 
 	}
 
@@ -380,13 +349,13 @@ public class FindPersonDetailActivity extends BaseActivity {
 				addHelpComment(mCommentEditText.getText().toString());
 			}
 			break;
-		case R.id.activity_road_rescue_detail_load_more_image:
+		case R.id.activity_findperson_detail_load_more_image:
 			// 加载更多图片
 			bundle.putInt("position", 3);
 			bundle.putSerializable("imageList", mImageList);
 			jumpToActivity(ImageListActivity.class, bundle);
 			break;
-		case R.id.activity_road_rescue_detail_load_more_comment:
+		case R.id.activity_findperson_detail_load_more_comment:
 			// 加载更多评论列表
 			jumpToActivity(CommentListActivity.class, bundle);
 			break;

@@ -75,6 +75,33 @@ public class HttpClientHelper {
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/refreshFindPeopleList.do", param, callBack);
 	}
 	
+	//加载寻人详情信息
+	public static void loadFindPersonDetailById(int helpId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("helpId", Integer.toString(helpId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryFindPeopleDetail.do", param, callBack);	
+	}
+	
+	//加载寻物列表
+	public static void loadFindThingss(int pageSize, int pageNo, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("pageSize", Integer.toString(pageSize));
+		param.put("nowPage", Integer.toString(pageNo));
+		
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryFindThingList.do", param, callBack);
+	}
+	
+	//刷新寻物列表
+	public static void loadPullRefreshFindThings(long pullRefreshId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("helpId", Long.toString(pullRefreshId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/refreshFindThingList.do", param, callBack);
+	}
+	
+	
 	//我要求助
 	public static void help(List<File> list, String title, String content, String location, String reward_points, AjaxCallBack<? extends Object> callBack)
 	{
@@ -109,7 +136,7 @@ public class HttpClientHelper {
 		param.put("content", content);
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/addHelpComment.do", param, callBack);	
 	}	
-	
+		
 	//获取帮助信息图片
 	public static void 	queryHelpImageList(int helpId, int nowPage, int pageSize, AjaxCallBack<? extends Object> callBack)
 	{

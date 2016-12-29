@@ -7,11 +7,11 @@
     android:orientation="vertical" >
 
     <include
-        android:id="@+id/activity_road_rescue_detail_title"
+        android:id="@+id/activity_roadrescue_detail_title"
         layout="@layout/activity_main_title_bar" />
 
     <ScrollView
-        android:id="@+id/activity_road_rescue_detail_scroll_view"
+        android:id="@+id/activity_roadrescue_detail_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -24,114 +24,114 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/activity_road_rescue_detail_portrait_width_height"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_portrait_margin_top"
+                android:layout_height="@dimen/activity_help_detail_portrait_width_height"
+                android:layout_marginTop="@dimen/activity_help_detail_portrait_margin_top"
                 android:background="@color/white"
                 android:orientation="horizontal" >
 
                 <com.youxia.widget.roundimage.RoundedImageView
-                    android:id="@+id/activity_road_rescue_detail_user_portrait"
-                    android:layout_width="@dimen/activity_road_rescue_detail_portrait_width_height"
-                    android:layout_height="@dimen/activity_road_rescue_detail_portrait_width_height"
+                    android:id="@+id/activity_roadrescue_detail_user_portrait"
+                    android:layout_width="@dimen/activity_help_detail_portrait_width_height"
+                    android:layout_height="@dimen/activity_help_detail_portrait_width_height"
                     android:layout_marginLeft="@dimen/common_margin_left"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/defalut_portrait"
-                    app:border_width="@dimen/zero_dp"
-                    app:corner_radius="@dimen/activity_road_rescue_detail_portrait_corner_radius" />
+                    app:border_width="@dimen/common_zero"
+                    app:corner_radius="@dimen/activity_help_detail_portrait_corner_radius" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                    android:layout_marginLeft="@dimen/activity_help_detail_head_text_margin_left"
                     android:layout_marginRight="@dimen/common_margin_right"
                     android:orientation="vertical" >
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/zero_dp"
-                        android:layout_marginTop="@dimen/activity_road_rescue_detail_nickname_margin_top"
+                        android:layout_height="@dimen/common_zero"
+                        android:layout_marginTop="@dimen/activity_help_detail_nickname_margin_top"
                         android:layout_weight="1.0"
                         android:orientation="horizontal" >
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_nickname"
+                            android:id="@+id/activity_roadrescue_detail_nickname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:textColor="@color/activity_road_rescue_detail_nickname_color"
-                            android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
+                            android:textColor="@color/activity_help_detail_nickname_color"
+                            android:textSize="@dimen/activity_help_detail_nickname_textsize" />
 
                         <ImageView
-                            android:id="@+id/activity_road_rescue_detail_status"
+                            android:id="@+id/activity_roadrescue_detail_status"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/activity_road_rescue_detail_status_height"
+                            android:layout_height="@dimen/activity_help_detail_status_height"
                             android:src="@drawable/unresolved" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/zero_dp"
+                        android:layout_height="@dimen/common_zero"
                         android:layout_weight="1.0"
                         android:orientation="horizontal" >
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/activity_road_rescue_detail_status_height"
+                            android:layout_height="@dimen/activity_help_detail_status_height"
                             android:src="@drawable/score" />
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_score"
+                            android:id="@+id/activity_roadrescue_detail_score"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                            android:layout_marginLeft="@dimen/activity_help_detail_head_text_margin_left"
                             android:includeFontPadding="false"
-                            android:textColor="@color/activity_road_rescue_detail_score_color"
-                            android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
+                            android:textColor="@color/activity_help_detail_score_color"
+                            android:textSize="@dimen/activity_help_detail_nickname_textsize" />
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/activity_road_rescue_detail_status_height"
-                            android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                            android:layout_height="@dimen/activity_help_detail_status_height"
+                            android:layout_marginLeft="@dimen/activity_help_detail_head_text_margin_left"
                             android:scaleType="fitXY"
                             android:src="@drawable/clock" />
 
                         <TextView
-                            android:id="@+id/activity_road_rescue_detail_listitem_comment_time"
+                            android:id="@+id/activity_roadrescue_detail_listitem_comment_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                            android:layout_marginLeft="@dimen/activity_help_detail_head_text_margin_left"
                             android:includeFontPadding="false"
-                            android:textColor="@color/activity_road_rescue_detail_score_color"
-                            android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
+                            android:textColor="@color/activity_help_detail_score_color"
+                            android:textSize="@dimen/activity_help_detail_nickname_textsize" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_rescue_title"
+                android:id="@+id/activity_roadrescue_detail_rescue_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
                 android:layout_marginRight="@dimen/common_margin_right"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_title_margin_top"
+                android:layout_marginTop="@dimen/activity_help_detail_title_margin_top"
                 android:includeFontPadding="false"
                 android:maxLines="2"
-                android:textColor="@color/activity_road_rescue_detail_title_color"
+                android:textColor="@color/activity_help_detail_title_color"
                 android:textSize="@dimen/common_text_size_large" />
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_information"
+                android:id="@+id/activity_roadrescue_detail_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
                 android:layout_marginRight="@dimen/common_margin_right"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_information_margin_top"
+                android:layout_marginTop="@dimen/activity_help_detail_information_margin_top"
                 android:includeFontPadding="false"
-                android:textColor="@color/activity_road_rescue_detail_information_color"
+                android:textColor="@color/activity_help_detail_information_color"
                 android:textSize="@dimen/common_text_size_normal" />
 
             <GridView
-                android:id="@+id/activity_road_rescue_detail_image_gridview"
+                android:id="@+id/activity_roadrescue_detail_image_gridview"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -144,7 +144,7 @@
             </GridView>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_load_more_image"
+                android:id="@+id/activity_roadrescue_detail_load_more_image"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/common_margin_left"
                 android:layout_marginRight="@dimen/common_margin_right"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_portrait_margin_top"
+                android:layout_marginTop="@dimen/activity_help_detail_portrait_margin_top"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
@@ -169,31 +169,31 @@
                     android:src="@drawable/map_site_icon" />
 
                 <TextView
-                    android:id="@+id/activity_road_rescue_detail_address"
+                    android:id="@+id/activity_roadrescue_detail_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/activity_road_rescue_detail_head_text_margin_left"
+                    android:layout_marginLeft="@dimen/activity_help_detail_head_text_margin_left"
                     android:includeFontPadding="false"
-                    android:textColor="@color/activity_road_rescue_detail_score_color"
-                    android:textSize="@dimen/activity_road_rescue_detail_nickname_textsize" />
+                    android:textColor="@color/activity_help_detail_score_color"
+                    android:textSize="@dimen/activity_help_detail_nickname_textsize" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/activity_road_rescue_detail_rescue_button"
-                android:layout_width="@dimen/activity_road_rescue_detail_button_width"
-                android:layout_height="@dimen/activity_road_rescue_detail_button_height"
+                android:id="@+id/activity_roadrescue_detail_rescue_button"
+                android:layout_width="@dimen/activity_help_detail_button_width"
+                android:layout_height="@dimen/activity_help_detail_button_height"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
+                android:layout_marginTop="@dimen/activity_help_detail_rescue_button_margin_top"
                 android:background="@drawable/fragment_home_help_btn_selector"
                 android:text="@string/common_button_help"
                 android:textColor="@color/white"
                 android:textSize="@dimen/common_text_size_large" />
 
             <LinearLayout
-                android:id="@+id/activity_road_rescue_detail_resoved_information"
+                android:id="@+id/activity_roadrescue_detail_resoved_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_road_rescue_detail_rescue_button_margin_top"
+                android:layout_marginTop="@dimen/activity_help_detail_rescue_button_margin_top"
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal" >
 
@@ -202,22 +202,22 @@
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
                     android:text="@string/common_solved_ahead"
-                    android:textColor="@color/activity_road_rescue_detail_information_color"
+                    android:textColor="@color/activity_help_detail_information_color"
                     android:textSize="@dimen/common_text_size_supper_large" />
 
                 <com.youxia.widget.roundimage.RoundedImageView
-                    android:id="@+id/activity_road_rescue_detail_rescuers_portrait"
-                    android:layout_width="@dimen/activity_road_rescue_rescue_detail_rescuer_portrait_width_height"
-                    android:layout_height="@dimen/activity_road_rescue_rescue_detail_rescuer_portrait_width_height"
+                    android:id="@+id/activity_roadrescue_detail_rescuers_portrait"
+                    android:layout_width="@dimen/activity_help_rescue_detail_rescuer_portrait_width_height"
+                    android:layout_height="@dimen/activity_help_rescue_detail_rescuer_portrait_width_height"
                     android:layout_marginLeft="@dimen/common_view_space_5"
                     android:layout_marginRight="@dimen/common_view_space_5"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/defalut_portrait"
-                    app:border_width="@dimen/zero_dp"
-                    app:corner_radius="@dimen/activity_road_rescue_detail_rescuer_portrait_corner_radius" />
+                    app:border_width="@dimen/common_zero"
+                    app:corner_radius="@dimen/activity_help_detail_rescuer_portrait_corner_radius" />
 
                 <TextView
-                    android:id="@+id/activity_road_rescue_detail_rescuers_nickname"
+                    android:id="@+id/activity_roadrescue_detail_rescuers_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/common_view_space_5"
@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
                     android:text="@string/common_solved_after"
-                    android:textColor="@color/activity_road_rescue_detail_information_color"
+                    android:textColor="@color/activity_help_detail_information_color"
                     android:textSize="@dimen/common_text_size_supper_large" />
             </LinearLayout>
 
@@ -247,7 +247,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_road_rescue_detail_no_comment"
+                android:id="@+id/activity_roadrescue_detail_no_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -255,7 +255,7 @@
                 android:textColor="@color/orange" />
 
             <com.youxia.widget.ListViewForScrollView
-                android:id="@+id/activity_road_rescue_detail_comment_list"
+                android:id="@+id/activity_roadrescue_detail_comment_list"
                 style="@style/common_listview_style"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -266,7 +266,7 @@
             <include layout="@layout/common_divided_line_vertical"/>
             
             <TextView
-                android:id="@+id/activity_road_rescue_detail_load_more_comment"
+                android:id="@+id/activity_roadrescue_detail_load_more_comment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"

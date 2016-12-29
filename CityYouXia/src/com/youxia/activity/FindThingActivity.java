@@ -33,13 +33,13 @@ import android.widget.TextView;
 import net.tsz.afinal.annotation.view.ViewInject;
 import net.tsz.afinal.http.AjaxCallBack;
 
-public class FindPersonActivity extends BaseActivity implements ListView.OnItemClickListener, OnRefreshListener{
+public class FindThingActivity extends BaseActivity implements ListView.OnItemClickListener, OnRefreshListener{
 	
 	//title
 	@ViewInject(id=R.id.title_bar_title) 								TextView			mTitleBarTitle;
 	@ViewInject(id=R.id.title_bar_back,click="btnClick") 				RelativeLayout		mTitleBarBack;
-	@ViewInject(id=R.id.activity_findperson_help_button,click="btnClick") Button			mHelpBtn;
-	@ViewInject(id=R.id.activity_findperson_listview) 					RefreshListView		mListView;
+	@ViewInject(id=R.id.activity_findthing_help_button,click="btnClick") Button				mHelpBtn;
+	@ViewInject(id=R.id.activity_findthing_listview) 					RefreshListView		mListView;
 	@ViewInject(id=R.id.customer_loading_view) 							CustomLoadingView	mLoadingView;
 	
 	private MyListAdapter			mListAdapter;
@@ -51,12 +51,12 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_findperson);
+		setContentView(R.layout.activity_findthing);
 		initView();
 	}
 	
 	private void initView() {
-		mTitleBarTitle.setText(getString(R.string.activity_findperson));
+		mTitleBarTitle.setText(getString(R.string.activity_findthing));
 		
 		this.mListAdapter = new MyListAdapter(this);
 		this.mListView.setAdapter(mListAdapter);
@@ -68,7 +68,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			return;
 		}
 		
-		loadingFindPersons();
+		loadingFindThings();
 	}
 
 	public void btnClick(View v){
@@ -76,9 +76,9 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 		case R.id.title_bar_back:
 			finish();
 			break;
-		case R.id.activity_findperson_help_button:
+		case R.id.activity_findthing_help_button:
 			Intent intent = new Intent();
-			intent.setClass(this, FindPersonHelpActivity.class);
+			//intent.setClass(this, FindThingHelpActivity.class);
 			startActivity(intent);
 			break;
 		}
@@ -91,7 +91,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			mListView.hideFooterView();
 			return;
 		}
-		loadingFindPersons();
+		loadingFindThings();
 	}
 	
 	//下拉刷新
@@ -101,11 +101,11 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			mListView.hideHeaderView();
 			return;
 		}
-		freshFindPersons();
+		freshFindThings();
 	}
 		
 	//加载问题和更多
-	public void loadingFindPersons() {
+	public void loadingFindThings() {
 		if(!YouXiaUtils.netWorkStatusCheck(this)) return;
 		
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
@@ -125,21 +125,21 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 							else loadMoreFlag = true;
 							
 							if(pageNo == 1){
-								FindPersonActivity.this.freshListView((ArrayList<HelpListEntity>)list);
+								FindThingActivity.this.freshListView((ArrayList<HelpListEntity>)list);
 								pullRefreshId = list.get(0).helpId;//为加载更多服务
 							}else{
-								FindPersonActivity.this.addLastListView((ArrayList<HelpListEntity>)list);
+								FindThingActivity.this.addLastListView((ArrayList<HelpListEntity>)list);
 							}
 						}
 					}
 					catch (Exception e) {
 						System.out.println(e.getMessage());
-						if(pageNo == 1)	FindPersonActivity.this.loadingProc(CustomLoadingView.State.failed);
+						if(pageNo == 1)	FindThingActivity.this.loadingProc(CustomLoadingView.State.failed);
 						else mListView.hideFooterView();
 					}
 				}
 				
-				if(pageNo == 1)	FindPersonActivity.this.loadingProc(CustomLoadingView.State.done);
+				if(pageNo == 1)	FindThingActivity.this.loadingProc(CustomLoadingView.State.done);
 				else mListView.hideFooterView();
 				
 				if(!loadMoreFlag) { 
@@ -155,20 +155,20 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			public void onStart() {
 				super.onStart();
 				//启动设置
-				if(pageNo == 1)	FindPersonActivity.this.loadingProc(CustomLoadingView.State.loading);
+				if(pageNo == 1)	FindThingActivity.this.loadingProc(CustomLoadingView.State.loading);
 			}
 			
 			@Override
 			public void onFailure(Throwable t, int errorNo, String strMsg) {
 				super.onFailure(t, errorNo, strMsg);
-				if(pageNo == 1)	FindPersonActivity.this.loadingProc(CustomLoadingView.State.failed);
+				if(pageNo == 1)	FindThingActivity.this.loadingProc(CustomLoadingView.State.failed);
 				else mListView.hideFooterView();
 			}
 		};
 		HttpClientHelper.loadFindPersons(pageSize, pageNo, callBack);
 	}
 	
-	private void freshFindPersons() {
+	private void freshFindThings() {
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
 			@Override
 			public void onSuccess(String result) {
@@ -181,7 +181,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 						if (list == null || list.size() <= 0) {
 						}
 						else {
-							FindPersonActivity.this.addFirstListView((ArrayList<HelpListEntity>)list);
+							FindThingActivity.this.addFirstListView((ArrayList<HelpListEntity>)list);
 							pullRefreshId = list.get(0).helpId;
 						}
 					}
@@ -198,7 +198,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 				mListView.hideHeaderView();
 			}
 		};
-		HttpClientHelper.loadPullRefreshFindPersons(pullRefreshId, callBack);
+		HttpClientHelper.loadPullRefreshFindThings(pullRefreshId, callBack);
 	}
 
 	public void freshListView(ArrayList<HelpListEntity> paramArrayList)
@@ -258,7 +258,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 		
 		intent.putExtras(bundle);
 		
-		intent.setClass(this, FindPersonDetailActivity.class);
+		//intent.setClass(this, FindThingDetailActivity.class);
 		startActivity(intent);
 	}
 	
@@ -281,8 +281,8 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			TextView  tvAddress;
 			TextView  tvRewardPoints;
 			TextView  tvViewCount;
-			ImageView ivScenePhoto1;
-			ImageView ivScenePhoto2;			
+			ImageView ivScenePhoto;
+		
 			View     layoutScene;
 	    }
 		
@@ -296,21 +296,20 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			if (convertView == null){
 				
 				hold = new ViewHold();
-				convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_findperson, parent, false);
+				convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_findthing, parent, false);
 				
-				hold.ivHeadPhoto 			 =  (ImageView)convertView.findViewById(R.id.findperson_listview_userphoto);
-				hold.tvNickName 			 =  (TextView)convertView.findViewById(R.id.findperson_listview_nickname);
-				hold.tvDatetime				 =  (TextView)convertView.findViewById(R.id.findperson_listview_time);
-				hold.tvCommentCount			 =  (TextView)convertView.findViewById(R.id.findperson_listview_comment_count);
-				hold.ivIsSolved			 	 =  (ImageView)convertView.findViewById(R.id.findperson_listview_solved_img);
-				hold.tvContent			 	 =  (TextView)convertView.findViewById(R.id.findperson_listview_content);
-				hold.tvAddress				 =  (TextView)convertView.findViewById(R.id.findperson_listview_address);
-				hold.tvRewardPoints			 =  (TextView)convertView.findViewById(R.id.findperson_listview_rewardpoints);
-				hold.tvViewCount			 =  (TextView)convertView.findViewById(R.id.findperson_listview_viewcount);
-				hold.ivScenePhoto1			 =  (ImageView)convertView.findViewById(R.id.findperson_listview_scenephoto1);
-				hold.ivScenePhoto2			 =  (ImageView)convertView.findViewById(R.id.findperson_listview_scenephoto2);
+				hold.ivHeadPhoto 			 =  (ImageView)convertView.findViewById(R.id.findthing_listview_userphoto);
+				hold.tvNickName 			 =  (TextView)convertView.findViewById(R.id.findthing_listview_nickname);
+				hold.tvDatetime				 =  (TextView)convertView.findViewById(R.id.findthing_listview_time);
+				hold.tvCommentCount			 =  (TextView)convertView.findViewById(R.id.findthing_listview_comment_count);
+				hold.ivIsSolved			 	 =  (ImageView)convertView.findViewById(R.id.findthing_listview_solved_img);
+				hold.tvContent			 	 =  (TextView)convertView.findViewById(R.id.findthing_listview_content);
+				hold.tvAddress				 =  (TextView)convertView.findViewById(R.id.findthing_listview_address);
+				hold.tvRewardPoints			 =  (TextView)convertView.findViewById(R.id.findthing_listview_rewardpoints);
+				hold.tvViewCount			 =  (TextView)convertView.findViewById(R.id.findthing_listview_viewcount);
+				hold.ivScenePhoto			 =  (ImageView)convertView.findViewById(R.id.findthing_listview_scenephoto);
 				
-				hold.layoutScene			 =  (View)convertView.findViewById(R.id.findperson_listview_scene_layout);
+				hold.layoutScene			 =  (View)convertView.findViewById(R.id.findthing_listview_scene_layout);
 				
 				convertView.setTag(hold);
 			}
@@ -351,14 +350,8 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 				String photoUrl = null;
 				if (localData.helpPhotoUrl.size() >= 1)	photoUrl = localData.helpPhotoUrl.get(0);
 				
-				if (photoUrl == null || photoUrl.isEmpty()) hold.ivScenePhoto1.setVisibility(View.GONE);
-				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto1, HttpClientHelper.Basic_YouXiaUrl + photoUrl);
-
-				photoUrl = null;
-				if (localData.helpPhotoUrl.size() >= 2)	photoUrl = localData.helpPhotoUrl.get(1);
-
-				if (photoUrl == null || photoUrl.isEmpty()) hold.ivScenePhoto2.setVisibility(View.GONE);
-				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto2, HttpClientHelper.Basic_YouXiaUrl + photoUrl);
+				if (photoUrl == null || photoUrl.isEmpty()) hold.ivScenePhoto.setVisibility(View.GONE);
+				else YouXiaApp.mFinalBitmap.display(hold.ivScenePhoto, HttpClientHelper.Basic_YouXiaUrl + photoUrl);
 			}
 
 			return convertView;

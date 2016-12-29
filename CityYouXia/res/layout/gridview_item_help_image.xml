@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.youxia"
     android:id="@+id/listitem_comment"
-    android:layout_width="@dimen/activity_road_rescue_detail_image_item_width_height"
-    android:layout_height="@dimen/activity_road_rescue_detail_image_item_width_height"
+    android:layout_width="@dimen/activity_help_detail_image_item_width_height"
+    android:layout_height="@dimen/activity_help_detail_image_item_width_height"
     android:gravity="center"
     android:background="@color/white"
     android:orientation="vertical" >

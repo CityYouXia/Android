@@ -3,6 +3,7 @@ package com.youxia.fragment;
 import com.youxia.BaseFragment;
 import com.youxia.R;
 import com.youxia.activity.FindPersonActivity;
+import com.youxia.activity.FindThingActivity;
 import com.youxia.activity.RoadRescueActivity;
 import com.youxia.widget.TouchFingerImageView;
 import com.youxia.widget.ViewPagerAdvert;
@@ -118,6 +119,8 @@ public class FragmentHome extends BaseFragment implements OnClickListener {
 			startActivity(intent);			
 			break;
 		case R.drawable.home_missing_thing:
+			intent.setClass(getActivity(), FindThingActivity.class);
+			startActivity(intent);
 			break;
 		case R.drawable.home_traffic:
 			break;
