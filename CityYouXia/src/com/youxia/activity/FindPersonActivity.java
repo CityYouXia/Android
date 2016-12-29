@@ -78,7 +78,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 			break;
 		case R.id.activity_findperson_help_button:
 			Intent intent = new Intent();
-			intent.setClass(this, RoadRescueHelpActivity.class);
+			intent.setClass(this, FindPersonHelpActivity.class);
 			startActivity(intent);
 			break;
 		}
@@ -258,7 +258,7 @@ public class FindPersonActivity extends BaseActivity implements ListView.OnItemC
 		
 		intent.putExtras(bundle);
 		
-		intent.setClass(this, RoadRescueDetailActivity.class);
+		intent.setClass(this, FindPersonDetailActivity.class);
 		startActivity(intent);
 	}
 	

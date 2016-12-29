@@ -165,7 +165,7 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/common_margin_top"
-                android:text="@string/activity_road_rescue_detail_more_images"
+                android:text="@string/common_more_images"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
 
@@ -267,7 +267,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/activity_road_rescue_detail_no_comment"
+                android:text="@string/common_no_comment"
                 android:textColor="@color/orange" />
 
             <com.youxia.widget.ListViewForScrollView
@@ -286,7 +286,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@string/activity_road_rescue_detail_more_comments"
+                android:text="@string/common_more_comments"
                 android:textColor="@color/orange"
                 android:visibility="gone" />
         </LinearLayout>
