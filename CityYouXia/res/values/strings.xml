@@ -46,12 +46,15 @@
 	<string name="common_comment_success">发表评论成功啦~</string>
 	<string name="common_comment_fail">不好意思，评论失败啦~</string>
 	<string name="common_imageshow_retry"><u>加载失败，点击重试</u></string>
-
-	
+    
+    <!-- 道路救援 -->
+    <string name="activity_roadrescue_help">我要求助</string>
+    
+    <!-- 道路救援求助 -->
+    <string name="roadrescue_help_title_hint">请输入标题</string>
+    <string name="roadrescue_help_content_hint">请输入内容</string>
+    
     <!-- 我要求助 -->
-    <string name="activity_help">我要求助</string>
-    <string name="help_title_hint">请输入标题</string>
-    <string name="help_content_hint">请输入内容</string>    
     <string name="help_abandoned">放弃本次编辑？</string>
     <string name="help_abandoned_cancel">继续编辑</string>
     <string name="help_abandoned_confirm">狠心放弃</string>
@@ -59,12 +62,22 @@
     <!-- 评论列表 -->
     <string name="activity_commentlist">评论列表</string>    
 
-	<!-- Ativity标题-->
-	<string name="activity_roadrescue_detail">道路救援详情</string>
-	<string name="activity_findperson_detail">寻人详情</string>
+    <!-- 道路救援 -->
     <string name="activity_roadrescue">道路救援</string>
     <string name="activity_findperson">寻人</string>
     <string name="activity_findthing">寻物</string>
            
     
+	<!-- 任务详情 -->
+	<string name="activity_road_rescue_detail_title">道路救援详情</string>
+	<string name="activity_road_rescue_detail_solved_ahead">该求助已被</string>
+	<string name="activity_road_rescue_detail_solved_after">解决</string>
+	<string name="activity_road_rescue_detail_no_comment">此求助帖还没有评论哦~</string>
+	<string name="activity_road_rescue_detail_more_comments">查看更多评论</string>
+	<string name="activity_road_rescue_detail_more_images">查看更多图片</string>
+	<string name="activity_road_rescue_detail_comment_success">发表评论成功啦~</string>
+	<string name="activity_road_rescue_detail_comment_fail">不好意思，评论失败啦~</string>
+	
+	<!-- 寻人详情 -->
+	<string name="activity_findperson_detail_title">寻人详情</string>
 </resources>

@@ -80,7 +80,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 	}
 
 	private void initView() {
-		mTitleBarTitle.setText(getString(R.string.activity_findperson_detail));
+		mTitleBarTitle.setText(getString(R.string.activity_road_rescue_detail_title));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
 		loadFindPersonDetailById(helpId);
@@ -159,7 +159,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 					try {
 						if (result.equals("0")) {
 							YouXiaUtils.showToast(FindPersonDetailActivity.this,
-									getString(R.string.common_comment_success), 0);
+									getString(R.string.activity_road_rescue_detail_comment_success), 0);
 							mCommentEditText.setText("");
 							InputMethodManager imm = (InputMethodManager) getSystemService(
 									FindPersonDetailActivity.this.INPUT_METHOD_SERVICE);
@@ -169,7 +169,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
 							YouXiaUtils.showToast(FindPersonDetailActivity.this,
-									getString(R.string.common_comment_fail), 0);
+									getString(R.string.activity_road_rescue_detail_comment_fail), 0);
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
