@@ -251,7 +251,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 						} else {
 							hasImages(true);
 							FindPersonDetailActivity.this.freshGridView(mImageList);
-							if (mImageList.size() < 3) {
+							if (mImageList.size() < 6) {
 								hasMoreImages(false);
 							} else {
 								hasMoreImages(true);
