@@ -249,7 +249,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 						} else {
 							hasImages(true);
 							RoadRescueDetailActivity.this.freshGridView(mImageList);
-							if (mImageList.size() < 3) {
+							if (mImageList.size() < 4) {
 								hasMoreImages(false);
 							} else {
 								hasMoreImages(true);
@@ -385,7 +385,7 @@ public class RoadRescueDetailActivity extends BaseActivity {
 						.inflate(R.layout.gridview_item_help_image, parent, false);
 
 				hold.ivRoadRescue = (ImageView) convertView
-						.findViewById(R.id.help_detail_listitem_rescuer_portrait);
+						.findViewById(R.id.road_rescue_detail_listitem_rescuer_portrait);
 
 				convertView.setTag(hold);
 			} else {

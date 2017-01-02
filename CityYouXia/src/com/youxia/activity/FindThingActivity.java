@@ -258,7 +258,7 @@ public class FindThingActivity extends BaseActivity implements ListView.OnItemCl
 		
 		intent.putExtras(bundle);
 		
-		//intent.setClass(this, FindThingDetailActivity.class);
+		intent.setClass(this, FindThingDetailActivity.class);
 		startActivity(intent);
 	}
 	

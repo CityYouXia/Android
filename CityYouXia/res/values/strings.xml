@@ -62,6 +62,7 @@
 	<!-- Ativity标题-->
 	<string name="activity_roadrescue_detail">道路救援详情</string>
 	<string name="activity_findperson_detail">寻人详情</string>
+	<string name="activity_findthing_detail">寻物详情</string>
     <string name="activity_roadrescue">道路救援</string>
     <string name="activity_findperson">寻人</string>
     <string name="activity_findthing">寻物</string>

@@ -16,7 +16,6 @@ import com.youxia.entity.HelpImageListEntity;
 import com.youxia.http.HttpClientHelper;
 import com.youxia.utils.YouXiaApp;
 import com.youxia.utils.YouXiaUtils;
-import com.youxia.widget.CustomGridView;
 import com.youxia.widget.ListViewForScrollView;
 
 import android.content.Context;
@@ -33,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -40,29 +40,28 @@ import android.widget.TextView;
 import net.tsz.afinal.annotation.view.ViewInject;
 import net.tsz.afinal.http.AjaxCallBack;
 
-public class FindPersonDetailActivity extends BaseActivity {
+public class FindThingDetailActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.title_bar_title)	TextView mTitleBarTitle;// 标题
-	@ViewInject(id = R.id.activity_findperson_detail_address)	TextView mSiteTextView;// 地址
-	@ViewInject(id = R.id.activity_findperson_detail_score)	TextView mRewardPointsTextView;// 积分
-	@ViewInject(id = R.id.activity_findperson_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
-	@ViewInject(id = R.id.activity_findperson_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
-	@ViewInject(id = R.id.activity_findperson_detail_listitem_view_times)	TextView mViewTimesTextView;// 发布多长时间
-	@ViewInject(id = R.id.activity_findperson_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
-	@ViewInject(id = R.id.activity_findperson_detail_information)	TextView mContentTextView;// 求助详细信息
+	@ViewInject(id = R.id.activity_findthing_detail_address)	TextView mSiteTextView;// 地址
+	@ViewInject(id = R.id.activity_findthing_detail_score)	TextView mRewardPointsTextView;// 积分
+	@ViewInject(id = R.id.activity_findthing_detail_nickname)	TextView mNickNameTextView;// 求助者昵称
+	@ViewInject(id = R.id.activity_findthing_detail_listitem_comment_time)	TextView mCreateDateTextView;// 发布多长时间
+	@ViewInject(id = R.id.activity_findthing_detail_rescue_title)	TextView mDetailTitleTextView;// 任务详情标题
+	@ViewInject(id = R.id.activity_findthing_detail_information)	TextView mContentTextView;// 求助详细信息
 	@ViewInject(id = R.id.comment_send, click = "btnClick")	TextView mSendTextView;// 发送
-	@ViewInject(id = R.id.activity_findperson_detail_rescuers_nickname)	TextView mHelpUserNameTextView;// 帮助者姓名
-	@ViewInject(id = R.id.activity_findperson_detail_load_more_image, click = "btnClick")	TextView mLoadMoreImageTextView;// 加载更多图片
-	@ViewInject(id = R.id.activity_findperson_detail_load_more_comment, click = "btnClick")	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
-	@ViewInject(id = R.id.activity_findperson_detail_no_comment)	TextView mNoCommentTextView;// 没有评论提示
+	@ViewInject(id = R.id.activity_findthing_detail_rescuers_nickname)	TextView mHelpUserNameTextView;// 帮助者姓名
+	@ViewInject(id = R.id.activity_findthing_detail_load_more_image, click = "btnClick")	TextView mLoadMoreImageTextView;// 加载更多图片
+	@ViewInject(id = R.id.activity_findthing_detail_load_more_comment, click = "btnClick")	TextView mLoadMoreCommentsTextView;// 加载更多评论列表
+	@ViewInject(id = R.id.activity_findthing_detail_no_comment)	TextView mNoCommentTextView;// 没有评论提示
 	@ViewInject(id = R.id.comment_edittext)	EditText mCommentEditText;// 消息编辑框
 	@ViewInject(id = R.id.title_bar_back, click = "btnClick")	RelativeLayout mTitleBarBack;// 返回
-	@ViewInject(id = R.id.activity_findperson_detail_resoved_information)	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
-	@ViewInject(id = R.id.activity_findperson_detail_user_portrait)	ImageView mUserPortraitImageView;// 求助者头像
-	@ViewInject(id = R.id.activity_findperson_detail_status)	ImageView mStatusImageView;// 道路救援详情解决状态
-	@ViewInject(id = R.id.activity_findperson_detail_rescue_button)	Button mButtonRescue;// 立即救援按钮
-	@ViewInject(id = R.id.activity_findperson_detail_comment_list)	ListViewForScrollView mCommentList;// 评论列表
-	@ViewInject(id = R.id.activity_findperson_detail_image_gridview)	CustomGridView mImageGridView;
+	@ViewInject(id = R.id.activity_findthing_detail_resoved_information)	LinearLayout mResolveInformationLinearLayout;// 信息被解决之后的信息块
+	@ViewInject(id = R.id.activity_findthing_detail_user_portrait)	ImageView mUserPortraitImageView;// 求助者头像
+	@ViewInject(id = R.id.activity_findthing_detail_status)	ImageView mStatusImageView;// 道路救援详情解决状态
+	@ViewInject(id = R.id.activity_findthing_detail_rescue_button)	Button mButtonRescue;// 立即救援按钮
+	@ViewInject(id = R.id.activity_findthing_detail_comment_list)	ListViewForScrollView mCommentList;// 评论列表
+	@ViewInject(id = R.id.activity_findthing_detail_image_gridview)	GridView mImageGridView;
 
 	private CommentListAdapter mCommentListAdapter;
 	private ImageGridViewAdapter mImageGridAdapter;
@@ -75,15 +74,15 @@ public class FindPersonDetailActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_findperson_detail);
+		setContentView(R.layout.activity_findthing_detail);
 		initView();
 	}
 
 	private void initView() {
-		mTitleBarTitle.setText(getString(R.string.activity_findperson_detail));
+		mTitleBarTitle.setText(getString(R.string.activity_findthing_detail));
 		// 加载基本信息
 		helpId = this.getIntent().getIntExtra("id", -1);
-		loadFindPersonDetailById(helpId);
+		loadFindThingDetailById(helpId);
 		// 加载评论列表
 		mCommentListAdapter = new CommentListAdapter(this);
 		mCommentList.setAdapter(mCommentListAdapter);
@@ -96,7 +95,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 		loadImageList(helpId);
 	}
 
-	private void loadFindPersonDetailById(Integer id) {
+	private void loadFindThingDetailById(Integer id) {
 		if (!YouXiaUtils.netWorkStatusCheck(this))
 			return;
 		AjaxCallBack<String> callBack = new AjaxCallBack<String>() {
@@ -114,9 +113,8 @@ public class FindPersonDetailActivity extends BaseActivity {
 						mHelpUserNameTextView.setText(json.getString("helpUserName"));
 						mRewardPointsTextView.setText(json.getString("rewardPoints") + "积分");
 						mCreateDateTextView.setText(json.getString("createDate"));
-						mViewTimesTextView.setText(json.getString("viewCount"));
 						int iSex = json.getInt("sex");
-						Bitmap bitmap = BitmapFactory.decodeResource(FindPersonDetailActivity.this.getResources(),
+						Bitmap bitmap = BitmapFactory.decodeResource(FindThingDetailActivity.this.getResources(),
 								(iSex == 1) ? R.drawable.male_little_default : R.drawable.female_little_default);
 						YouXiaApp.mFinalBitmap.display(mUserPortraitImageView,
 								HttpClientHelper.Basic_YouXiaUrl + json.getString("userPhoto"), bitmap);
@@ -142,7 +140,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 				YouXiaUtils.showToast(getApplication(), getString(R.string.load_fail), 0);
 			}
 		};
-		HttpClientHelper.loadFindPersonDetailById(id, callBack);
+		HttpClientHelper.loadFindThingDetailById(id, callBack);
 
 	}
 
@@ -158,17 +156,17 @@ public class FindPersonDetailActivity extends BaseActivity {
 				if (result != null && !TextUtils.isEmpty(result) && !result.equals("null")) {
 					try {
 						if (result.equals("0")) {
-							YouXiaUtils.showToast(FindPersonDetailActivity.this,
+							YouXiaUtils.showToast(FindThingDetailActivity.this,
 									getString(R.string.common_comment_success), 0);
 							mCommentEditText.setText("");
 							InputMethodManager imm = (InputMethodManager) getSystemService(
-									FindPersonDetailActivity.this.INPUT_METHOD_SERVICE);
+									FindThingDetailActivity.this.INPUT_METHOD_SERVICE);
 							// 隐藏键盘
 							imm.hideSoftInputFromWindow(mCommentEditText.getWindowToken(), 0);
 							// 评论列表头部加一条新评论
 							loadCommentList(helpId);// 重新加载评论列表
 						} else {
-							YouXiaUtils.showToast(FindPersonDetailActivity.this,
+							YouXiaUtils.showToast(FindThingDetailActivity.this,
 									getString(R.string.common_comment_fail), 0);
 						}
 					} catch (Exception e) {
@@ -206,7 +204,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 							hasComments(false);
 						} else {
 							hasComments(true);
-							FindPersonDetailActivity.this
+							FindThingDetailActivity.this
 									.freshListView((ArrayList<HelpCommentListEntity>) list);
 							if (list.size() < pageSize) {
 								hasMoreComments(false);
@@ -250,13 +248,8 @@ public class FindPersonDetailActivity extends BaseActivity {
 							hasImages(false);
 						} else {
 							hasImages(true);
-							ArrayList<HelpImageListEntity> mTmpList = new ArrayList<HelpImageListEntity>();
-							for (int i = 0; i < mImageList.size(); i++) {
-								if (i > 5) break;
-								mTmpList.add(mImageList.get(i));
-							}
-							FindPersonDetailActivity.this.freshGridView(mTmpList);
-							if (mImageList.size() < 7) {
+							FindThingDetailActivity.this.freshGridView(mImageList);
+							if (mImageList.size() < 4) {
 								hasMoreImages(false);
 							} else {
 								hasMoreImages(true);
@@ -354,13 +347,13 @@ public class FindPersonDetailActivity extends BaseActivity {
 				addHelpComment(mCommentEditText.getText().toString());
 			}
 			break;
-		case R.id.activity_findperson_detail_load_more_image:
+		case R.id.activity_findthing_detail_load_more_image:
 			// 加载更多图片
-			bundle.putInt("position", 6);
+			bundle.putInt("position", 3);
 			bundle.putSerializable("imageList", mImageList);
 			jumpToActivity(ImageListActivity.class, bundle);
 			break;
-		case R.id.activity_findperson_detail_load_more_comment:
+		case R.id.activity_findthing_detail_load_more_comment:
 			// 加载更多评论列表
 			jumpToActivity(CommentListActivity.class, bundle);
 			break;
@@ -375,7 +368,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 		}
 
 		class ViewHold {
-			ImageView ivRoadRescue;
+			ImageView ivFindThing;
 		}
 
 		@Override
@@ -391,7 +384,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 				convertView = LayoutInflater.from(parent.getContext())
 						.inflate(R.layout.gridview_item_help_image, parent, false);
 
-				hold.ivRoadRescue = (ImageView) convertView
+				hold.ivFindThing = (ImageView) convertView
 						.findViewById(R.id.road_rescue_detail_listitem_rescuer_portrait);
 
 				convertView.setTag(hold);
@@ -402,7 +395,7 @@ public class FindPersonDetailActivity extends BaseActivity {
 			if (hold == null)
 				return convertView;
 			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.defaultimage);
-			YouXiaApp.mFinalBitmap.display(hold.ivRoadRescue, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
+			YouXiaApp.mFinalBitmap.display(hold.ivFindThing, HttpClientHelper.Basic_YouXiaUrl + localData.imageUrl,
 					bitmap);
 			return convertView;
 		}

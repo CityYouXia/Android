@@ -101,6 +101,13 @@ public class HttpClientHelper {
 		finalHttp.get(Basic_YouXiaUrl + "/helpOper/refreshFindThingList.do", param, callBack);
 	}
 	
+	//加载寻物详情信息
+	public static void loadFindThingDetailById(int helpId, AjaxCallBack<? extends Object> callBack)
+	{
+		AjaxParams param = new AjaxParams();
+		param.put("helpId", Integer.toString(helpId));
+		finalHttp.get(Basic_YouXiaUrl + "/helpOper/queryFindThingDetail.do", param, callBack);	
+	}
 	
 	//我要求助
 	public static void help(List<File> list, String title, String content, String location, String reward_points, AjaxCallBack<? extends Object> callBack)
